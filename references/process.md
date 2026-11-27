@@ -78,7 +78,7 @@ mode: inline
 updated: 2026-11-28 14:02
 ```
 
-The ledger keeps the detail; this keeps the address. After a compaction, a returned report or a fail, read it and re-enter at the gate it names — `§ Resume and close`, without a directory listing.
+The ledger keeps the detail; this keeps the address. After a compaction, a returned report or a fail, read it and re-enter at the gate it names — `§ Resume and close`, without a directory listing. With no task yet it is still written: `task: none`, `gate: —`, and `next` names the route the first task should take.
 
 **The manifest — `.cykeek/manifest.md`, twelve lines.** One row per contract file the setup wrote:
 
@@ -98,6 +98,21 @@ The ledger keeps the detail; this keeps the address. After a compaction, a retur
 **Refresh.** Diff the disk against the manifest: a different line count, an older version, or a date older than the last promotion is the stale row. Re-cut that row, report it, ask only about facts that moved, and change nothing else. Twice in a row produces no diff.
 
 **The boot, in order.** `AGENTS.md` (240) → `HEARTBEAT.md` status and pending (40) → `.cykeek/state.md` (10) → `.cykeek/verify/capability.md` (16) → act. Nothing else is opened to be safe; a task opens one hub at its named section.
+
+**The proof — eight checks, after the last file is written and before the handoff.** One line each: verdict, measured value, and the command shape that produced it. A red row stops the run; a workspace is not handed over broken.
+
+| # | Check | Reads | Red means |
+| --- | --- | --- | --- |
+| 1 | markers | exactly one `cykeek:begin` and one `cykeek:end` per contract file, begin first | the file is corrupt; regenerate it |
+| 2 | routes | every row's file exists and its `## ` section matches | a dead route; fix the row |
+| 3 | caps | 240 · 300 · 40 · 60 · 16 · 10 · 12 | generation overshot; cut rows, not rules |
+| 4 | counts | every numeral in prose equals the tree | a false number; recount |
+| 5 | capability | 16 lines, a date, one evidence line per check, one `^Write path:` line | the next session starts over |
+| 6 | pointer and manifest | one contract version; the live task has a ledger file | resume is broken |
+| 7 | idempotent | the same generation produces no byte difference | the generation is unstable |
+| 8 | outside the marks | a merged file's text outside the markers is unchanged | the user's text was touched; restore it |
+
+`class: non-visual` marks the `DESIGN.md` rows `n/a` by name, never by silence. The table is the artifact: `.cykeek/verify/workspace.md`, twenty lines, dated, one verdict per row.
 
 ## Inner loops
 

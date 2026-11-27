@@ -163,9 +163,13 @@ If a hand-written `AGENTS.md` exists, Phase 5 becomes merge: show the block diff
 
 Re-invocation is a refresh, not a rebuild: diff the disk against `.cykeek/manifest.md`, report the rows that moved, ask only about the changed facts, and write only the stale rows. A second run with nothing changed produces no diff.
 
+### Phase 5.5 — Prove the workspace
+
+Run the eight checks at `references/process.md` § Setup, one line each — verdict, measured value — and write the table to `.cykeek/verify/workspace.md`. A red row stops before the handoff, with the row named.
+
 ### Phase 6 — Hand off in three lines
 
-Workspace ready, N files written, the one route the next task should take, and the single next action. Nothing else.
+Workspace ready, N files written, the check table with its verdicts, the one route the next task should take, and the single next action. Nothing else.
 
 ## Part 2 — Work in a workspace
 
@@ -476,10 +480,8 @@ If a generated file exceeds its cap, tailoring failed — cut rows, do not cut r
 
 ## Common sense, written down
 
-- Infer from the repository before asking a human.
-- Prefer a stated assumption to a blocking question — except in the Phase 1 interview, where a wrong answer changes the whole contract.
-- Never ask the same fact twice across sessions; check `HEARTBEAT.md` first.
-- When the repo and the answers conflict, the repo wins and the conflict is reported in one line.
+- Infer from the repository before asking a human, and never ask the same fact twice across sessions — check `HEARTBEAT.md` first.
+- Prefer a stated assumption to a blocking question — except in the Phase 1 interview, where a wrong answer changes the whole contract; when the repo and the answers conflict, the repo wins and the conflict is reported in one line.
 - Never let setup become the task. If a feature was requested, set up the minimum that makes it buildable, say so, and start building.
 ## Before you stop
 
@@ -492,5 +494,3 @@ Seven questions. A "no" is not a note to make later.
 - `HEARTBEAT.md` holds this session's corrections, or says there were none.
 - Every worker was released at close, or is named as still running with the reason.
 - The next session can start from the files on disk, without asking me what happened.
-
-If the workspace already matches what would be written, write nothing and say so.

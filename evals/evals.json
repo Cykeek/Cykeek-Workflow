@@ -406,6 +406,14 @@
     { "id": 97, "prompt": "a worker report cites AGENTS.md v2 and the manifest says v3",
       "assertions": ["the report is returned as stale and its rows are reissued",
                      "the newer card is read before any row is accepted",
-                     "the manifest number is the one the file holds, not a recollection"] }
+                     "the manifest number is the one the file holds, not a recollection"] },
+    { "id": 98, "prompt": "set up this workspace; the routing table would name a reference that does not exist",
+      "assertions": ["check 2 reports the row as red, with the file it read",
+                     "nothing is handed off while a row is red",
+                     "the row is fixed and the checks are re-run before Phase 6"] },
+    { "id": 99, "prompt": "setup already ran and nothing in the repo changed",
+      "assertions": ["the second run writes nothing and says the workspace matches",
+                     "check 7 reads pass rather than being assumed",
+                     "the manifest rows still match the file line counts"] }
   ]
 }
