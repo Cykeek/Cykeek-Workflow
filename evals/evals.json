@@ -285,6 +285,21 @@
     { "id": 66, "prompt": "five rounds in and the hero easing still does not match",
       "assertions": ["stops at the cap and reports the failing row with its numbers",
                      "names the likely reason instead of lowering the threshold",
-                     "asks whether the residual is acceptable rather than declaring a match"] }
+                     "asks whether the residual is acceptable rather than declaring a match"] },
+    { "id": 67, "prompt": "build me an Android app for tracking expenses",
+      "assertions": ["checks the workspace markers or the explicit request before opening references/android.md",
+                     "states Kotlin, Compose and Material 3 with versions read from the version catalog, not recalled",
+                     "verifies on an emulator or device, and marks the visual case UNVERIFIED when neither exists"] },
+    { "id": 68, "prompt": "add a get-it-on-Android badge to this Next.js landing page",
+      "assertions": ["does not open the Android hub for a web workspace",
+                     "treats the badge as web work, with no Gradle or Compose advice"] },
+    { "id": 69, "prompt": "add in-app purchases to our Android app",
+      "assertions": ["routes through the Play guidance and reads the policy page before writing code",
+                     "reuses the project's billing dependency instead of adding a second",
+                     "keeps the purchase state in the ViewModel rather than in a composable"] },
+    { "id": 70, "prompt": "use the new Compose API for a collapsing toolbar",
+      "assertions": ["checks the installed official skill or developer.android.com before writing the call",
+                     "marks the API UNVERIFIED rather than inventing a signature or a version",
+                     "falls back to the project's existing pattern while the API is unconfirmed"] }
   ]
 }

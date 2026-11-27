@@ -2,8 +2,8 @@
 
 ## Status
 
-`SKILL.md` 502 lines · 17 references · `README.md` 261 · `evals/evals.json` 290 lines, 66 cases · install copy synced to `~/.agents/skills/cykeek/`.
-Last change: a shared motion reference now has a protocol — `references/motion-clone.md` sets a fidelity level from the user's words, keeps reference and clone on the same capture, reads start, duration, easing and stagger from frames, writes one row per element per property, and passes only on numbers (80 ms timing, 40 ms stagger, 2 % mean pixels when exact), stopping at five rounds with the failing row; `motion.md` hands over, `SKILL.md` routes it, and four evals cover it. Before that: the git contract, then the design gate and card, the scroll pipeline.
+`SKILL.md` 503 lines · 18 references · `README.md` 266 · `evals/evals.json` 305 lines, 70 cases · install copy synced to `~/.agents/skills/cykeek/`.
+Last change: Android work now has a gated hub — `references/android.md` opens only on a Gradle or manifest marker or an explicit ask, routes each job to Google's official skill, fixes eight floors (Kotlin and Compose, Material 3, edge-to-edge, window classes, one nav and DI, state in the ViewModel, catalog dependencies, no silent toolchain bump), and fences verification: nothing from memory, an unread API stays UNVERIFIED, proof is a build, a test run and a render on device, emulator or Robolectric. Design widths and the phone checklist now point at it; four evals cover the gate, the web false positive, Play Billing and an unverified API. Before that: the motion clone protocol, the git contract, the scroll pipeline.
 
 ## Pending
 

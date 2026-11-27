@@ -83,5 +83,6 @@ Run the project's own commands — lint, type-check, test, build — in the orde
 - [ ] loading, empty, error and permission states exist where they apply
 - [ ] the project's tokens, not invented values
 - [ ] the render looked at, not just built — and the deltas named
+- [ ] Android work: not this file's phone rules — window classes, dp and insets are `android.md`; 44px targets, sticky hover and `100vh` do not transfer
 
 <!-- source: frontend-ui-engineering, web-design-guidelines, mobile-native, break-ui, emil-design-eng -->

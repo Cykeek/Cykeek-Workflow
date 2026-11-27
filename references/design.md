@@ -26,7 +26,7 @@ The one     the single memorable element, and where it sits
 Palette     one accent, the neutral ramp, what is never used
 Type        faces, the scale rule, what is never used
 Refused     the three defaults refused, and what replaces them
-Widths      320 390 768 1024 1440 — what changes at each
+Widths      320 390 768 1024 1440 — what changes at each; Android uses window classes, `android.md` § Prove it
 States      loading · empty · error · denied · success
 Review      audit or critique; the reviewer is never the builder
 ```

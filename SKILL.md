@@ -32,9 +32,7 @@ Runs on every invocation, in both parts, before a question is asked and before a
 | 4 | Surface | one catalog pass: subagents (spawn, status, release), research (search, fetch, image), MCP servers, shell | ask once, in one message |
 | 5 | Write path | first the line `AGENTS.md` already carries; else the edit tool by shape (`write\|edit\|create\|patch\|str_replace`), else the OS primitive for this shell, proved by one scratch write and a read-back | **STOP** — no file can be written |
 
-The OS costs no call: the shell tool and the shape of the cwd answer it. The scratch probe runs only when the catalog has no edit tool; otherwise the first real write is the probe. A recorded path whose OS no longer matches is stale — re-resolve it and replace the line rather than arguing with it.
-
-**The model gates are properties of the model, not the session.** The contract assumes a model that reasons over its own evidence and can see a screenshot; without both, the workspace produced is one nobody can trust. The third stop is plainer: a session that cannot write a file cannot write one.
+The OS costs no call: the shell tool and the shape of the cwd answer it. The scratch probe runs only when the catalog has no edit tool; otherwise the first real write is the probe. A recorded path whose OS no longer matches is stale — re-resolve it and replace the line rather than arguing with it. **The model gates are properties of the model, not the session.** The contract assumes a model that reasons over its own evidence and can see a screenshot; without both, the workspace produced is one nobody can trust. The third stop is plainer: a session that cannot write a file cannot write one.
 
 **STOP** writes nothing and ends the turn:
 
@@ -57,9 +55,7 @@ Cykeek can run here, with these limits:
 Continue, or change the session first?
 ```
 
-Silence is not yes. A yes becomes an accepted deviation in `HEARTBEAT.md`.
-
-**Pass** is one line — `Preflight: reasoning, vision, preview, subagents, write path — reached.` — then Phase 0.
+Silence is not yes. A yes becomes an accepted deviation in `HEARTBEAT.md`. **Pass** is one line — `Preflight: reasoning, vision, preview, subagents, write path — reached.` — then Phase 0.
 
 **Record it twice.** `.cykeek/verify/capability.md`, sixteen lines: model, reasoning, image, render, capture, subagents, research, mcp, shell, os, write, one evidence line per check, and the date — the session's evidence, re-confirmed on every run. The proven write path also goes back into the project's `AGENTS.md` §3, as one line after the first successful write: `Write path: <os> · <chain> · <date>`. Find it with `^Write path:`, replace it in place, never append a second one, never write outside the `cykeek:begin` markers. That line is what stops the next session starting over. If the edit to `AGENTS.md` fails, say so once and continue — the capability file still holds it. A hand-written file with no markers is not touched: the line is proposed in one sentence at close instead.
 
@@ -212,7 +208,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Seventeen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Eighteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -226,6 +222,7 @@ Seventeen files ship beside this one. They hold the operative content — number
 | `references/scroll.md` | a scroll-driven page — the score, the shapes, the device kit, the timeline, the build, the diagnosis |
 | `references/motion-clone.md` | a shared video, gif, screenshot or link to be matched — fidelity, frames, the spec, the proof |
 | `references/ui-engineering.md` | building the interface, accessibility, phones, worst-case data |
+| `references/android.md` | an Android app or module — the gate, the official routes, the floors, the fence |
 | `references/libraries.md` | component libraries, shadcn, toasts |
 | `references/figma.md` | Figma links |
 | `references/react.md` | React and Next performance |
@@ -269,6 +266,7 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | Polish one component interaction | `references/ui-engineering.md` | `emil-design-eng` | `checklist-design` |
 | Code-level UI and accessibility audit | `references/ui-engineering.md` | `web-design-guidelines` | `checklist-design` |
 | Web app on a phone | `references/ui-engineering.md` | `mobile-native` | `animate-expo` |
+| An Android app or module — `settings.gradle`, `AndroidManifest.xml`, `gradlew` present, or the user asks for one | `references/android.md` § The gate | — | Android advice in a web project, or an API recalled from memory |
 | Worst-case data and edge cases | `references/ui-engineering.md` | `break-ui` | `checklist-design` |
 | shadcn components | `references/libraries.md` | `shadcn` | `pick-ui-library` |
 | Choose a UI library | `references/libraries.md` | `pick-ui-library` | `shadcn` |
@@ -313,6 +311,8 @@ A build that compiles and a suite that passes prove the code runs. They prove no
 | V1 | `/pricing` | 1440 | three tiers, 24px gutters, equal card heights | PASS |
 | V2 | `/pricing` | 390 | tiers stack, no horizontal scroll | FAIL |
 | V3 | hero CTA hover | 1440 | hover fill, press feedback, no layout shift | UNVERIFIED |
+
+On Android the viewport column is the window class and its size, and the render path is an emulator, a device or Robolectric — `android.md` § Prove it.
 
 Three states and no others: PASS, FAIL with the measured delta, UNVERIFIED with the missing capability. A suite holding a single FAIL or a single UNVERIFIED is a failing suite. There is no mostly done.
 
@@ -473,6 +473,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | design card, top of `DESIGN.md` | before any visual act | 12 lines + version |
 | scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |
 | fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers, a spec row per property |
+| android gate, `references/android.md` § The gate | before any Android act | 3 answers |
 | git gate, `references/git.md` § The gate | before any git write | 5 answers |
 | `references/<domain>.md` | only when a routing row names it | one per task, ≤140 lines |
 | installed skills | only when the reference hands off | at most one at once |

@@ -105,6 +105,10 @@ If two rounds reduce nothing, it stops and brings you the list — which case, w
 
 A gif, a screen recording, a still or a link is an instruction to match, not to riff on. `references/motion-clone.md` sets the fidelity level from your words — moves the same by default, pixel-perfect only when you ask — reads the frames for start, duration, easing and stagger, writes one row per element per property, rebuilds in the stack the project already uses, then captures the copy the same way and compares: 80 ms on timing, 40 ms on stagger, 2 % mean pixels when you asked for exact. Five rounds without a gain and it stops with the failing row, its numbers and the reason. A still image carries no timing, so from a still alone it asks for the recording.
 
+### When the project is Android
+
+Android work is gated, not assumed: the hub opens on a `settings.gradle`, an `AndroidManifest.xml`, a `gradlew` or an explicit request, and stays shut on a web project that merely mentions the platform. `references/android.md` names the official Google skill that owns each job — Compose, adaptive, navigation, testing, R8, edge-to-edge, Play — with the decision it forces, the eight floors that hold everywhere, and the fence: no API, version or Gradle flag from memory, and an unread one stays UNVERIFIED. The design widths become window classes, and the proof is a build, a test run and a render on an emulator, a device or Robolectric.
+
 ### It does not assume which tools exist
 
 Harnesses differ, and some sessions have no browser at all. Before anything else, it runs a preflight: the model must reason and accept images, or the session is stopped with the fix; then it filters its own tool catalog, reads the contract of the candidates, makes one cheap read-only call, and maps what it finds onto the capabilities: navigate, observe, interact, capture.
@@ -121,7 +125,7 @@ Once connected it renders the frame before touching code, walks the node tree re
 
 ## The rules ship with it
 
-`references/` holds seventeen files. `loop.md` is the first of them: the six moves — frame, decide, specify, build, prove, close — that every other file assumes, with the order of reading and the output budget for each. `flows.md` is the second: it reads the problem statement rather than the request, and names which kind of work is about to happen — prototype the look, break the durability, untangle the codebase, capture the correction — before any domain file is opened. `orchestration.md` is the third, and it only opens when the work splits: the assignment fields a worker gets, the five-line report it returns, the rule that whoever builds never grades, and the requirement to keep workers alive until the user has approved. `research.md` is the fourth, and it runs before a contract exists: check the repository, frame one claim, climb from versioned docs to real implementations, and return a 25-line card whose nine slots are each answered or named unknown — the search results never enter the transcript. `craft.md` is the one to read before writing code: a five-answer gate — what owns this, step or leap, what is hidden, what is refused, what proves it — then five moments, each opening with the trigger that makes it fire, the smell-to-move table, and the untangle procedure that runs a refactor to the end instead of tidying pages. `scroll.md` is the one to read when a page's timeline is the wheel — an explicit ask for scroll-driven motion, or a scroll page that already ships and is wrong: the five-answer score, seven page shapes, nine devices with their costs, the timeline contract that keeps a scrub clip from freezing at both ends of its pin, the build order, and a symptom table that fixes the failing device instead of rebuilding the page. `assets/picker.html` is the prototype surface, copied verbatim rather than redesigned. The rest carry the operative content: the numbers, thresholds, decision order and stop conditions the practice behind this skill actually turns on.
+`references/` holds eighteen files. `loop.md` is the first of them: the six moves — frame, decide, specify, build, prove, close — that every other file assumes, with the order of reading and the output budget for each. `flows.md` is the second: it reads the problem statement rather than the request, and names which kind of work is about to happen — prototype the look, break the durability, untangle the codebase, capture the correction — before any domain file is opened. `orchestration.md` is the third, and it only opens when the work splits: the assignment fields a worker gets, the five-line report it returns, the rule that whoever builds never grades, and the requirement to keep workers alive until the user has approved. `research.md` is the fourth, and it runs before a contract exists: check the repository, frame one claim, climb from versioned docs to real implementations, and return a 25-line card whose nine slots are each answered or named unknown — the search results never enter the transcript. `craft.md` is the one to read before writing code: a five-answer gate — what owns this, step or leap, what is hidden, what is refused, what proves it — then five moments, each opening with the trigger that makes it fire, the smell-to-move table, and the untangle procedure that runs a refactor to the end instead of tidying pages. `scroll.md` is the one to read when a page's timeline is the wheel — an explicit ask for scroll-driven motion, or a scroll page that already ships and is wrong: the five-answer score, seven page shapes, nine devices with their costs, the timeline contract that keeps a scrub clip from freezing at both ends of its pin, the build order, and a symptom table that fixes the failing device instead of rebuilding the page. `assets/picker.html` is the prototype surface, copied verbatim rather than redesigned. The rest carry the operative content: the numbers, thresholds, decision order and stop conditions the practice behind this skill actually turns on.
 
 They are why it never depends on what a machine has installed. A routing row names a reference, not a skill. If the matching skill happens to be present it is loaded for depth; if it is absent, nothing breaks, because the reference was the contract all along.
 
@@ -235,7 +239,7 @@ Start with the hero, then the pricing section.
 
 ## Requirements
 
-Any client that discovers Agent Skills from `.agents/skills/`. No Node, no build step, no dependencies. The skill is Markdown, seventeen reference files, one HTML asset, and a JSON test suite.
+Any client that discovers Agent Skills from `.agents/skills/`. No Node, no build step, no dependencies. The skill is Markdown, eighteen reference files, one HTML asset, and a JSON test suite.
 
 Two model traits are not negotiable, because the contract rests on them: reasoning over its own evidence, and image input. Both are checked before a question is asked, and a session missing either is stopped with the fix — switch the model — rather than run degraded.
 
@@ -245,14 +249,15 @@ The rest of the session is confirmed once and written to `.cykeek/verify/capabil
 
 ```
 SKILL.md            the skill itself
-references/         loop.md, flows.md, orchestration.md, research.md and git.md, then twelve domain:
-                    design, motion, motion-audit, motion-clone, scroll, ui-engineering,
+references/         loop.md, flows.md, orchestration.md, research.md and git.md, then thirteen domain:
+                    design, motion, motion-audit, motion-clone, scroll, ui-engineering, android,
                     libraries, figma, react, craft, domain, release
 assets/picker.html  the prototype picker chrome, copied verbatim
-evals/evals.json    sixty-six cases: cold start, tailoring, merge safety, idempotency, preflight,
+evals/evals.json    seventy cases: cold start, tailoring, merge safety, idempotency, preflight,
                     routing, browser probing, Figma, plateau, skill-less machines, write path,
                     the two gates, the design lenses, the card version, the scroll score, the receipt,
-                    commit shape, amend, push permission, attribution, frame-by-frame cloning
+                    commit shape, amend, push permission, attribution, frame-by-frame cloning,
+                    the Android gate and its official routes
 README.md           this file
 ```
 
