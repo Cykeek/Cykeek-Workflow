@@ -35,8 +35,8 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 18 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` ~503 lines · each reference ≤140 · `README.md` ~266 |
+| Shipped files | `SKILL.md`, `README.md`, 19 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` ~507 lines · each reference ≤140 · `README.md` ~266 |
 | Evals | 70 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
@@ -64,6 +64,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Change the coding gate or the card | `references/craft.md` § The gate, `references/loop.md` §0 | a reminder in prose where a receipt would bind |
 | Change the design gate or the design card | `references/design.md` § The gate, § The card, `SKILL.md` § What `DESIGN.md` contains | a reminder in prose where a card would bind |
 | Change the scroll pipeline | `references/scroll.md`, `SKILL.md` routing row | a device list without the score |
+| Change GSAP mechanics | `references/gsap.md`, then `references/motion.md` §1 or `references/scroll.md` § The score | a GSAP answer before the gate, or an API recalled from memory |
 | Change the motion clone protocol | `references/motion-clone.md`, `references/motion.md` | a clone verdict without row numbers |
 | Change the Android hub | `references/android.md`, `SKILL.md` routing row | an Android API recalled from memory |
 | Commit, amend or push | `references/git.md` § The gate | a commit nobody asked for, a push nobody asked for |

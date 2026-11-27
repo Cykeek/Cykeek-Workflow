@@ -208,7 +208,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Eighteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Nineteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -218,6 +218,7 @@ Eighteen files ship beside this one. They hold the operative content — numbers
 | `references/research.md` | a library or technique whose current shape you cannot state from memory |
 | `references/design.md` | the design gate, then UX and hierarchy, direction, tokens, copy, review |
 | `references/motion.md` | whether to animate, and how it should feel |
+| `references/gsap.md` | GSAP mechanics — tweens, timelines, ScrollTrigger, React cleanup, utils |
 | `references/motion-audit.md` | motion review, frame budget, subtraction |
 | `references/scroll.md` | a scroll-driven page — the score, the shapes, the device kit, the timeline, the build, the diagnosis |
 | `references/motion-clone.md` | a shared video, gif, screenshot or link to be matched — fidelity, frames, the spec, the proof |
@@ -249,10 +250,13 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | Dashboard or app screen | `references/ui-engineering.md` | `frontend-ui-engineering` | `frontend-design` |
 | Closing pass on copy and charts | `references/design.md` | `unslop-ui` | `design-taste-frontend` |
 | One animation on the web | `references/motion.md` | `animate` | `animate-expo` |
+| GSAP is the project's library | `references/motion.md` §1, `references/gsap.md` §1–3 | `gsap-core`, `gsap-timeline` | a GSAP answer before the gate, or `.delay()` chains |
 | Scroll reveals across a set of sections | `references/motion.md` §1, §5, then `references/orchestration.md` | `find-animation-opportunities` | animating every section by default |
 | A scroll-driven page or sequence, asked for by name | `references/scroll.md` § The score, then § The shape | — | a section plan before the score |
+| GSAP ScrollTrigger on that page | `references/scroll.md` § The score, then `references/gsap.md` §4 | `gsap-scrolltrigger` | a trigger on a timeline child, or `scrub` with `toggleActions` |
 | A video, gif, still or link the user wants matched | `references/motion-clone.md` § The fidelity gate | `reanimate` | cloning from a still, or one pass called a match |
 | One animation in React Native | outside this skill's scope — say so | `animate-expo` | `animate` |
+| GSAP in React or Next | `references/gsap.md` §5 | `gsap-react` | an unscoped selector, or a tween without `ctx.revert()` |
 | Several things moving at once | `references/motion.md` §5 | `choreograph` | `animate` alone |
 | Drag, swipe, sheet, drawer | `references/motion.md` §6 | `gestures`, `apple-design` | both at once |
 | Route, page or shared-element transitions | `references/motion.md` | `vercel-react-view-transitions` | hand-rolled `AnimatePresence` routing |

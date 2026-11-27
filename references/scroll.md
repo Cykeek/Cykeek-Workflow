@@ -50,7 +50,7 @@ Two more are not acts: **drift** — the ground shifts colour as the page travel
 
 ## The timeline
 
-These are the contract; the mechanism follows the library the project already has, or one rAF if it has none.
+These are the contract; the mechanism follows the library the project already has, or one rAF if it has none. With GSAP, `gsap.md` §4 owns the trigger wiring; the score still owns the journey.
 
 - **Span** is the act's scroll length in viewport heights. Hero 2.2 to 3.0; a pinned act 1.2 or more, because below that its travel is a pixel and every cue snaps; a lateral rail 2 to 3.
 - **Clip time is not cue time.** A pinned stage is visible for a viewport before and after its travel, so a clip mapped to pinned progress sits frozen through both slides and the page scrolls a still photograph past the reader. Map the clip across the stage's whole visible life; keep cues on pinned progress.
@@ -101,4 +101,4 @@ Change the failing row and stop. A broken scroll page is not a reason to rebuild
 - Fewer than four device families, the same one twice in a row, or a third scrub act.
 - Shipping without frames at scroll positions and one phone check.
 
-<!-- source: scroll-craft -->
+<!-- source: scroll-craft, greensock/gsap-skills (MIT) -->
