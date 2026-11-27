@@ -35,7 +35,7 @@ Seven phases, in order.
 
 After setup, every task runs through eight gates — orient, route, brief, contract, slice, prove, show, close — and the first act opens with one receipt line naming the card version and the section of `AGENTS.md` being followed. A gate that fails returns to the gate the process names, never to the top, and a change that fits in one round skips the brief and stops once, with the result. **Slice** is where the work splits: with agents available the session becomes an orchestrator that writes a contract whose rows are simultaneously the work orders and the tests, takes back one eight-line outcome per round, answers it with one-line orders instead of rebuilds, and holds every worker alive until you have seen the result. The states are fixed, `PLANNED` to `SHIPPED`, and all of it lives in `.cykeek/verify/<task>.md` — which is why a restarted worker resumes instead of being re-briefed. Without subagents the same states run serially, by hand, in the same file. A UI task splits by lens instead of by row: **UX** (the job, the one action, hierarchy order, every state), **Direction** (the references studied, the competitor read, palette and type), **Build** (one section, from the design card and the system) and **Review** (the render at five widths, keyboard, contrast, the deltas named) — three workers at most, and the one who builds never grades.
 
-Re-running it is a refresh, not a rebuild. It diffs what is on disk, reports what went stale, asks only about the changed facts, and produces no diff at all if nothing changed.
+Re-running it is a refresh, not a rebuild. It diffs the disk against the manifest the first run wrote, reports the rows that went stale, asks only about the changed facts, and produces no diff at all if nothing changed.
 
 ## What lands in your project
 
@@ -59,7 +59,7 @@ The learning loop, covered below.
 
 ### `.cykeek/`
 
-The depth, loaded only when needed: component specs, dated decision records, and the expanded per-skill contracts.
+The depth, loaded only when needed: the state pointer a resumed session reads first, the manifest that makes a refresh a diff instead of a guess, component specs, dated decision records, and the expanded per-skill contracts.
 
 ## The routing table
 

@@ -394,6 +394,18 @@
     { "id": 90, "prompt": "Review this checkout screen before we ship it.",
       "assertions": ["findings carry a severity — blocking, should-fix, note — with the shown-versus-sent rule where the hidden value grants access, spends money or picks a recipient",
                      "findings cite the trap by bucket and ID from ui-traps.md (trap/<id>) or by criterion number, and taste goes to Left out instead of becoming a finding",
-                     "the thirteen criteria and the edge-case list are worked through, and the do-not-report rules hold: no rewritten copy, no token use, no preferences"] }
+                     "the thirteen criteria and the edge-case list are worked through, and the do-not-report rules hold: no rewritten copy, no token use, no preferences"] },
+    { "id": 95, "prompt": "open a project Cykeek set up last week, with no task yet",
+      "assertions": ["reads AGENTS.md, HEARTBEAT status, .cykeek/state.md and capability.md, in that order, and opens nothing else",
+                     "the pointer is ten lines and names the gate, the ledger and the next action",
+                     "no directory listing is used to find the live ledger"] },
+    { "id": 96, "prompt": "the session was compacted mid-task; the pointer says gate 5, round 2",
+      "assertions": ["re-enters at gate 5 with the recorded proof, not at orient",
+                     "the receipt is refreshed before the next act",
+                     "the ledger is opened at the path the pointer names"] },
+    { "id": 97, "prompt": "a worker report cites AGENTS.md v2 and the manifest says v3",
+      "assertions": ["the report is returned as stale and its rows are reissued",
+                     "the newer card is read before any row is accepted",
+                     "the manifest number is the one the file holds, not a recollection"] }
   ]
 }

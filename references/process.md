@@ -1,6 +1,6 @@
 # Process — one sequence, eight gates
 
-**Index** — `§ The eight gates` (the spine) · `§ Receipt` (before any act) · `§ Discovery and the write path` (what this session can do) · `§ Inner loops` (the plan ladder, the spec, the four-move loop) · `§ Triage` (a problem statement) · `§ Dispatch and build` (inline or split) · `§ Stops` (the show block, the budget, the facts) · `§ Resume and close` (after a break). Read the sections the routing row names, not the file.
+**Index** — `§ The eight gates` (the spine) · `§ Receipt` (before any act) · `§ Setup` (the pointer, the manifest, the proof) · `§ Discovery and the write path` (what this session can do) · `§ Inner loops` (the plan ladder, the spec, the four-move loop) · `§ Triage` (a problem statement) · `§ Dispatch and build` (inline or split) · `§ Stops` (the show block, the budget, the facts) · `§ Resume and close` (after a break). Read the sections the routing row names, not the file.
 
 This file is the process; the domain files carry the content. Every gate leaves an artifact — no artifact, no next gate. The detail lives where it belongs: the code gate and the ladder in `code.md`, the row table and the states in `agents.md`, findings in `review.md`, git in `agents.md` § Git, a technology not in memory in `agents.md` § Research card, a bug before any fix in `code.md` § Debug. This file never repeats them.
 
@@ -60,6 +60,44 @@ A partial surface is normal and usable: navigate plus capture with no interact s
 | POSIX | the harness edit tool → `cat > file <<'EOF'` with a quoted delimiter → `printf '%s'` → `sed -i` for one line (GNU `-i`, BSD `-i ''`) → `node -e` or `python3 -` if installed → `git apply` |
 
 One failed call moves to the next rung; diagnosing the method in the transcript is the cost, not the fallback. A denial is not a failure: `access denied`, `EACCES`, `EPERM` or a read-only file means the path is closed to this session — stop the list there, name the path and ask instead of spending attempts on rungs that fail the same way. Read the changed lines back after a write — a tool that reports success and changes nothing is the failure that hurts most. The rung that works is written back to the project's `AGENTS.md` as one `Write path:` line — replaced in place, never appended. Write to `<file>.tmp` and move it into place, because a redirect truncates before it writes. Quote for the shell, not the file: a single-quoted here-string on PowerShell, a quoted heredoc delimiter on POSIX, so `$`, backticks and `!` stay literal. Never install an editor or a runtime to gain a rung, retry an identical denied call, rewrite a file for a one-line change, or use regex where the text is literal.
+
+## Setup
+
+The first run writes a folder and then leaves. Three artifacts make that folder hold without a session to run it: the pointer, the manifest, and the proof. They are written at setup, by the rules below, never improvised later.
+
+**The pointer — `.cykeek/state.md`, ten lines.** One writer, at every gate transition, last write wins:
+
+```
+contract: v3 · 2026-11-28
+task: checkout-empty-states
+gate: 5 Slice · round 2
+ledger: .cykeek/verify/checkout-empty-states.md
+proof: capture 390 — disabled, 400 ms PASS
+next: contract row 4, then prove at 1440
+mode: inline
+updated: 2026-11-28 14:02
+```
+
+The ledger keeps the detail; this keeps the address. After a compaction, a returned report or a fail, read it and re-enter at the gate it names — `§ Resume and close`, without a directory listing.
+
+**The manifest — `.cykeek/manifest.md`, twelve lines.** One row per contract file the setup wrote:
+
+```
+| File | Role | Lines | Version | Date | Mode |
+| --- | --- | --- | --- | --- | --- |
+| AGENTS.md | process contract | 214 | v1 | 2026-11-28 | merged |
+| DESIGN.md | design system | 268 | v1 | 2026-11-28 | generated |
+| HEARTBEAT.md | learning loop | 24 | — | 2026-11-28 | generated |
+| .cykeek/components/index.md | component index | 12 | v1 | 2026-11-28 | generated |
+```
+
+`merged` means the block sits inside someone else's file; `generated` means the file is entirely ours. The pointer is not a row — it changes at every gate.
+
+**The version.** The card's `Card v1 · <date>` is the contract's version. A promotion inside the markers bumps it; a refresh that changes nothing does not. The manifest carries the number the file holds at that date, so a receipt citing a lower version is stale and the read comes first.
+
+**Refresh.** Diff the disk against the manifest: a different line count, an older version, or a date older than the last promotion is the stale row. Re-cut that row, report it, ask only about facts that moved, and change nothing else. Twice in a row produces no diff.
+
+**The boot, in order.** `AGENTS.md` (240) → `HEARTBEAT.md` status and pending (40) → `.cykeek/state.md` (10) → `.cykeek/verify/capability.md` (16) → act. Nothing else is opened to be safe; a task opens one hub at its named section.
 
 ## Inner loops
 

@@ -37,7 +37,7 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | Dependencies | none, by design |
 | Shipped files | `SKILL.md`, `README.md`, 12 files in `references/`, `assets/picker.html`, `evals/evals.json` |
 | Sizes | `SKILL.md` 496 lines · hubs at their per-file caps · `README.md` ~280 |
-| Evals | 94 cases in `evals/evals.json`, assertions in plain English |
+| Evals | 97 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start

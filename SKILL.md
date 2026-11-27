@@ -144,7 +144,7 @@ A marketing prototype must end up materially shorter than a production dashboard
 
 ### Phase 4 — Manifest, then write
 
-Print at most ten lines — files, line counts, active route count, reference profile, the `Unknown` lines as assumptions — then write; do not narrate the content. The three file contracts live in `## What AGENTS.md contains`, `## What DESIGN.md contains` and `## HEARTBEAT.md — the learning loop`; read them in that order before writing.
+Print at most ten lines — files, line counts, active route count, reference profile, the `Unknown` lines as assumptions — then write; do not narrate the content. The three file contracts live in `## What AGENTS.md contains`, `## What DESIGN.md contains` and `## HEARTBEAT.md — the learning loop`; read in that order; the pointer and the manifest beside them are `references/process.md` § Setup.
 
 ### Phase 5 — Apply to the codebase
 
@@ -161,6 +161,8 @@ One absolute rule: **create freely, modify only inside markers, install nothing.
 
 If a hand-written `AGENTS.md` exists, Phase 5 becomes merge: show the block diff, insert, leave everything outside the markers byte-identical.
 
+Re-invocation is a refresh, not a rebuild: diff the disk against `.cykeek/manifest.md`, report the rows that moved, ask only about the changed facts, and write only the stale rows. A second run with nothing changed produces no diff.
+
 ### Phase 6 — Hand off in three lines
 
 Workspace ready, N files written, the one route the next task should take, and the single next action. Nothing else.
@@ -169,7 +171,7 @@ Workspace ready, N files written, the one route the next task should take, and t
 
 Per task, eight gates in order. The sequence, the receipt, the show block and where a gate sends the work back are `references/process.md`; the split is in `references/agents.md`. **Before gate 1, the receipt.** Nothing is written, run or dispatched until one line exists: `Rules: AGENTS.md v<n> · <section cited> · owns: <concept> · refuse: <what> · proof: <check>` (`references/process.md` § Receipt). The card is the top of `AGENTS.md`; the section is cited rather than paraphrased, because a citation you cannot make is a read you did not do. One receipt covers a run of work on one area, refreshed when the area or the goal changes and after any fail, any correction and any returned report. When the file on disk differs from what the receipt cites, the receipt is stale and the read comes first.
 
-1. **Orient** — `AGENTS.md` read, `HEARTBEAT.md` pending, preflight passed, the goal restated in one line: the want and the why, or the one question that answers it. The harness verdict rides with it.
+1. **Orient** — `AGENTS.md` read, `HEARTBEAT.md` pending, `.cykeek/state.md` read when it exists, preflight passed, the goal restated in one line: the want and the why, or the one question that answers it. The harness verdict rides with it.
 2. **Route** — one hub open at its index, only the named sections read, the mode named in one word. A problem statement classifies through `references/process.md` § Triage; a technology the agent cannot specify goes through `references/agents.md` § Research card first.
 3. **Brief** — five lines: what, why, the shape, what it refuses, what proves it. A one-round change skips it and stops once, with the result.
 4. **Contract** — the numbers, states and widths, and the row table when the work splits (`references/agents.md` § Contract): every row carries the assertion that fails if it is wrong, and a row that says `none` carries its reason. Nothing downstream adds a row.
@@ -179,10 +181,6 @@ Per task, eight gates in order. The sequence, the receipt, the show block and wh
 8. **Close** — the diff sweep, the workers released, the ledger closed, one local commit and never a push (`references/agents.md` § Git).
 
 A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over. Every skill runs the same recursive loop inside Prove: **Act → Changes → Review → Loop** (`references/process.md` § Inner loops). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Contract. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
-
-## Re-invocation is a refresh
-
-Diff what is on disk against what is generated, report what went stale — new motion library, deleted shadcn, changed framework major, a reference profile that no longer matches — ask only about the changed facts, update. Running it twice in a row must produce no diff.
 
 ## Conflict rules
 
@@ -335,8 +333,8 @@ Fourteen sections, in this order. Cap 240 lines.
 
 0. **Rules card** — twelve lines, first, before anything else: the precedence order; the receipt line and when one is required; the two gates — code before the first line, design before the first visual decision; the never-list; the five events that force a full re-read. It is what an agent reads before it acts, so it survives a long session and a compaction that the rest of the file does not.
 1. **Header** — what the file is, precedence of project over user defaults, how to regenerate.
-2. **Goal and facts** — the goal sentence, who it is for, what done means, what this is not, then stack and versions, package manager, scripts, directories, UI, styling and motion libraries, delivery mode.
-3. **Session start** — read this file, then `HEARTBEAT.md` status and pending; read `DESIGN.md` only when the task touches UI, visual or motion. The preflight verdict lives in `.cykeek/verify/capability.md`; the OS and the proven write path are written at the end of this section and are used before any probe. Restate the goal in one line before starting, so the session is aimed before it is busy.
+2. **Goal and facts** — the goal sentence, who it is for, what done means, what this is not, then stack and versions, package manager, scripts, directories, UI, styling and motion libraries, delivery mode, the contract version, and the manifest at `.cykeek/manifest.md`.
+3. **Session start** — four files, in this order, then act: this file (240), `HEARTBEAT.md` status and pending (40), `.cykeek/state.md` (10), `.cykeek/verify/capability.md` (16). `DESIGN.md` only when the task touches UI, visual or motion. The preflight verdict lives in `.cykeek/verify/capability.md`; the OS and the proven write path are written at the end of this section and are used before any probe. Restate the goal in one line before starting, so the session is aimed before it is busy.
 4. **Working loop** — the eight gates in order (`references/process.md` § The eight gates): orient (goal, routing row, harness verdict), route (one hub at its index, the mode), brief (five lines), contract (the row table, every row falsifiable), slice (one row, one owner), prove (the assertion re-run and quoted), show (the five-line block, one question), close (the sweep, the ledger, one local commit). One line per gate; a gate that fails returns to the gate `references/process.md` names, and the agent waits at a stop with the show block. Compress for small changes; proof is never the gate that gets skipped.
 5. **Routing table** — the active subset, three columns: the task, the `references/` file to open, and what never to do here. One reference per task, opened when its row is reached; a matching skill may be opened afterwards for depth, and its absence changes nothing.
 6. **Ordering rules** — the four or five sequences that matter for this project class. For a Figma project the binding one is gate, discover, screenshot, traverse, batch, build, compare.
@@ -344,7 +342,7 @@ Fourteen sections, in this order. Cap 240 lines.
 8. **Gates and definition of done** — per task class.
 9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship.
 10. **Heartbeat** — when to capture, when to promote, which file to edit.
-11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the V-case schema, the gate, the two exit conditions, the ledger path, the commit read back — subject, why, no trailer, still local — and for a cloned reference the spec rows, the timing numbers and the sheets.
+11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the state pointer and the manifest as evidence of what was generated, the V-case schema, the gate, the two exit conditions, the ledger path, the commit read back — subject, why, no trailer, still local — and for a cloned reference the spec rows, the timing numbers and the sheets.
 12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; only the orchestrator commits, and only locally; and the serial path only on the explicit sentence `run it serially`, recorded as a deviation.
 13. **Research** — when a request names a technology the agent cannot state from memory: the card at `.cykeek/research/<slug>.md` with its nine slots, the source ladder, the five-query cap, the spike before integration, and the rule that no dependency enters without a version, a licence and a cleanup path.
 
@@ -441,6 +439,8 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | --- | --- | --- |
 | `AGENTS.md` | every session, first | 240 lines |
 | `HEARTBEAT.md` status and pending | every session, second | 40 lines |
+| `.cykeek/state.md` | every session, third, and at every gate transition | 10 lines |
+| `.cykeek/manifest.md` | at setup, and on every refresh | 12 lines |
 | `DESIGN.md` | only for UI, visual or motion work | 300 lines |
 | `.cykeek/skills.md` | only when a route is ambiguous | 320 lines |
 | `.cykeek/components/<name>.md` | only for the component in hand | 60 lines |
