@@ -22,15 +22,16 @@ Two situations decide the path, and the first call is which one this is. No `AGE
 
 ## Preflight — before anything else
 
-Runs on every invocation, in both parts, before a question is asked and before a file is written. Five checks, one pass, in this order. The first hard failure ends the turn.
+Runs on every invocation, in both parts, before a question is asked and before a file is written. Six checks, one pass, in this order. The first hard failure ends the turn.
 
 | # | Check | Evidence | If missing |
 | --- | --- | --- | --- |
 | 1 | Reasoning | the model id, plus whatever the harness reports about a reasoning or thinking mode | **STOP** |
 | 2 | Image input | one bounded probe: load a small image and read it back. The tool existing proves nothing about the model | **STOP** |
 | 3 | Render path | catalog scan for preview, navigate or screenshot, then one smoke call. A dev server the tool cannot reach is not a render path | **STOP** for a visual class, ask otherwise |
-| 4 | Surface | one catalog pass: subagents (spawn, status, release), research (search, fetch, image), MCP servers, shell | ask once, in one message |
-| 5 | Write path | first the line `AGENTS.md` already carries; else the edit tool by shape (`write\|edit\|create\|patch\|str_replace`), else the OS primitive for this shell, proved by one scratch write and a read-back | **STOP** — no file can be written |
+| 4 | Subagents | one bounded proof: spawn a child with a one-line task, read its status, cancel it. The shape is any tool that does those three; the tool existing proves nothing | **STOP** — this workflow splits work across agents, and a harness that cannot spawn one runs a different, weaker pipeline. Ask for a harness that can, or the explicit sentence `run it serially` |
+| 5 | The rest of the surface | research (search, fetch, image), MCP servers, the shell | ask once, in one message |
+| 6 | Write path | first the line `AGENTS.md` already carries; else the edit tool by shape (`write\|edit\|create\|patch\|str_replace`), else the OS primitive for this shell, proved by one scratch write and a read-back | **STOP** — no file can be written |
 
 The OS costs no call: the shell tool and the shape of the cwd answer it. The scratch probe runs only when the catalog has no edit tool; otherwise the first real write is the probe. A recorded path whose OS no longer matches is stale — re-resolve it and replace the line rather than arguing with it. **The model gates are properties of the model, not the session.** The contract assumes a model that reasons over its own evidence and can see a screenshot; without both, the workspace produced is one nobody can trust. The third stop is plainer: a session that cannot write a file cannot write one.
 
@@ -44,11 +45,12 @@ Cykeek will not run in this session: <what is missing>.
 - Fix: switch to a model whose card lists reasoning and image input, then re-run. Nothing has been changed.
 ```
 
+The harness stop is flatter — one sentence, and it is the whole turn: **This session cannot spawn subagents. Switch to a harness that can, or say `run it serially` and the same eight gates run with one agent.** The serial path is a recorded deviation in `.cykeek/verify/capability.md` and `HEARTBEAT.md`, never an inference: silence ends the turn, and no agent may grant it on the user's behalf.
+
 Name traits, never brands. A model list goes stale; a capability does not. **Ask** is one message for every gap at once, then wait:
 
 ```
-Cykeek can run here, with these limits:
-- no subagents — the seven states run serially in one agent
+Cykeek can run here, with one limit:
 - no preview — visual cases are measured by DOM and marked UNVERIFIED
 Continue, or change the session first?
 ```
@@ -79,7 +81,7 @@ Read the repo before asking a human anything. The filesystem is the first source
 | test runner config | vitest, jest or playwright |
 | `git status` | greenfield or live project |
 | `app.json`, `expo` dependency | React Native or Expo |
-| browser or preview tools in the catalog | which of navigate, observe, interact, capture exist — see Discovery |
+| browser or preview tools in the catalog | which of navigate, observe, interact, capture exist — see `references/process.md` § Discovery and the write path |
 
 Capabilities come from Preflight, which already ran. The gates left for this phase are about the route: Figma MCP tools in the session, and `node_modules/@ui-sdk/*`. Stop after two hops. A missing config is a fact, not a mystery. A repo with no build and no UI — documentation, a skill, a library — is its own class: say so in one line, and it carries through the brief as `class: non-visual` rather than being forced into a website shape.
 
@@ -165,18 +167,18 @@ Workspace ready, N files written, the one route the next task should take, and t
 
 ## Part 2 — Work in a workspace
 
-Per task, eight gates in order. The moves are `references/loop.md`; the gates, the show block and where a gate sends the work back are `references/pipeline.md`; the split is in `references/orchestration.md`. **Before gate 1, the receipt.** Nothing is written, run or dispatched until one line exists: `Rules: AGENTS.md v<n> · <section cited> · owns: <concept> · refuse: <what> · proof: <check>` (`references/loop.md` §0). The card is the top of `AGENTS.md`; the section is cited rather than paraphrased, because a citation you cannot make is a read you did not do. One receipt covers a run of work on one area, refreshed when the area or the goal changes and after any fail, any correction and any returned report. When the file on disk differs from what the receipt cites, the receipt is stale and the read comes first.
+Per task, eight gates in order. The sequence, the receipt, the show block and where a gate sends the work back are `references/process.md`; the split is in `references/orchestration.md`. **Before gate 1, the receipt.** Nothing is written, run or dispatched until one line exists: `Rules: AGENTS.md v<n> · <section cited> · owns: <concept> · refuse: <what> · proof: <check>` (`references/process.md` § Receipt). The card is the top of `AGENTS.md`; the section is cited rather than paraphrased, because a citation you cannot make is a read you did not do. One receipt covers a run of work on one area, refreshed when the area or the goal changes and after any fail, any correction and any returned report. When the file on disk differs from what the receipt cites, the receipt is stale and the read comes first.
 
-1. **Intent** — `AGENTS.md` read, `HEARTBEAT.md` pending, the goal restated in one line; the want and the why in one sentence, or the one question that answers it.
-2. **Route** — one reference open, whole, at its routing row. A problem statement classifies through `references/flows.md`; a technology the agent cannot specify goes through `references/research.md` first.
+1. **Orient** — `AGENTS.md` read, `HEARTBEAT.md` pending, preflight passed, the goal restated in one line: the want and the why, or the one question that answers it. The harness verdict rides with it.
+2. **Route** — one hub open at its index, only the named sections read, the mode named in one word. A problem statement classifies through `references/process.md` § Triage; a technology the agent cannot specify goes through `references/research.md` first.
 3. **Brief** — five lines: what, why, the shape, what it refuses, what proves it. A one-round change skips it and stops once, with the result.
 4. **Contract** — the numbers, states and widths, and the row table when the work splits (`references/orchestration.md`): every row carries the assertion that fails if it is wrong, and a row that says `none` carries its reason. Nothing downstream adds a row.
 5. **Slice** — one row built and verified in this round, one owner per row; one consolidated outcome per round, a delta returned as an order and nothing else; the project's tokens and components, nothing outside the markers.
-6. **Prove** — the code gate first (`references/craft.md` § The gate), then the assertion re-run, read and quoted at two widths (`## Visual tests`), the simplest and riskiest cases seen yourself.
-7. **Show** — the five-line block at `references/pipeline.md` § The show block, one question, then wait. A gate that fails returns to the gate it names, never to the top; the mechanical clean pass runs before the question, never after.
+6. **Prove** — the code gate first (`references/craft.md` § The gate), then the four-move loop (`references/process.md` § Inner loops): the assertion re-run, read and quoted at two widths (`## Visual tests`), the simplest and riskiest cases seen yourself.
+7. **Show** — the five-line block at `references/process.md` § Stops, one question, then wait. A gate that fails returns to the gate it names, never to the top; the mechanical clean pass runs before the question, never after.
 8. **Close** — the diff sweep, the workers released, the ledger closed, one local commit and never a push (`references/git.md`).
 
-A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over. Every skill runs the same recursive loop inside Prove: **Act → Changes → Review → Loop** (`references/loop.md` §5). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Decide. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
+A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over. Every skill runs the same recursive loop inside Prove: **Act → Changes → Review → Loop** (`references/process.md` § Inner loops). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Contract. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
 
 ## Re-invocation is a refresh
 
@@ -197,13 +199,11 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Twenty-six files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Twenty-four files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
-| `references/loop.md` | every task, before the domain file — the six moves and the token contract |
-| `references/pipeline.md` | the eight gates in order, the show block, where each gate sends the work back |
-| `references/flows.md` | a problem statement — which flow runs before a domain file |
+| `references/process.md` | every task — the eight gates, the receipt, discovery and the write path, the inner loops, triage, dispatch, stops, resume |
 | `references/debug.md` | a bug or a wrong result — reproduce, locate, explain, then fix |
 | `references/orchestration.md` | a task that splits across agents — the orchestrator's contract |
 | `references/research.md` | a library or technique whose current shape you cannot state from memory |
@@ -234,13 +234,12 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 
 | Task | Read | Then, if installed | Never |
 | --- | --- | --- | --- |
-| Any task, before the rest | `references/loop.md` | — | starting a domain reference instead |
-| Any multi-step task, before the first edit | `references/pipeline.md` § The eight gates | — | building before the intent is one sentence |
-| "What changed?" or "show me" | `references/pipeline.md` § The show block | — | a summary with no file and no proof |
-| A gate failed, or the user says it is wrong | `references/pipeline.md` § When it goes back | — | patching until it looks better |
-| "I don't know what it should look like" | `references/flows.md` § Prototype, then `design.md` | `prototype`, `frontend-design` | committing to the first idea |
-| "This codebase is a mess" | `references/flows.md` § Untangle | `untangle-codebase` | page-by-page tidying |
-| "You keep getting this wrong" | `references/flows.md` § Capture | `learn-taste` | fixing the code instead of the rule |
+| Any task, before the rest | `references/process.md` § The eight gates, § Receipt | — | starting a domain file instead |
+| "What changed?" or "show me" | `references/process.md` § Stops | — | a summary with no file and no proof |
+| A gate failed, or the user says it is wrong | `references/process.md` § Stops, what sends it back | — | patching until it looks better |
+| "I don't know what it should look like" | `references/process.md` § Triage, Prototype; then `design.md` | `prototype`, `frontend-design` | committing to the first idea |
+| "This codebase is a mess" | `references/process.md` § Triage, Untangle | `untangle-codebase` | page-by-page tidying |
+| "You keep getting this wrong" | `references/process.md` § Triage, Capture | `learn-taste` | fixing the code instead of the rule |
 | Work that splits across agents | `references/orchestration.md`, after the domain row | subagent tools, if present | two workers writing one file |
 | Integrate a library or technique you do not know | `references/research.md` before the domain row — the research pass is not the domain read | `find-skills` | writing the API from memory |
 | "How do other sites do X?" | `references/research.md` §6 | — | copying the look instead of the structure |
@@ -292,7 +291,7 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | A fix growing past its problem, or "this is over-engineered" | `references/craft.md` § The ladder | `ponytail` | planning the bigger version first |
 | A smell, a cleanup, a rewrite tempting | `references/craft.md` § Changing code | `refactoring`, `refactoring-guru` | rewriting |
 | A bug, a failure, a wrong result | `references/debug.md` | — | a fix before the cause is named |
-| Legacy or unfamiliar code | `references/craft.md` § Untangle, `flows.md` § Untangle | `untangle-codebase`, `working-effectively-with-legacy-code` | page-by-page tidying |
+| Legacy or unfamiliar code | `references/craft.md` § Untangle, `process.md` § Triage, Untangle | `untangle-codebase`, `working-effectively-with-legacy-code` | page-by-page tidying |
 | Boundary, layering, module or API shape | `references/craft.md` § Modules | `a-philosophy-of-software-design`, `clean-architecture` | pattern-first |
 | Review a diff, a commit or a PR | `references/review.md` § A change, § The report | `ponytail-review` | a finding with no concrete case |
 | Answering a code review | `references/review.md` § Receiving | — | agreeing before checking the code |
@@ -305,21 +304,6 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | React diagnostics before commit | `references/react.md` | `react-doctor` | prototype delivery |
 | Any commit, amend or push | `references/git.md` § The gate | — | a commit nobody asked for, a push nobody asked for |
 | A skill I do not have | the reference above it still governs | `find-skills` | — |
-
-## Discovery before action
-
-Tool names in this skill are examples of a shape, never a claim of availability. Harnesses differ, some ship no browser at all, and an instruction that names a tool the session does not have fails silently — the agent reports done having verified nothing. So every session resolves its own surface first. This cuts both ways: it applies to the Figma rows and the browser rows equally.
-
-1. **Filter the catalog already in context.** It is free. Look for `navigate|goto|url|open`, `snapshot|screenshot|dom|aria|inspect`, `click|type|press|scroll|hover`, `evaluate|script|console|network`, `playwright|puppeteer|chrome|devtools|browser`.
-2. **Read the contract of two or three candidates.** Required arguments, return shape, and any precondition the description states. Do not guess an argument shape.
-3. **Make one smoke call** — the cheapest read-only operation the schema allows: a status, a list, a current page. Never open with a click.
-4. **Map what exists onto the preflight checks.** Anything unmapped is a gap the user hears about before the work starts.
-
-**Catalog patterns.** Orchestration: `delegate|subagent|task|agent|spawn`, with spawn, status and release all present. Research: `search|fetch|browse` plus `image|screenshot`. Never assume a tool because a skill names one, never fake a roster, and treat a tool missing from the catalog as unproven rather than absent: lazily attached servers get one bounded attempt with the known name. With no search tool, every outside claim is marked as such.
-
-A partial surface is normal and usable: navigate plus capture with no interact still passes every static case and marks interaction unverified. A model without reasoning or vision is the one surface that is not usable — that is the preflight stop.
-
-**Token discipline.** Filter before calling. One smoke call total, not one per candidate. Snapshot text before screenshots — an image costs far more than lines, and only geometry or colour justifies one. Scope a snapshot to a region when the tool allows it. Write the mapping down once per session; re-deriving it every turn is the expensive failure.
 
 ## Visual tests
 
@@ -364,7 +348,7 @@ These hold even when no skill is loaded. Keep the list at twenty lines; the long
 
 **Motion.** `--ease-out: cubic-bezier(0.23,1,0.32,1)`, `--ease-in-out: cubic-bezier(0.77,0,0.175,1)`, `--ease-drawer: cubic-bezier(0.32,0.72,0,1)`. Never `ease-in` on UI, never built-in `ease-out`. Press 100 to 160ms, tooltip 125 to 200, dropdown 150 to 250, modal, drawer, sheet and toast 200 to 500, everything else under 300ms. `transform` and `opacity` only. Never `scale(0)`. Never `transition: all`. Anything seen 100+ times a day, and anything keyboard-triggered, gets no animation. Stagger 30 to 80ms, non-uniform, never on high-frequency UI. Exits mirror entrances and are shorter. Reduced motion is fewer and gentler, not zero. A scroll-driven page answers `references/scroll.md` § The score before its first section — four to seven beats, one peak, one shape, four device families and never the same one twice in a row — and proves itself with frames at scroll positions, never one screenshot.
 
-**Code.** Server components by default, `use client` at the leaf. No state updates inside rAF, pointer or scroll handlers. No `useEffect` for derived state. Stable keys. Explicit media dimensions. Virtualize or paginate past 100 rows. Semantic, labelled, keyboard-reachable, focus-visible, contrast 4.5:1 or better, touch targets 44 by 44. `min-width: 0` on flex text columns, `overflow-wrap: anywhere` on emails and URLs, `tabular-nums` on changing numbers, `Intl` formatting for numbers and plurals. Never `dangerouslySetInnerHTML` with user data. A task is not done until it has been rendered and compared at 1440 and 390 — passing tests is the prerequisite, not the conclusion. Before the first line: the five answers at `references/craft.md` § The gate, and the receipt at `references/loop.md` §0. Commits stay local until the user asks for a push: one per logical change, a follow-up edit amends it, the message says why, and no agent signs it.
+**Code.** Server components by default, `use client` at the leaf. No state updates inside rAF, pointer or scroll handlers. No `useEffect` for derived state. Stable keys. Explicit media dimensions. Virtualize or paginate past 100 rows. Semantic, labelled, keyboard-reachable, focus-visible, contrast 4.5:1 or better, touch targets 44 by 44. `min-width: 0` on flex text columns, `overflow-wrap: anywhere` on emails and URLs, `tabular-nums` on changing numbers, `Intl` formatting for numbers and plurals. Never `dangerouslySetInnerHTML` with user data. A task is not done until it has been rendered and compared at 1440 and 390 — passing tests is the prerequisite, not the conclusion. Before the first line: the five answers at `references/craft.md` § The gate, and the receipt at `references/process.md` § Receipt. Commits stay local until the user asks for a push: one per logical change, a follow-up edit amends it, the message says why, and no agent signs it.
 
 ## What `AGENTS.md` contains
 
@@ -374,7 +358,7 @@ Fourteen sections, in this order. Cap 240 lines.
 1. **Header** — what the file is, precedence of project over user defaults, how to regenerate.
 2. **Goal and facts** — the goal sentence, who it is for, what done means, what this is not, then stack and versions, package manager, scripts, directories, UI, styling and motion libraries, delivery mode.
 3. **Session start** — read this file, then `HEARTBEAT.md` status and pending; read `DESIGN.md` only when the task touches UI, visual or motion. The preflight verdict lives in `.cykeek/verify/capability.md`; the OS and the proven write path are written at the end of this section and are used before any probe. Restate the goal in one line before starting, so the session is aimed before it is busy.
-4. **Working loop** — six moves in order: frame (the artifact and the one reference governing it), decide (should it exist at all), specify (numbers, states, widths, V-cases), build (dispatch independent slices where the harness allows, integrate only accepted reports, else the smallest visible slice), prove (render, compare, iterate on the failing assertion), close (three lines, a ledger, one local commit). One line per move. Each move is a gate with a named destination: a gate that fails returns to the gate `references/pipeline.md` names, and the agent waits at a stop with the five-line show block. Compress for small changes; proof is never the move that gets skipped.
+4. **Working loop** — the eight gates in order (`references/process.md` § The eight gates): orient (goal, routing row, harness verdict), route (one hub at its index, the mode), brief (five lines), contract (the row table, every row falsifiable), slice (one row, one owner), prove (the assertion re-run and quoted), show (the five-line block, one question), close (the sweep, the ledger, one local commit). One line per gate; a gate that fails returns to the gate `references/process.md` names, and the agent waits at a stop with the show block. Compress for small changes; proof is never the gate that gets skipped.
 5. **Routing table** — the active subset, three columns: the task, the `references/` file to open, and what never to do here. One reference per task, opened when its row is reached; a matching skill may be opened afterwards for depth, and its absence changes nothing.
 6. **Ordering rules** — the four or five sequences that matter for this project class. For a Figma project the binding one is gate, discover, screenshot, traverse, batch, build, compare.
 7. **Non-negotiables** — the twenty lines, and in the code and design ones the gates and the receipt, with `references/craft.md` § The gate and `references/design.md` § The gate as the long forms.
@@ -382,7 +366,7 @@ Fourteen sections, in this order. Cap 240 lines.
 9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship.
 10. **Heartbeat** — when to capture, when to promote, which file to edit.
 11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the V-case schema, the gate, the two exit conditions, the ledger path, the commit read back — subject, why, no trailer, still local — and for a cloned reference the spec rows, the timing numbers and the sheets.
-12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; only the orchestrator commits, and only locally; and the one-line degradation to serial work with no subagents.
+12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; only the orchestrator commits, and only locally; and the serial path only on the explicit sentence `run it serially`, recorded as a deviation.
 13. **Research** — when a request names a technology the agent cannot state from memory: the card at `.cykeek/research/<slug>.md` with its nine slots, the source ladder, the five-query cap, the spike before integration, and the rule that no dependency enters without a version, a licence and a cleanup path.
 
 Wrap the generated region in `<!-- cykeek:begin -->` and `<!-- cykeek:end -->`.
@@ -493,9 +477,9 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers, a spec row per property |
 | android gate, `references/android.md` § The gate | before any Android act | 3 answers |
 | security gate, `references/security.md` § The gate | before an audit or a trust-boundary claim | 5 answers, one ledger unit per surface |
-| show block, `references/pipeline.md` § The show block | at every stop | 5 lines, one question |
+| show block, `references/process.md` § Stops | at every stop | 5 lines, one question |
 | git gate, `references/git.md` § The gate | before any git write | 5 answers |
-| `references/<domain>.md` | only when a routing row names it | one per task, ≤140 lines |
+| `references/<domain>.md` | only when a routing row names it | one per task, ≤300 lines |
 | installed skills | only when the reference hands off | at most one at once |
 
 If a generated file exceeds its cap, tailoring failed — cut rows, do not cut rules.

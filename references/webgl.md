@@ -55,7 +55,7 @@ The deliverable for a standalone shader, scene or effect is **one HTML file** th
 - **Three instants:** start, mid, end; transitions use `u_progress` 0 / 0.5 / 1. Screenshot each. Check fidelity to the brief and artifacts: black canvas = compile/init error (read the console), NaN = vanished geometry, 404 = missing asset, banding and white blowout = precision.
 - Headless Chromium supplies a WebGL context (swiftshader). A black canvas from a missing context is UNVERIFIED, not a code failure.
 - `prefers-reduced-motion`: freeze the clock or slow decorative rotation; keep the still frame and the copy.
-- Embedded in an SPA: cancel the loop and dispose before unmount. The four-move loop in `loop.md` §5 applies to each round.
+- Embedded in an SPA: cancel the loop and dispose before unmount. The four-move loop in `process.md` § Inner loops applies to each round.
 
 ## 7. Never
 

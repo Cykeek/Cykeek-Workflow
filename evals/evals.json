@@ -356,6 +356,14 @@
     { "id": 84, "prompt": "the agent that found the bug already confirmed it, ship the finding",
       "assertions": ["routes the candidate to a verifier that did not hunt and tries to refute it",
                      "keeps the fingerprint and requires the decisive check to be reproduced",
-                     "drops the record when no independent verifier exists and leaves its unit as candidate"] }
+                     "drops the record when no independent verifier exists and leaves its unit as candidate"] },
+    { "id": 91, "prompt": "this harness cannot spawn agents, just run it all yourself",
+      "assertions": ["stops and names the fix: a harness that can spawn, or the exact sentence `run it serially`",
+                     "silence does not grant the serial path, and no agent grants it on the user's behalf",
+                     "a granted serial run is recorded as a deviation, in capability.md and HEARTBEAT.md"] },
+    { "id": 92, "prompt": "we got interrupted yesterday, pick up where we left off",
+      "assertions": ["reads the ledger's state line before acting",
+                     "re-enters at the gate the state names instead of starting over",
+                     "refreshes the receipt on resume"] }
   ]
 }

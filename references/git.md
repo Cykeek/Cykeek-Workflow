@@ -51,7 +51,7 @@ up.
 - Detect what exists before creating anything: `git rev-parse --show-toplevel`, `git worktree list`, `git status -sb`. A worktree or branch the harness already made is used as-is.
 - Never create a branch or a worktree unasked. Isolation is requested, not assumed.
 - Start from a clean baseline: a dirty tree before the first build is a fact to report, not a state to build on.
-- Closing a branch offers exactly the three options of `pipeline.md` § Close — merge locally, push and open a PR, keep as-is — and waits for the choice.
+- Closing a branch offers exactly the three options of `process.md` § Resume and close — merge locally, push and open a PR, keep as-is — and waits for the choice.
 
 ## Amend
 

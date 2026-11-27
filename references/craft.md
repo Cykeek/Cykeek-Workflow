@@ -14,7 +14,7 @@ Five answers, one line each, before the first line of code. A one-line fix gets 
 | What am I refusing? | the special case, flag, wrapper or abstraction you will not add |
 | What proves it? | the check that fails if the answer is wrong |
 
-An answer you cannot fill means the design is not ready, and the move is to read the code, not to write it. The gate is also the receipt's body (`loop.md` §0): the same four answers, cited, before any write.
+An answer you cannot fill means the design is not ready, and the move is to read the code, not to write it. The gate is also the receipt's body (`process.md` § Receipt): the same four answers, cited, before any write.
 
 ## The ladder
 

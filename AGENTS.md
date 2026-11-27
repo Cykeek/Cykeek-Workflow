@@ -35,9 +35,9 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 26 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` 522 lines · each reference ≤140 · `README.md` ~279 |
-| Evals | 84 cases in `evals/evals.json`, assertions in plain English |
+| Shipped files | `SKILL.md`, `README.md`, 24 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` 506 lines · each reference ≤300 · `README.md` ~280 |
+| Evals | 86 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -48,25 +48,25 @@ Write path: windows · edit tool → `Set-Content -LiteralPath` with a single-qu
 
 ## 4. Working loop
 
-Six moves, one line each: **frame** (what changes, which file owns it, which reference governs) · **decide** (should this rule exist at all) · **specify** (the exact lines, counts and files) · **build** (the smallest edit that carries the change) · **prove** (grep, count, parse — see §11) · **close** (what the next session needs).
+Eight gates, one line each: **orient** (goal, routing row, harness verdict) · **route** (one hub at its index, the mode) · **brief** (five lines) · **contract** (the row table, every row falsifiable) · **slice** (one row, one owner) · **prove** (the assertion re-run and quoted) · **show** (the five-line block, one question) · **close** (what the next session needs).
 
-Inside Prove every skill runs **Act → Changes → Review → Loop** (`references/loop.md` §5): one named gap per round, the same assertion re-rendered, three rounds then stop. No domain file repeats it.
+Inside Prove every skill runs **Act → Changes → Review → Loop** (`references/process.md` § Inner loops): one named gap per round, the same assertion re-rendered, three rounds then stop. No domain file repeats it.
 
-Compress for a one-line fix. Proof is never the move that gets skipped.
+Compress for a one-line fix. Proof is never the gate that gets skipped.
 
 ## 5. Routing
 
 | Task | Read | Never |
 | --- | --- | --- |
 | Change the process, phases or contracts | `SKILL.md` | editing `README.md` first |
-| Change a gate or a stop | `references/pipeline.md`, `SKILL.md` § Part 2 | a stop with two questions |
+| Change a gate or a stop | `references/process.md`, `SKILL.md` § Part 2 | a stop with two questions |
 | Change the debugging protocol | `references/debug.md` | a fix before the cause is named |
 | Change the security protocol or its classes | `references/security.md`, `references/security-classes.md` | a finding with no boundary, or a severity without impact |
-| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other twenty-five to be safe |
+| Change what an agent is told to do in a domain | `references/process.md`, then that one file | reading the other twenty-three to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
 | Add a case | `evals/evals.json` | an assertion that cannot be checked |
-| Change the coding gate or the card | `references/craft.md` § The gate, `references/loop.md` §0 | a reminder in prose where a receipt would bind |
+| Change the coding gate or the card | `references/craft.md` § The gate, `references/process.md` § Receipt | a reminder in prose where a receipt would bind |
 | Change the design gate or the design card | `references/design.md` § The gate, § The card, `SKILL.md` § What `DESIGN.md` contains | a reminder in prose where a card would bind |
 | Change the scroll pipeline | `references/scroll.md`, `SKILL.md` routing row | a device list without the score |
 | Change GSAP mechanics | `references/gsap.md`, then `references/motion.md` §1 or `references/scroll.md` § The score | a GSAP answer before the gate, or an API recalled from memory |
@@ -92,7 +92,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 4. The skill works with zero dependencies and zero setup. No build step, no script that must run first.
 5. Folder name and frontmatter `name` stay `cykeek`, lowercase.
 6. `references/<domain>.md` is depth, never a precondition. `SKILL.md` alone must be usable.
-7. Budgets hold: reference ≤140 lines, `HEARTBEAT.md` ≤40, `SKILL.md` grows only by replacing text.
+7. Budgets hold: reference ≤300 lines (a hub over its cap splits), `HEARTBEAT.md` ≤40, `SKILL.md` grows only by replacing text.
 8. `README.md` describes behaviour that exists. No forward claims, no aspirational features.
 9. Every reference ends with `<!-- source: ... -->` naming where its guidance came from.
 10. The install copy mirrors the shipped files after every change.
@@ -133,7 +133,7 @@ This repo ships no visual surface except `assets/picker.html`, so verification i
 | a scroll sequence | the score answered, frames at three positions per act, one phone statement |
 | a WebGL scene, shader or particle effect | three frozen frames at start, mid and end, console clear, `renderer.info.memory` back to baseline after ten mounts |
 | a specialized web animation (SVG, Lottie, glass, ASCII, page transition) | gate answered, `?t=N`/`?state=` freeze harness, three instances, reduced-motion branch captured |
-| a four-move loop | the named gap, the same assertion re-rendered, stop or delta recorded at round three |
+| an inner loop | the named gap, the same assertion re-rendered, stop or delta recorded at round three |
 | picker still works | open it, capture at 390 and 1440, check the three variants and the keys |
 | a commit | `git log -1 --format=%B` read back: one idea, why in the body, no trailer, still unpublished |
 
