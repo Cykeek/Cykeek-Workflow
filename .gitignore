@@ -1,0 +1,6 @@
+# Source material for references/, not part of the skill
+skills/
+
+# OS noise
+Thumbs.db
+.DS_Store
