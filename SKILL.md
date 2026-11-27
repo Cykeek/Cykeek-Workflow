@@ -22,14 +22,14 @@ Two situations decide the path, and the first call is which one this is. No `AGE
 
 ## Preflight — before anything else
 
-Runs on every invocation, in both parts, before a question is asked and before a file is written. Six checks, one pass, in this order. The first hard failure ends the turn.
+Runs on every invocation, in both parts, before a question is asked and before a file is written. Six checks, one pass, in this order; check 4 runs immediately before the first dispatch. The first hard failure ends the turn.
 
 | # | Check | Evidence | If missing |
 | --- | --- | --- | --- |
 | 1 | Reasoning | the model id, plus whatever the harness reports about a reasoning or thinking mode | **STOP** |
 | 2 | Image input | one bounded probe: load a small image and read it back. The tool existing proves nothing about the model | **STOP** |
 | 3 | Render path | catalog scan for preview, navigate or screenshot, then one smoke call. A dev server the tool cannot reach is not a render path | **STOP** for a visual class, ask otherwise |
-| 4 | Subagents | one bounded proof: spawn a child with a one-line task, read its status, cancel it. The shape is any tool that does those three; the tool existing proves nothing | **STOP** — this workflow splits work across agents, and a harness that cannot spawn one runs a different, weaker pipeline. Ask for a harness that can, or the explicit sentence `run it serially` |
+| 4 | Subagents | one bounded proof: spawn a child with a one-line task, read its status, cancel it. The shape is any tool that does those three; the tool existing proves nothing | **STOP** at that dispatch — this workflow splits work across agents, and a harness that cannot spawn one runs a different, weaker pipeline. Ask for a harness that can, or the explicit sentence `run it serially`. Setup never splits, so it records `deferred` and finishes |
 | 5 | The rest of the surface | research (search, fetch, image), MCP servers, the shell | ask once, in one message |
 | 6 | Write path | first the line `AGENTS.md` already carries; else the edit tool by shape (`write\|edit\|create\|patch\|str_replace`), else the OS primitive for this shell, proved by one scratch write and a read-back | **STOP** — no file can be written |
 
@@ -45,7 +45,7 @@ Cykeek will not run in this session: <what is missing>.
 - Fix: switch to a model whose card lists reasoning and image input, then re-run. Nothing has been changed.
 ```
 
-The harness stop is flatter — one sentence, and it is the whole turn: **This session cannot spawn subagents. Switch to a harness that can, or say `run it serially` and the same eight gates run with one agent.** The serial path is a recorded deviation in `.cykeek/verify/capability.md` and `HEARTBEAT.md`, never an inference: silence ends the turn, and no agent may grant it on the user's behalf.
+The probe is owed, not waived: setup writes `deferred` and the first dispatch pays it. The harness stop is flatter — one sentence, and it is the whole turn: **This session cannot spawn subagents. Switch to a harness that can, or say `run it serially` and the same eight gates run with one agent.** The serial path is a recorded deviation in `.cykeek/verify/capability.md` and `HEARTBEAT.md`, never an inference: silence ends the turn, and no agent may grant it on the user's behalf.
 
 Name traits, never brands. A model list goes stale; a capability does not. **Ask** is one message for every gap at once, then wait:
 
@@ -55,9 +55,9 @@ Cykeek can run here, with one limit:
 Continue, or change the session first?
 ```
 
-Silence is not yes. A yes becomes an accepted deviation in `HEARTBEAT.md`. **Pass** is one line — `Preflight: reasoning, vision, preview, subagents, write path — reached.` — then Phase 0.
+Silence is not yes. A yes becomes an accepted deviation in `HEARTBEAT.md`. **Pass** is one line — `Preflight: reasoning, vision, preview, subagents (probed or deferred), write path — reached.` — then Phase 0.
 
-**Record it twice.** `.cykeek/verify/capability.md`, sixteen lines: model, reasoning, image, render, capture, subagents, research, mcp, shell, os, write, one evidence line per check, and the date — the session's evidence, re-confirmed on every run. The proven write path also goes back into the project's `AGENTS.md` §3, as one line after the first successful write: `Write path: <os> · <chain> · <date>`. Find it with `^Write path:`, replace it in place, never append a second one, never write outside the `cykeek:begin` markers. That line is what stops the next session starting over. If the edit to `AGENTS.md` fails, say so once and continue — the capability file still holds it. A hand-written file with no markers is not touched: the line is proposed in one sentence at close instead.
+**Record it twice.** `.cykeek/verify/capability.md`, sixteen lines: model, reasoning, image, render, capture, subagents (`probed`, `absent` or `deferred`), research, mcp, shell, os, write, one evidence line per check, and the date — the session's evidence, re-confirmed on every run. The proven write path also goes back into the project's `AGENTS.md` §3, as one line after the first successful write: `Write path: <os> · <chain> · <date>`. Find it with `^Write path:`, replace it in place, never append a second one, never write outside the `cykeek:begin` markers. That line is what stops the next session starting over. If the edit to `AGENTS.md` fails, say so once and continue — the capability file still holds it. A hand-written file with no markers is not touched: the line is proposed in one sentence at close instead.
 
 ## Part 1 — Set up a workspace
 

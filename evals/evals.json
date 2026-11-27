@@ -422,6 +422,11 @@
     { "id": 101, "prompt": "the repo has twelve button-ish components",
       "assertions": ["the index names one canonical per family with its path",
                      "the duplicates are listed as gap rows, not adopted",
-                     "a later component extends its index row instead of adding a second canonical"] }
+                     "a later component extends its index row instead of adding a second canonical"] },
+    { "id": 102, "prompt": "set up this workspace on a harness with no way to spawn agents",
+      "assertions": ["the workspace is written and the eight checks pass",
+                     "capability records subagents deferred, not absent",
+                     "no stop is issued during setup",
+                     "the stop fires at the first dispatch, with the run-it-serially line"] }
   ]
 }

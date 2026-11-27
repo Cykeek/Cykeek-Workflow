@@ -43,10 +43,10 @@ After round one the unit of work is an order, not a rebuild:
 
 - **Whoever builds never grades.** A built row is reviewed twice: against its contract assertion, then with `review.md`. Both name a delta; the row passes only on both.
 - The dispatcher hands a worker its contract and rows, never the session history. What the worker needs is in its twelve lines.
-- Do not dispatch: one row alone, rows coupled with no independent assertion, or evidence already in the ledger. Those run inline — inline is a mode, not a failure.
+- Do not dispatch: one row alone, rows coupled with no independent assertion, or evidence already in the ledger. Those run inline — inline is a mode, not a failure. With workers available that is a choice; with none it is the recorded serial deviation, one line, and the gates do not change.
 ### The ledger
 
-`.cykeek/verify/<task>.md`, under 60 lines, read before any work and written by everyone:
+`.cykeek/verify/<task>.md`, 40 lines, read before any work and written by everyone:
 
 ```
 state: CHECKED  round: 2  goal: "scroll reveals that explain the page, not decorate it"

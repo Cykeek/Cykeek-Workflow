@@ -168,7 +168,7 @@ Read when the request is a **problem**, not an instruction. "This feels slow", "
 
 ## Dispatch and build
 
-Split when two or more rows have independent assertions and one owner each, and a verifier who did not write the code exists. Run inline when there is one row, when two rows share a file, or when the evidence is already in the ledger. A split that costs more than it saves is inline, and inline is a mode, not a failure. Both modes run the same gates; the mode changes who builds, not the order.
+Split when two or more rows have independent assertions and one owner each, and a verifier who did not write the code exists. A capability file still reading `deferred` is proved here, before this decision; a failure now is the stop setup did not take. Run inline when there is one row, when two rows share a file, or when the evidence is already in the ledger. A split that costs more than it saves is inline, and inline is a mode, not a failure. Both modes run the same gates; the mode changes who builds, not the order.
 
 The assignment a worker gets is the contract and its rows — never the session history (`agents.md` § Contract). One consolidated outcome comes back per round: state, counts, deltas, blocker. Accept, or return the delta to the same worker with its retest scope and nothing else. A built row is reviewed twice: against its contract assertion, then with `review.md`. No state is entered without its artifact; the states live in the ledger's rows, inside gates 5 and 6. Keep every worker alive until the user has seen the result; only the orchestrator commits, and only locally.
 
