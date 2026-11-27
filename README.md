@@ -130,17 +130,17 @@ The repository *is* the skill folder. Clone it into place and it is ready — no
 All projects:
 
 ```bash
-git clone https://github.com/<owner>/cykeek ~/.agents/skills/cykeek
+git clone https://github.com/Cykeek/Cykeek-Workflow.git ~/.agents/skills/cykeek
 ```
 
 ```powershell
-git clone https://github.com/<owner>/cykeek "$HOME\.agents\skills\cykeek"
+git clone https://github.com/Cykeek/Cykeek-Workflow.git "$HOME\.agents\skills\cykeek"
 ```
 
 One project only:
 
 ```bash
-git clone https://github.com/<owner>/cykeek .agents/skills/cykeek
+git clone https://github.com/Cykeek/Cykeek-Workflow.git .agents/skills/cykeek
 ```
 
 Update:
