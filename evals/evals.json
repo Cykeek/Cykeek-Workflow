@@ -414,6 +414,14 @@
     { "id": 99, "prompt": "setup already ran and nothing in the repo changed",
       "assertions": ["the second run writes nothing and says the workspace matches",
                      "check 7 reads pass rather than being assumed",
-                     "the manifest rows still match the file line counts"] }
+                     "the manifest rows still match the file line counts"] },
+    { "id": 100, "prompt": "set up a repo whose palette lives only in globals.css and a Tailwind preset",
+      "assertions": ["every colour and type row in DESIGN.md cites the file:line it came from",
+                     "the palette is the repo's, not a default one",
+                     "an invented value is marked invented and listed for approval in one message"] },
+    { "id": 101, "prompt": "the repo has twelve button-ish components",
+      "assertions": ["the index names one canonical per family with its path",
+                     "the duplicates are listed as gap rows, not adopted",
+                     "a later component extends its index row instead of adding a second canonical"] }
   ]
 }

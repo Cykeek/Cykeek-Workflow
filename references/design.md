@@ -190,7 +190,7 @@ Report the breaks before fixing them — several are design decisions, not bugs.
 
 ## System
 
-The project's tokens are the source — this section owns that rule (§ Style derives a system only where none exists and the user asks). Use the project's tokens for spacing, colour and type. No arbitrary `13px` or `2.3rem`; no raw hex where a semantic token exists.
+The project's tokens are the source — this section owns that rule (§ Style derives a system only where none exists and the user asks). Use the project's tokens for spacing, colour and type. No arbitrary `13px` or `2.3rem`; no raw hex where a semantic token exists. At setup every value written into the project's `DESIGN.md` cites the file and line it came from, or is marked `invented` with its reason and listed for the user in one message — a value no source supports is never defaulted.
 
 - One `h1` per page, no skipped heading levels, no heading styles on non-headings.
 - Contrast 4.5:1 for body, 3:1 for large text. Never colour as the only signal — pair it with text, icon or shape.
@@ -216,7 +216,7 @@ One change lands at its layer and sweeps every consumer in the same change: a to
 
 ## Components
 
-A missing primitive is a gap row for the system's owner, never a workaround inside a surface. A family that is not ready is not migrated; its screens stay on legacy.
+A missing primitive is a gap row for the system's owner, never a workaround inside a surface. A family that is not ready is not migrated; its screens stay on legacy. The index at `.cykeek/components/index.md` names one canonical component per family with its path; a new component extends that row or files a gap, never a second canonical.
 
 Every component ships with its contract: a registry row and a doc entry (props, slots, states), its disabled, required, error and long-text states captured, a "what fires when" behaviour table per interactive primitive, tone parity across every status tone plus muted, and pinned role names so tests survive a redesign. The idle label stays put when work starts — a spinner inside the same box and `aria-busy` set, never `{saving ? "Saving..." : "Save"}`.
 

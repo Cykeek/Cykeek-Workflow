@@ -49,7 +49,7 @@ The non-negotiables are the rules that hold even when no skill is loaded — the
 
 The design system, capped at 300 lines, fifteen sections: a twelve-line design card (kind, what is sold, the one action, the one thing, palette and type rules, refused tells, widths, review mode), then principles, reference profiles, colour, type, space and grid, elevation, motion tokens, iconography, density modes, the responsive ladder, component contracts, composition patterns, content voice, and the acceptance checks run before done.
 
-Components are specified before they are built. Each one gets a sixty-line spec in `.cykeek/components/`: purpose, anatomy, tokens consumed, every state including empty and error, behaviour per breakpoint, motion, accessibility, anti-patterns and acceptance checks.
+Components are specified before they are built. Each one gets a sixty-line spec in `.cykeek/components/`: purpose, anatomy, tokens consumed, every state including empty and error, behaviour per breakpoint, motion, accessibility, anti-patterns and acceptance checks. The index at `.cykeek/components/index.md` is seeded at setup from what the repo already ships — one canonical per family, with its path — and every value written into `DESIGN.md` names the file and line it came from, or is marked invented.
 
 The responsive ladder is binding, not advisory: breakpoints 360 through 1440, `clamp()` type, 44 by 44 touch targets, hover motion gated behind `(hover: hover) and (pointer: fine)`, dashboards that collapse their sidebar, regrid KPIs 4 to 2 to 1, and decide per table between card-per-row and horizontal scroll with a sticky first column. It also carries the phone-specific fixes — no sticky hover, `100dvh` instead of `100vh`, inputs at 16px so iOS does not zoom the page.
 

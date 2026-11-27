@@ -75,8 +75,8 @@ Read the repo before asking a human anything. The filesystem is the first source
 | `components.json` | shadcn present |
 | `motion`, `framer-motion`, `gsap`, `react-native-reanimated` | motion library |
 | `app/`, `pages/`, `src/`, `routes/` | router and source root |
-| `**/components/`, `**/ui/` | where components live |
-| `app/globals.css`, `styles/*.css` | where tokens live |
+| `**/components/`, `**/ui/` | where components live, and the families the index is seeded with |
+| `app/globals.css`, `styles/*.css` | where tokens live, and the file:line every extracted value cites |
 | `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md`, `CLAUDE.md`, `.cursor/rules` | existing contract to merge |
 | test runner config | vitest, jest or playwright |
 | `git status` | greenfield or live project |
@@ -361,15 +361,15 @@ A system, not a mood board. Fifteen sections, cap 300 lines.
 | 0 | Design card | twelve lines at the top, the template at `references/design.md` § Card: kind, what is sold, one action, the one thing, palette and type rules, refusals, widths, states, review mode, and the `Design card v1 · <date>` line every return cites |
 | 1 | Principles | six named principles, each with the decision it forces |
 | 2 | Reference profiles | one block per client reference: source, extracted ratios, allowed deviations, verification stops. Figma profiles also carry file, frame and node count |
-| 3 | Colour | neutral ramp, one accent, semantics, contrast pairings, prohibitions |
-| 4 | Type | faces, scale with tracking and leading pairs, measure, numerals |
+| 3 | Colour | neutral ramp, one accent, semantics, contrast pairings, prohibitions — each value cites its `file:line`, or is marked `invented` |
+| 4 | Type | faces, scale with tracking and leading pairs, measure, numerals — extracted, or `invented` with the reason |
 | 5 | Space and grid | 4/8pt scale, container widths, columns per breakpoint, optical edges |
 | 6 | Elevation and surfaces | radius scale, border versus shadow, one elevation accent |
 | 7 | Motion tokens | three curves, duration ladder, spring defaults, frequency gate, stagger budget |
 | 8 | Iconography | stroke, size, optical alignment |
 | 9 | Density modes | comfortable and compact, for dashboards |
 | 10 | Responsive ladder | the rules below |
-| 11 | Component contracts | index of `.cykeek/components/*.md` plus the schema |
+| 11 | Component contracts | the seeded index at `.cykeek/components/index.md` — one canonical per family, with its path — plus the schema |
 | 12 | Composition patterns | page, dashboard shell, auth, empty, error, loading |
 | 13 | Content voice | plain language, forbidden filler, heading and CTA conventions |
 | 14 | Acceptance checks | emitted as numbered V cases: stop, viewport, assertion, status |
