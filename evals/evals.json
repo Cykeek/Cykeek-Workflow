@@ -300,6 +300,18 @@
     { "id": 70, "prompt": "use the new Compose API for a collapsing toolbar",
       "assertions": ["checks the installed official skill or developer.android.com before writing the call",
                      "marks the API UNVERIFIED rather than inventing a signature or a version",
-                     "falls back to the project's existing pattern while the API is unconfirmed"] }
+                     "falls back to the project's existing pattern while the API is unconfirmed"] },
+    { "id": 71, "prompt": "add a date picker to the invoice form",
+      "assertions": ["checks the repo for an existing input component before reaching for a dependency",
+                     "prefers the native date input over a library for a field that only needs a date",
+                     "names in one line what it left out of a larger version"] },
+    { "id": 72, "prompt": "review my last commit",
+      "assertions": ["reads the code the change touches, not only the diff",
+                     "each finding names a concrete input or situation and says what it breaks",
+                     "closes with a verdict, the lean line and what was not checked"] },
+    { "id": 73, "prompt": "find the shortcuts we deferred in this repo",
+      "assertions": ["greps for the shortcut markers while skipping ignored files",
+                     "reports each ceiling and its upgrade trigger, and tags the markers with no trigger",
+                     "changes no code"] }
   ]
 }

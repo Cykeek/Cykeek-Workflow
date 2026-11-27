@@ -83,9 +83,7 @@ Read the repo before asking a human anything. The filesystem is the first source
 | `app.json`, `expo` dependency | React Native or Expo |
 | browser or preview tools in the catalog | which of navigate, observe, interact, capture exist — see Discovery |
 
-Capabilities come from Preflight, which already ran. The gates left for this phase are about the route: Figma MCP tools in the session, and `node_modules/@ui-sdk/*`.
-
-Stop after two hops. A missing config is a fact, not a mystery. A repo with no build and no UI — documentation, a skill, a library — is its own class: say so in one line, and it carries through the brief as `class: non-visual` rather than being forced into a website shape.
+Capabilities come from Preflight, which already ran. The gates left for this phase are about the route: Figma MCP tools in the session, and `node_modules/@ui-sdk/*`. Stop after two hops. A missing config is a fact, not a mystery. A repo with no build and no UI — documentation, a skill, a library — is its own class: say so in one line, and it carries through the brief as `class: non-visual` rather than being forced into a website shape.
 
 ### Phase 1 — Interview, in two rounds at most
 
@@ -126,9 +124,7 @@ Risky    <the two decisions that will decide this>
 First    <the smallest thing that proves the direction>
 ```
 
-Three rules. The goal names the problem, not the screen — "contractors cannot tell which invoice is overdue" beats "an invoices dashboard". `Shape` is ordered by dependency, three to five workstreams, one routing row each: it is what makes an agent act on the problem instead of on the request. `First` must be buildable in one pass.
-
-A line that cannot be filled says `assumed: ...` rather than staying blank or becoming a question.
+Three rules. The goal names the problem, not the screen — "contractors cannot tell which invoice is overdue" beats "an invoices dashboard". `Shape` is ordered by dependency, three to five workstreams, one routing row each: it is what makes an agent act on the problem instead of on the request. `First` must be buildable in one pass. A line that cannot be filled says `assumed: ...` rather than staying blank or becoming a question.
 
 ### Phase 3 — Tailor, so the contract is smaller than a generic one
 
@@ -231,7 +227,8 @@ Twenty-one files ship beside this one. They hold the operative content — numbe
 | `references/libraries.md` | component libraries, shadcn, toasts |
 | `references/figma.md` | Figma links |
 | `references/react.md` | React and Next performance |
-| `references/craft.md` | the code gate, then five triggered moments — naming, routines, modules, knowledge, changing code — and untangle |
+| `references/craft.md` | the code gate, the ladder, then five triggered moments — naming, routines, modules, knowledge, changing code — and untangle |
+| `references/review.md` | reviewing a change, auditing a repo, the `shortcut:` ledger |
 | `references/domain.md` | domain modelling and data systems |
 | `references/release.md` | production failure handling, test hygiene |
 | `references/git.md` | a commit, an amend, a push — the gate, the message, the attribution scrub |
@@ -294,9 +291,13 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | Figma to code | `references/figma.md`, then the Figma section below | `figma-design-to-code` | `figma-use` |
 | Write into Figma | outside this skill's scope — say so | `figma-use` | `figma-design-to-code` |
 | Any code change, before the first line | `references/craft.md` § The gate | `clean-code`, `code-complete` | narrating the gate instead of answering it |
+| A fix growing past its problem, or "this is over-engineered" | `references/craft.md` § The ladder | `ponytail` | planning the bigger version first |
 | A smell, a cleanup, a rewrite tempting | `references/craft.md` § Changing code | `refactoring`, `refactoring-guru` | rewriting |
 | Legacy or unfamiliar code | `references/craft.md` § Untangle, `flows.md` § Untangle | `untangle-codebase`, `working-effectively-with-legacy-code` | page-by-page tidying |
 | Boundary, layering, module or API shape | `references/craft.md` § Modules | `a-philosophy-of-software-design`, `clean-architecture` | pattern-first |
+| Review a diff, a commit or a PR | `references/review.md` § A change, § The report | `ponytail-review` | a finding with no concrete case |
+| Audit a whole codebase, or find what to delete | `references/review.md` § A repo | `ponytail-audit` | file-by-file reading with no ranking |
+| Where we deferred something, and the trigger to revisit | `references/review.md` § The ledger | `ponytail-debt` | treating a named limit as a bug |
 | Domain rules, services or data flows | `references/domain.md` | the four DDD skills, `patterns-of-enterprise-application-architecture`, `designing-data-intensive-applications` | any UI task |
 | Production failure handling | `references/release.md` | `release-it` | prototype delivery |
 | React diagnostics before commit | `references/react.md` | `react-doctor` | prototype delivery |
@@ -438,9 +439,7 @@ Several references produce one reconciled profile. Conflicting references get a 
 
 ## Figma: the gate
 
-Read `references/figma.md` before anything else — it carries the traversal, build and asset rules.
-
-Then the gate: check the catalog for Figma MCP tools, allowing one bounded attempt for a lazily attached server. If they are genuinely absent, say what to add — the Figma MCP server in the client's configuration — and **end the turn**. No scaffolding, no approximation from the screenshot, no partial work. The only acceptable output is the configuration instruction.
+Read `references/figma.md` before anything else — it carries the traversal, build and asset rules. Then the gate: check the catalog for Figma MCP tools, allowing one bounded attempt for a lazily attached server. If they are genuinely absent, say what to add — the Figma MCP server in the client's configuration — and **end the turn**. No scaffolding, no approximation from the screenshot, no partial work. The only acceptable output is the configuration instruction.
 
 This is stricter than the browser path on purpose: a missing browser limits verification, a missing Figma MCP removes the source. The two do not get the same fallback.
 
@@ -488,6 +487,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | `.cykeek/verify/capability.md` | once per session, written by Preflight | 16 lines |
 | rules card, top of `AGENTS.md` | before any act that changes state | 12 lines |
 | code gate, `references/craft.md` § The gate | before the first line of code | 5 answers |
+| lean ladder, `references/craft.md` § The ladder | before a fix that is not one line | the rung it stopped on |
 | design gate, `references/design.md` § The gate | before the first visual decision | 5 answers |
 | design card, top of `DESIGN.md` | before any visual act | 12 lines + version |
 | scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |

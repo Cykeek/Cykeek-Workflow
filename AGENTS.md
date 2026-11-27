@@ -35,9 +35,9 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 21 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` ~522 lines · each reference ≤140 · `README.md` ~266 |
-| Evals | 70 cases in `evals/evals.json`, assertions in plain English |
+| Shipped files | `SKILL.md`, `README.md`, 22 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` ~522 lines · each reference ≤140 · `README.md` ~270 |
+| Evals | 73 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -59,7 +59,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Task | Read | Never |
 | --- | --- | --- |
 | Change the process, phases or contracts | `SKILL.md` | editing `README.md` first |
-| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other twenty to be safe |
+| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other twenty-one to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
 | Add a case | `evals/evals.json` | an assertion that cannot be checked |
@@ -71,6 +71,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Change the web-animation domain | `references/web-animation.md`, then `references/motion.md` §1 | a specialized surface before the gate, or a duplicated motion rule |
 | Change the motion clone protocol | `references/motion-clone.md`, `references/motion.md` | a clone verdict without row numbers |
 | Change the Android hub | `references/android.md`, `SKILL.md` routing row | an Android API recalled from memory |
+| Change the lean ladder or the review report | `references/craft.md` § The ladder, `references/review.md` | a finding with no concrete case |
 | Commit, amend or push | `references/git.md` § The gate | a commit nobody asked for, a push nobody asked for |
 
 ## 6. Ordering rules

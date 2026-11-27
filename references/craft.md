@@ -16,6 +16,31 @@ Five answers, one line each, before the first line of code. A one-line fix gets 
 
 An answer you cannot fill means the design is not ready, and the move is to read the code, not to write it. The gate is also the receipt's body (`loop.md` §0): the same four answers, cited, before any write.
 
+## The ladder
+
+**When:** a change is being written, not read — the fix, the feature, the script, or the dependency choice.
+
+Read the code the change touches first. Then take the first rung that fully works:
+
+1. **Does it need to exist?** Drop features, options and flexibility nobody asked for, and name them in one line. A vague request gets the smallest version that does the core job.
+2. **Already here?** A helper, component, service or pattern in this codebase, used the way the surrounding code uses it.
+3. **Standard library or platform feature?** Use it, unless the project has its own — a house component beats a native widget.
+4. **An installed dependency?** Use it. Never add one for a few lines.
+5. **One line a reader gets at a glance?** Then one line.
+6. **Otherwise:** the minimum code that works.
+
+Scope is every place the change must reach — callers, tests, fixtures, config, exports — and what it can break for a user: data it destroys or exposes, callers that stop working. Extra features are not scope; an unfinished caller is not lazy either, so the smallest complete change still finishes what it touches.
+
+- The shortest working diff wins once you know everything it touches. A one-liner that needs decoding is not short.
+- Deletion beats addition, and the structure already there stays: its layers, interfaces and conventions.
+- Moved or merged code keeps its validation and error handling. Between two options of equal size, take the one that is correct on the edges.
+- Bug fix: grep every caller first, then fix the root cause once in the shared code.
+- Logic with a branch, a loop, a parser, money or security leaves one small test or an assert-based self-check. Trivial changes need none.
+- A shortcut with a known limit is marked `shortcut: <the limit>, <when to upgrade>`, so "later" has a trigger.
+
+Never cut to be lazy: validation at trust boundaries, error handling that prevents data loss, security, accessibility, what the hardware needs calibrated, anything the user asked for.
+
+Every reply ends with one or two lines: what you skipped or did not check, and the risk that leaves.
 ## Naming and shape
 
 **When:** a name needs a comment, a comment explains the flow, or a reader must scroll to follow one function.
