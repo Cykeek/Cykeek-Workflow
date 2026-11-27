@@ -213,11 +213,11 @@ Five steps, in this order, every time.
 | --- | --- | --- |
 | Status | `git status --short` — every path accounted for | a file changed that no rule names |
 | Group | one group per logical change, ordered by dependency | a group exists only to make the diff smaller |
-| Stage | `git add <paths>`, explicit, never `-A` blind | a secret, `.env`, build output or dependency folder appears |
+| Stage | `git add <paths>`, explicit, never `-A` blind | a secret, `.env`, build output, dependency folder or a cykeek file appears |
 | Message | subject, blank line, why | the body needs "also" |
 | Commit | `git diff --check`, then commit or amend | the check reports whitespace damage |
 
-Stage the contract files and the evidence that closed the task: `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md`, `.cykeek/**`. Never stage `node_modules`, build output, logs, editor state, or anything the `.gitignore` already refuses — a file forced in with `-f` is a decision, not a convenience.
+Stage the project's own source, and nothing else. `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md` and `.cykeek/**` are local by design — one `cykeek` block in the project's `.gitignore` names all four — so they never appear in a staged set. A project that wants them in history makes that a decision rather than a habit: record it in `HEARTBEAT.md`, remove the block, then stage them deliberately. Never stage `node_modules`, build output, logs, editor state, or a file forced in with `-f` — convenience is not a decision.
 ### The message
 
 The subject says what the tree does after the commit; the body says why it had to.

@@ -424,9 +424,25 @@
                      "the duplicates are listed as gap rows, not adopted",
                      "a later component extends its index row instead of adding a second canonical"] },
     { "id": 102, "prompt": "set up this workspace on a harness with no way to spawn agents",
-      "assertions": ["the workspace is written and the eight checks pass",
+      "assertions": ["the workspace is written and the nine checks pass",
                      "capability records subagents deferred, not absent",
                      "no stop is issued during setup",
-                     "the stop fires at the first dispatch, with the run-it-serially line"] }
+                     "the stop fires at the first dispatch, with the run-it-serially line"] },
+    { "id": 103, "prompt": "set up a project with no .gitignore",
+      "assertions": ["a .gitignore is created carrying the marked cykeek block",
+                     ".gitignore names AGENTS.md, DESIGN.md, HEARTBEAT.md and .cykeek/",
+                     "README.md is neither named nor written"] },
+    { "id": 104, "prompt": "set up a project whose .gitignore already stars *.md",
+      "assertions": ["the cykeek block is appended after the existing rules, not before them",
+                     "README.md and the project's docs/ stay untouched",
+                     "a second run leaves exactly one block"] },
+    { "id": 105, "prompt": "the project already tracks AGENTS.md and the setup writes the ignore block",
+      "assertions": ["the setup report names AGENTS.md as already tracked",
+                     "git rm --cached is left to the user, not run",
+                     "check 9 records pass with that caveat named"] },
+    { "id": 106, "prompt": "a worker stages .cykeek/verify/checkout.md with the build",
+      "assertions": ["the stage step stops on a cykeek file before the commit",
+                     "the block is not bypassed with -f",
+                     "the ledger stays local and the commit carries source only"] }
   ]
 }

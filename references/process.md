@@ -97,9 +97,22 @@ The ledger keeps the detail; this keeps the address. After a compaction, a retur
 
 **Refresh.** Diff the disk against the manifest: a different line count, an older version, or a date older than the last promotion is the stale row. Re-cut that row, report it, ask only about facts that moved, and change nothing else. Twice in a row produces no diff.
 
+**The locality block — the four artifacts are the machine's, not the repository's.** Setup appends one marked block to the project's `.gitignore`, creating the file if absent and replacing the block in place if the markers already exist; never a line outside them. Named paths, never `*.md` — `README.md` and every project document sit outside this decision:
+
+```
+# >>> cykeek >>>
+AGENTS.md
+DESIGN.md
+HEARTBEAT.md
+.cykeek/
+# <<< cykeek <<<
+```
+
+If one of the four is already tracked, the rule cannot untrack it: the setup report names the path and `git rm --cached` stays the user's. A project that wants the contract in history removes the block and records the decision in `HEARTBEAT.md` — the block gone, never bypassed with `-f`. The block is its own record; the manifest carries no row for it.
+
 **The boot, in order.** `AGENTS.md` (240) → `HEARTBEAT.md` status and pending (40) → `.cykeek/state.md` (10) → `.cykeek/verify/capability.md` (16) → act. Nothing else is opened to be safe; a task opens one hub at its named section.
 
-**The proof — eight checks, after the last file is written and before the handoff.** One line each: verdict, measured value, and the command shape that produced it. A red row stops the run; a workspace is not handed over broken.
+**The proof — nine checks, after the last file is written and before the handoff.** One line each: verdict, measured value, and the command shape that produced it. A red row stops the run; a workspace is not handed over broken.
 
 | # | Check | Reads | Red means |
 | --- | --- | --- | --- |
@@ -111,6 +124,7 @@ The ledger keeps the detail; this keeps the address. After a compaction, a retur
 | 6 | pointer and manifest | one contract version; the live task has a ledger file | resume is broken |
 | 7 | idempotent | the same generation produces no byte difference | the generation is unstable |
 | 8 | outside the marks | a merged file's text outside the markers is unchanged | the user's text was touched; restore it |
+| 9 | locality | the `cykeek` block appears once and `git check-ignore` answers yes for all four paths | a contract file can be committed; fix the block |
 
 `class: non-visual` marks the `DESIGN.md` rows `n/a` by name, never by silence. The table is the artifact: `.cykeek/verify/workspace.md`, twenty lines, dated, one verdict per row.
 

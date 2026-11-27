@@ -152,7 +152,7 @@ One absolute rule: **create freely, modify only inside markers, install nothing.
 
 | Target | Action |
 | --- | --- |
-| `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md`, `.cykeek/**` | create, or replace the `cykeek:begin` / `cykeek:end` block if present |
+| `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md`, `.cykeek/**` | create, or replace the `cykeek:begin` / `cykeek:end` block if present — and keep all four local: one marked block in the project's `.gitignore` names them, `README.md` never named |
 | token stylesheet or `globals.css` | create if absent; else append a marked block, previewed |
 | Tailwind theme or config | marked block only, previewed, never rewritten |
 | components directory | create if absent |
@@ -165,7 +165,7 @@ Re-invocation is a refresh, not a rebuild: diff the disk against `.cykeek/manife
 
 ### Phase 5.5 — Prove the workspace
 
-Run the eight checks at `references/process.md` § Setup, one line each — verdict, measured value — and write the table to `.cykeek/verify/workspace.md`. A red row stops before the handoff, with the row named.
+Run the nine checks at `references/process.md` § Setup, one line each — verdict, measured value — and write the table to `.cykeek/verify/workspace.md`. A red row stops before the handoff, with the row named.
 
 ### Phase 6 — Hand off in three lines
 
@@ -342,9 +342,9 @@ Fourteen sections, in this order. Cap 240 lines.
 4. **Working loop** — the eight gates in order (`references/process.md` § The eight gates): orient (goal, routing row, harness verdict), route (one hub at its index, the mode), brief (five lines), contract (the row table, every row falsifiable), slice (one row, one owner), prove (the assertion re-run and quoted), show (the five-line block, one question), close (the sweep, the ledger, one local commit). One line per gate; a gate that fails returns to the gate `references/process.md` names, and the agent waits at a stop with the show block. Compress for small changes; proof is never the gate that gets skipped.
 5. **Routing table** — the active subset, three columns: the task, the `references/` file to open, and what never to do here. One reference per task, opened when its row is reached; a matching skill may be opened afterwards for depth, and its absence changes nothing.
 6. **Ordering rules** — the four or five sequences that matter for this project class. For a Figma project the binding one is gate, discover, screenshot, traverse, batch, build, compare.
-7. **Non-negotiables** — the twenty lines, and in the code and design ones the gates and the receipt, with `references/code.md` § Gate and `references/design.md` § Gate as the long forms.
+7. **Non-negotiables** — the twenty lines, and in the code and design ones the gates and the receipt, with `references/code.md` § Gate and `references/design.md` § Gate as the long forms. One of the twenty is locality: the four artifacts never enter a commit, and the project's `.gitignore` block is the record.
 8. **Gates and definition of done** — per task class.
-9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship.
+9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship, a cykeek file in a commit.
 10. **Heartbeat** — when to capture, when to promote, which file to edit.
 11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the state pointer and the manifest as evidence of what was generated, the V-case schema, the gate, the two exit conditions, the ledger path, the commit read back — subject, why, no trailer, still local — and for a cloned reference the spec rows, the timing numbers and the sheets.
 12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; only the orchestrator commits, and only locally; and the serial path only on the explicit sentence `run it serially`, recorded as a deviation.

@@ -2,15 +2,16 @@
 
 ## Status
 
-`SKILL.md` 496 lines · 12 references · `README.md` 280 · `evals/evals.json` 102 cases · install copy synced to `~/.agents/skills/cykeek/` — 18 files, 0 hashes apart.
-Last change: the subagent probe runs immediately before the first dispatch, not at setup — Part 1 never splits, so it records `deferred`; the stop keeps its wording and gains a place to fire. The ledger cap is one number again: 40 lines.
-Before that: the setup proof (eight checks, `.cykeek/verify/workspace.md`), the state pointer and the manifest, and DESIGN provenance with a seeded component index — each in `git log`.
+`SKILL.md` 496 lines · 12 references · `README.md` 280 · `evals/evals.json` 106 cases · install copy **not synced** — 18 files sit at `~/.agents/skills/cykeek/` still carrying the old staging rule.
+Last change: the four setup artifacts are local by design — one marked `.gitignore` block names `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md` and `.cykeek/`, the git gate refuses to stage them, and `README.md` stays outside the decision. The proof is nine checks, the ninth being locality.
+Before that: the setup proof (nine checks, `.cykeek/verify/workspace.md`), the state pointer and the manifest, and DESIGN provenance with a seeded component index — each in `git log`.
 
 ## Pending
 
 | Observed | Target | Status |
 | --- | --- | --- |
 | `.gitignore` lists `skills/` | `.gitignore` | closed — kept as a guard |
+| install copy carries the old staging rule | `~/.agents/skills/cykeek/` | open — the copy needs a write the sandbox denies; one approved run closes it |
 
 ## Promoted
 

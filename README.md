@@ -30,8 +30,8 @@ Seven phases, in order, with a proof pass before the handoff.
 2. **Ask properly** — five open questions in one message: what problem it solves and for whom, what done looks like, what exists today, what it should feel like, and what cannot change. The detected facts print above them so nothing is asked twice, and anything the invocation already answered is skipped. A second round covers at most three gaps, and then it stops asking.
 3. **Brief** — the answers compress into twelve lines: goal, audience, done, not, unknown, fixed, feel, shape, risky, first. `Shape` names the workstreams in dependency order with the reference row each one uses, which is what makes an agent act on the problem rather than on the request.
 4. **Tailor** — the brief selects a subset, not a variant of everything. A prototype marketing page drops the release gates, `react-doctor` and `prune-tests` rows entirely; a production dashboard keeps them and adds density modes, table rules and the chart cleanup pass. Tailored output is materially shorter than generic output.
-5. **Write** — creates its own files freely, appends marked blocks to a token stylesheet or Tailwind theme after showing the diff, and never touches dependencies, lockfiles, lint config or existing source.
-6. **Hand off** — the eight checks, then three lines: what was written, which route the next task should take, and the one next action.
+5. **Write** — creates its own files freely, appends marked blocks to a token stylesheet or Tailwind theme after showing the diff, and never touches dependencies, lockfiles, lint config or existing source, and keeps its own four artifacts local with one marked `.gitignore` block.
+6. **Hand off** — the nine checks, then three lines: what was written, which route the next task should take, and the one next action.
 
 After setup, every task runs through eight gates — orient, route, brief, contract, slice, prove, show, close — and the first act opens with one receipt line naming the card version and the section of `AGENTS.md` being followed. A gate that fails returns to the gate the process names, never to the top, and a change that fits in one round skips the brief and stops once, with the result. **Slice** is where the work splits: with agents available the session becomes an orchestrator that writes a contract whose rows are simultaneously the work orders and the tests, takes back one eight-line outcome per round, answers it with one-line orders instead of rebuilds, and holds every worker alive until you have seen the result. The states are fixed, `PLANNED` to `SHIPPED`, and all of it lives in `.cykeek/verify/<task>.md` — which is why a restarted worker resumes instead of being re-briefed. Without subagents the same states run serially, by hand, in the same file. A UI task splits by lens instead of by row: **UX** (the job, the one action, hierarchy order, every state), **Direction** (the references studied, the competitor read, palette and type), **Build** (one section, from the design card and the system) and **Review** (the render at five widths, keyboard, contrast, the deltas named) — three workers at most, and the one who builds never grades.
 
@@ -59,7 +59,7 @@ The learning loop, covered below.
 
 ### `.cykeek/`
 
-The depth, loaded only when needed: the state pointer a resumed session reads first, the manifest that makes a refresh a diff instead of a guess, component specs, dated decision records, and the expanded per-skill contracts.
+The depth, loaded only when needed: the state pointer a resumed session reads first, the manifest that makes a refresh a diff instead of a guess, component specs, dated decision records, and the expanded per-skill contracts. The folder is local: one marked block in `.gitignore` names it and the three contract files, so none of them enters a commit, and `README.md` plus the project's own docs are never touched.
 
 ## The routing table
 

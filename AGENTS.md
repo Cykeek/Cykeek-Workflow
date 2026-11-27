@@ -37,7 +37,7 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | Dependencies | none, by design |
 | Shipped files | `SKILL.md`, `README.md`, 12 files in `references/`, `assets/picker.html`, `evals/evals.json` |
 | Sizes | `SKILL.md` 496 lines · hubs at their per-file caps · `README.md` ~280 |
-| Evals | 102 cases in `evals/evals.json`, assertions in plain English |
+| Evals | 106 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -78,6 +78,7 @@ Compress for a one-line fix. Proof is never the gate that gets skipped.
 | Change the Android hub | `references/platform.md` § Android, `SKILL.md` routing row | an Android API recalled from memory |
 | Change the lean ladder or the review report | `references/code.md` § Ladder, `references/review.md` | a finding with no concrete case |
 | Commit, amend or push | `references/agents.md` § Git | a commit nobody asked for, a push nobody asked for |
+| Change what a project's `.gitignore` hides | `references/process.md` § Setup, `references/agents.md` § Git | a `*.md` wildcard, or an ignored `README.md` |
 
 ## 6. Ordering rules
 
@@ -113,6 +114,7 @@ A change is done when: `SKILL.md` and `README.md` agree; every count matches; `e
 - Leave a stale count in prose — "twelve files" after the thirteenth lands is a bug.
 - Commit or push without being asked, or push twice for one instruction.
 - Stack a second commit on a follow-up edit, or let an agent sign the message.
+- Commit a project's cykeek files — `.cykeek/` and the generated `AGENTS.md`, `DESIGN.md`, `HEARTBEAT.md`. They are local by design; this repo's own contract files are the exception.
 
 ## 10. Heartbeat
 
@@ -138,6 +140,7 @@ This repo ships no visual surface except `assets/picker.html`, so verification i
 | an inner loop | the named gap, the same assertion re-rendered, stop or delta recorded at round three |
 | picker still works | open it, capture at 390 and 1440, check the three variants and the keys |
 | a commit | `git log -1 --format=%B` read back: one idea, why in the body, no trailer, still unpublished |
+| the workspace stays local | `git check-ignore -q .cykeek/verify` exits 0 in a set-up project, and `git status --short` lists no cykeek path |
 
 Only three states: PASS, FAIL with the measured difference, UNVERIFIED when the capability is absent. "Looks right" is not one of them.
 
