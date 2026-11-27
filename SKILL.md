@@ -472,7 +472,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | design gate, `references/design.md` § The gate | before the first visual decision | 5 answers |
 | design card, top of `DESIGN.md` | before any visual act | 12 lines + version |
 | scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |
-| fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers and a spec |
+| fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers, a spec row per property |
 | git gate, `references/git.md` § The gate | before any git write | 5 answers |
 | `references/<domain>.md` | only when a routing row names it | one per task, ≤140 lines |
 | installed skills | only when the reference hands off | at most one at once |

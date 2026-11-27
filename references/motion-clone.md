@@ -35,7 +35,7 @@ Reference and clone are captured the same way or the comparison measures the set
 
 ## The spec, before the code
 
-One row per element per property, in `.cykeek/motion/<name>.md`:
+One row per element per property, in `.cykeek/verify/motion-<name>.md` — 40 lines:
 
 `# | element | property | from → to | start ms | duration ms | easing | stagger | source`
 
