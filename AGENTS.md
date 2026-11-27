@@ -35,9 +35,9 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 15 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` ~504 lines · each reference ≤140 · `README.md` ~254 |
-| Evals | 56 cases in `evals/evals.json`, assertions in plain English |
+| Shipped files | `SKILL.md`, `README.md`, 16 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` ~503 lines · each reference ≤140 · `README.md` ~257 |
+| Evals | 62 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -57,13 +57,14 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Task | Read | Never |
 | --- | --- | --- |
 | Change the process, phases or contracts | `SKILL.md` | editing `README.md` first |
-| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other thirteen to be safe |
+| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other fourteen to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
 | Add a case | `evals/evals.json` | an assertion that cannot be checked |
 | Change the coding gate or the card | `references/craft.md` § The gate, `references/loop.md` §0 | a reminder in prose where a receipt would bind |
 | Change the design gate or the design card | `references/design.md` § The gate, § The card, `SKILL.md` § What `DESIGN.md` contains | a reminder in prose where a card would bind |
 | Change the scroll pipeline | `references/scroll.md`, `SKILL.md` routing row | a device list without the score |
+| Commit, amend or push | `references/git.md` § The gate | a commit nobody asked for, a push nobody asked for |
 
 ## 6. Ordering rules
 
@@ -84,6 +85,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 8. `README.md` describes behaviour that exists. No forward claims, no aspirational features.
 9. Every reference ends with `<!-- source: ... -->` naming where its guidance came from.
 10. The install copy mirrors the shipped files after every change.
+11. Commits stay local until the user says push; one per logical change, a follow-up edit amends, no agent in the author or a trailer.
 
 ## 8. Gates and definition of done
 
@@ -96,6 +98,8 @@ A change is done when: `SKILL.md` and `README.md` agree; every count matches; `e
 - Let the two copies drift. The install folder and this repo hold the same bytes, `.git*` excepted.
 - Introduce a dependency, a lockfile or a generated artifact.
 - Leave a stale count in prose — "twelve files" after the thirteenth lands is a bug.
+- Commit or push without being asked, or push twice for one instruction.
+- Stack a second commit on a follow-up edit, or let an agent sign the message.
 
 ## 10. Heartbeat
 
@@ -117,6 +121,7 @@ This repo ships no visual surface except `assets/picker.html`, so verification i
 | a design review | the gate answered, and the render looked at at five widths |
 | a scroll sequence | the score answered, frames at three positions per act, one phone statement |
 | picker still works | open it, capture at 390 and 1440, check the three variants and the keys |
+| a commit | `git log -1 --format=%B` read back: one idea, why in the body, no trailer, still unpublished |
 
 Only three states: PASS, FAIL with the measured difference, UNVERIFIED when the capability is absent. "Looks right" is not one of them.
 

@@ -110,6 +110,7 @@ Three, and they are not judgement calls: two rounds with no net delta, four roun
 - Respawn an idle worker. A send-back reuses it.
 - Hand a worker the routing table, or any reference the contract did not name.
 - Let the applier grade, the reviewer edit, or the planner build.
+- Let a worker run git. The orchestrator commits, once, locally.
 - Release anyone before `APPROVED`.
 
 ## No subagents

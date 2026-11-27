@@ -189,7 +189,7 @@ Per task, seven steps. The long form is `references/loop.md`; the split is in `r
 4. **Specify the contract.** The numbers, states and widths, and the row table when the work splits (`references/orchestration.md`): every row carries the assertion that fails if it is wrong, and a row that says `none` carries its reason. Nothing downstream adds a row. This is the step that makes the result checkable, and the one most often skipped.
 5. **Assign.** With agents available: one contract, at most three rows per batch, one owner per row, a retest scope on every order. Without them: the same contract, one agent, the states advanced by hand in `.cykeek/verify/<task>.md`. Build on the project's tokens and components, changing nothing outside the markers.
 6. **Read one outcome, then order.** One consolidated report per round — state, counts, deltas, blocker, eight lines. Accept, or return the delta to the same worker with its retest scope and nothing else. No state is entered without its artifact.
-7. **Accept, approve, ship.** Discover the session's tools (`## Discovery before action`), measure at two widths, view two cases yourself — simplest and riskiest — and record PASS or the delta (`## Visual tests`). Run the mechanical clean pass *before* asking, because you never ask someone to approve what you are about to change. One capture, one question. After approval: the diff sweep, the workers released, the ledger closed.
+7. **Accept, approve, ship.** Discover the session's tools (`## Discovery before action`), measure at two widths, view two cases yourself — simplest and riskiest — and record PASS or the delta (`## Visual tests`). Run the mechanical clean pass *before* asking, because you never ask someone to approve what you are about to change. One capture, one question. After approval: the diff sweep, the workers released, the ledger closed, and one local commit — never a push (`references/git.md`).
 
 A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over.
 
@@ -212,7 +212,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Fifteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Sixteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -231,8 +231,7 @@ Fifteen files ship beside this one. They hold the operative content — numbers,
 | `references/craft.md` | the code gate, then five triggered moments — naming, routines, modules, knowledge, changing code — and untangle |
 | `references/domain.md` | domain modelling and data systems |
 | `references/release.md` | production failure handling, test hygiene |
-
-Read one per task, whole, when a routing row names it. Never two. The non-negotiables cover the ordinary case, so most tasks read none — that is the point.
+| `references/git.md` | a commit, an amend, a push — the gate, the message, the attribution scrub |
 
 ## The routing table
 
@@ -285,6 +284,7 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | Production failure handling | `references/release.md` | `release-it` | prototype delivery |
 | React diagnostics before commit | `references/react.md` | `react-doctor` | prototype delivery |
 | Tests that guard nothing | `references/release.md` | `prune-tests` | prototype delivery |
+| Any commit, amend or push | `references/git.md` § The gate | — | a commit nobody asked for, a push nobody asked for |
 | A skill I do not have | the reference above it still governs | `find-skills` | — |
 
 ## Discovery before action
@@ -337,9 +337,7 @@ Silence is not approval. A green build is not approval. "Tests pass" is not appr
 6. Re-dive from the first case. A fix at one stop routinely breaks another.
 7. Repeat until one of the two exit conditions holds.
 
-Never edit a case to match the result. When the reference and the implementation disagree, the reference wins and the deviation is reported.
-
-**Across sessions.** The case list and its statuses live in `.cykeek/verify/<task-slug>.md`, so a later session resumes the same cases instead of redefining them. That is what makes the loop recursive rather than merely repeated.
+Never edit a case to match the result. When the reference and the implementation disagree, the reference wins and the deviation is reported. **Across sessions:** the case list and its statuses live in `.cykeek/verify/<task-slug>.md`, so a later session resumes the same cases instead of redefining them — that is what makes the loop recursive rather than merely repeated.
 
 ## Non-negotiables
 
@@ -349,7 +347,7 @@ These hold even when no skill is loaded. Keep the list at twenty lines; the long
 
 **Motion.** `--ease-out: cubic-bezier(0.23,1,0.32,1)`, `--ease-in-out: cubic-bezier(0.77,0,0.175,1)`, `--ease-drawer: cubic-bezier(0.32,0.72,0,1)`. Never `ease-in` on UI, never built-in `ease-out`. Press 100 to 160ms, tooltip 125 to 200, dropdown 150 to 250, modal, drawer, sheet and toast 200 to 500, everything else under 300ms. `transform` and `opacity` only. Never `scale(0)`. Never `transition: all`. Anything seen 100+ times a day, and anything keyboard-triggered, gets no animation. Stagger 30 to 80ms, non-uniform, never on high-frequency UI. Exits mirror entrances and are shorter. Reduced motion is fewer and gentler, not zero. A scroll-driven page answers `references/scroll.md` § The score before its first section — four to seven beats, one peak, one shape, four device families and never the same one twice in a row — and proves itself with frames at scroll positions, never one screenshot.
 
-**Code.** Server components by default, `use client` at the leaf. No state updates inside rAF, pointer or scroll handlers. No `useEffect` for derived state. Stable keys. Explicit media dimensions. Virtualize or paginate past 100 rows. Semantic, labelled, keyboard-reachable, focus-visible, contrast 4.5:1 or better, touch targets 44 by 44. `min-width: 0` on flex text columns, `overflow-wrap: anywhere` on emails and URLs, `tabular-nums` on changing numbers, `Intl` formatting for numbers and plurals. Never `dangerouslySetInnerHTML` with user data. A task is not done until it has been rendered and compared at 1440 and 390 — passing tests is the prerequisite, not the conclusion. Before the first line: the five answers at `references/craft.md` § The gate, and the receipt at `references/loop.md` §0.
+**Code.** Server components by default, `use client` at the leaf. No state updates inside rAF, pointer or scroll handlers. No `useEffect` for derived state. Stable keys. Explicit media dimensions. Virtualize or paginate past 100 rows. Semantic, labelled, keyboard-reachable, focus-visible, contrast 4.5:1 or better, touch targets 44 by 44. `min-width: 0` on flex text columns, `overflow-wrap: anywhere` on emails and URLs, `tabular-nums` on changing numbers, `Intl` formatting for numbers and plurals. Never `dangerouslySetInnerHTML` with user data. A task is not done until it has been rendered and compared at 1440 and 390 — passing tests is the prerequisite, not the conclusion. Before the first line: the five answers at `references/craft.md` § The gate, and the receipt at `references/loop.md` §0. Commits stay local until the user asks for a push: one per logical change, a follow-up edit amends it, the message says why, and no agent signs it.
 
 ## What `AGENTS.md` contains
 
@@ -359,15 +357,15 @@ Fourteen sections, in this order. Cap 240 lines.
 1. **Header** — what the file is, precedence of project over user defaults, how to regenerate.
 2. **Goal and facts** — the goal sentence, who it is for, what done means, what this is not, then stack and versions, package manager, scripts, directories, UI, styling and motion libraries, delivery mode.
 3. **Session start** — read this file, then `HEARTBEAT.md` status and pending; read `DESIGN.md` only when the task touches UI, visual or motion. The preflight verdict lives in `.cykeek/verify/capability.md`; the OS and the proven write path are written at the end of this section and are used before any probe. Restate the goal in one line before starting, so the session is aimed before it is busy.
-4. **Working loop** — six moves in order: frame (the artifact and the one reference governing it), decide (should it exist at all), specify (numbers, states, widths, V-cases), build (dispatch independent slices where the harness allows, integrate only accepted reports, else the smallest visible slice), prove (render, compare, iterate on the failing assertion), close (three lines and a ledger). One line per move. Compress for small changes; proof is never the move that gets skipped.
+4. **Working loop** — six moves in order: frame (the artifact and the one reference governing it), decide (should it exist at all), specify (numbers, states, widths, V-cases), build (dispatch independent slices where the harness allows, integrate only accepted reports, else the smallest visible slice), prove (render, compare, iterate on the failing assertion), close (three lines, a ledger, one local commit). One line per move. Compress for small changes; proof is never the move that gets skipped.
 5. **Routing table** — the active subset, three columns: the task, the `references/` file to open, and what never to do here. One reference per task, opened when its row is reached; a matching skill may be opened afterwards for depth, and its absence changes nothing.
 6. **Ordering rules** — the four or five sequences that matter for this project class. For a Figma project the binding one is gate, discover, screenshot, traverse, batch, build, compare.
 7. **Non-negotiables** — the twenty lines, and in the code and design ones the gates and the receipt, with `references/craft.md` § The gate and `references/design.md` § The gate as the long forms.
 8. **Gates and definition of done** — per task class.
-9. **Never** — the automatic blocks.
+9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship.
 10. **Heartbeat** — when to capture, when to promote, which file to edit.
-11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the V-case schema, the gate, the two exit conditions, the ledger path.
-12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; and the one-line degradation to serial work with no subagents.
+11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the V-case schema, the gate, the two exit conditions, the ledger path, and the commit read back — subject, why, no trailer, still local.
+12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; only the orchestrator commits, and only locally; and the one-line degradation to serial work with no subagents.
 13. **Research** — when a request names a technology the agent cannot state from memory: the card at `.cykeek/research/<slug>.md` with its nine slots, the source ladder, the five-query cap, the spike before integration, and the rule that no dependency enters without a version, a licence and a cleanup path.
 
 Wrap the generated region in `<!-- cykeek:begin -->` and `<!-- cykeek:end -->`.
@@ -476,6 +474,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | design gate, `references/design.md` § The gate | before the first visual decision | 5 answers |
 | design card, top of `DESIGN.md` | before any visual act | 12 lines + version |
 | scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |
+| git gate, `references/git.md` § The gate | before any git write | 5 answers |
 | `references/<domain>.md` | only when a routing row names it | one per task, ≤140 lines |
 | installed skills | only when the reference hands off | at most one at once |
 
