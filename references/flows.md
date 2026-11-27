@@ -50,7 +50,7 @@ List every problem and change nothing. Then design from first principles and loo
 
 ## Capture — when the lesson is about us
 
-Corrections are the only reliable source of taste. Find them all, not just the spoken ones: an explicit correction, a silent edit to a value I wrote, a repeated nudge (record where it landed, not the steps), a revert or a rejected variant, a confirmed non-obvious choice.
+Corrections are the only reliable source of taste. Find them all, not just the spoken ones: an explicit correction, a silent edit to a value I wrote, a repeated nudge (record where it landed, not the steps), a revert or a rejected variant, a confirmed non-obvious choice. When the failure is in the session rather than in a value, read the transcript on disk and quote the line where it went wrong — never reconstruct it from memory, because a guessed cause becomes a wrong rule.
 
 Then filter: would a fresh agent make this mistake on a *different* component? If no, skip it. If a rule already covers it, tighten that rule to a number or a never instead of adding a duplicate. If a violation can be found by matching code, propose a check — a lint rule, a banned token, a test — because a check runs every session and a sentence in a long file gets skipped.
 

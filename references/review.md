@@ -43,6 +43,20 @@ Every finding has four parts, one or two sentences each:
 
 Close with `Verdict: Ship.` or `Verdict: fix 1 and 3 first.`, `Lean: -<N> lines possible.` when a lean finding exists, and `Not checked:` one line for what mattered and could not be checked. Nothing found: `What this change does:`, then `Looks good. Ship.` and one line on what you checked.
 
+## Receiving a review
+
+A review comment is a claim about the code, not about you. Answer it in five steps, in order, and never say "you're right" before step 3:
+
+1. **Read it fully** — the whole comment before answering any of it.
+2. **Restate it** in one line, so the reviewer corrects your reading before you argue with it.
+3. **Verify against the code** — grep the caller, run the case, read the line. A comment that does not survive this step is answered with evidence, not agreement.
+4. **Evaluate for this codebase.** Right in general is not right here: the suggestion may fight a convention, a constraint or the lean ladder.
+5. **Then answer** — implement it, push back with the step-3 evidence, or take part of it. One line saying which and why.
+
+- Order the batch: blocking (bug, security, data loss) first, then the simple, then the complex. An unclear item stops the batch — one question, not a guess.
+- "Do it properly" gets the YAGNI check: what breaks if the proper version never arrives? If nothing, the small version stands and the reason is written down.
+- Push back when the code says so. Performative agreement is a worse review than a disagreement with a line number in it.
+
 ## A repo
 
 Map before reading deeply: the README, the build and deploy config, the dependency list, the entry points — main, routes, handlers, jobs, CLI — and the tests; the load it expects; the main flows end to end, through user input, money, auth, data writes, background jobs and anything shared between processes. In a big repo go where a mistake costs the most, not file by file, and say which parts you did not read.

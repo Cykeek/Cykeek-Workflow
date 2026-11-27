@@ -312,6 +312,26 @@
     { "id": 73, "prompt": "find the shortcuts we deferred in this repo",
       "assertions": ["greps for the shortcut markers while skipping ignored files",
                      "reports each ceiling and its upgrade trigger, and tags the markers with no trigger",
-                     "changes no code"] }
+                     "changes no code"] },
+    { "id": 74, "prompt": "add a save button to the settings form",
+      "assertions": ["stops once, with the five-line block, instead of a paragraph report",
+                     "Changed names the file and the lines, Proof is a command and its output, Ask is one question",
+                     "waits for the answer before starting the next row"] },
+    { "id": 75, "prompt": "the fix did not work, the test still fails",
+      "assertions": ["returns to the gate that failed and names it",
+                     "states the round and the delta since the last one",
+                     "stops at three rounds with the blocker named instead of trying a fourth"] },
+    { "id": 76, "prompt": "the dropdown closes when I click inside it",
+      "assertions": ["reproduces with the smallest failing case before touching code",
+                     "names the cause in one sentence with a file and a line",
+                     "fixes at the cause and refuses a symptom patch"] },
+    { "id": 77, "prompt": "the reviewer says we should add optimistic updates everywhere",
+      "assertions": ["restates the comment and checks the callers before answering",
+                     "pushes back with evidence or implements it — never agrees before verifying",
+                     "asks one question when the comment is unclear instead of guessing"] },
+    { "id": 78, "prompt": "is it done?",
+      "assertions": ["runs the verification command and quotes its output",
+                     "says UNVERIFIED when the command cannot be run",
+                     "does not answer from memory"] }
   ]
 }

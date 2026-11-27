@@ -35,7 +35,7 @@ Scope is every place the change must reach — callers, tests, fixtures, config,
 - Deletion beats addition, and the structure already there stays: its layers, interfaces and conventions.
 - Moved or merged code keeps its validation and error handling. Between two options of equal size, take the one that is correct on the edges.
 - Bug fix: grep every caller first, then fix the root cause once in the shared code.
-- Logic with a branch, a loop, a parser, money or security leaves one small test or an assert-based self-check. Trivial changes need none.
+- Logic with a branch, a loop, a parser, money or security gets its check written first, watched failing, then the smallest code that passes; code written before its test is deleted. Trivial changes need none.
 - A shortcut with a known limit is marked `shortcut: <the limit>, <when to upgrade>`, so "later" has a trigger.
 
 Never cut to be lazy: validation at trust boundaries, error handling that prevents data loss, security, accessibility, what the hardware needs calibrated, anything the user asked for.

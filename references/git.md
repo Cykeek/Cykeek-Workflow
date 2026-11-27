@@ -46,6 +46,13 @@ one as absent rather than as an error the login screen has to dress
 up.
 ```
 
+## Isolation
+
+- Detect what exists before creating anything: `git rev-parse --show-toplevel`, `git worktree list`, `git status -sb`. A worktree or branch the harness already made is used as-is.
+- Never create a branch or a worktree unasked. Isolation is requested, not assumed.
+- Start from a clean baseline: a dirty tree before the first build is a fact to report, not a state to build on.
+- Closing a branch offers exactly the three options of `pipeline.md` § Close — merge locally, push and open a PR, keep as-is — and waits for the choice.
+
 ## Amend
 
 The unit is the logical change, not the file. A follow-up edit to files the last local commit already owns amends that commit: a second request against the same stylesheet is not a second commit.

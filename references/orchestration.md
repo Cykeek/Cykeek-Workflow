@@ -43,6 +43,12 @@ After round one the unit of work is an order, not a rebuild:
 - Nothing outside the retest scope is touched or re-rendered.
 - A second failure on a row must name a different mechanism. A retry is a gamble, not an order.
 
+## Dispatch
+
+- The dispatcher hands a worker its contract and rows, never the session history. What the worker needs is in its twelve lines.
+- Do not dispatch: one row alone, rows coupled with no independent assertion, or evidence already in the ledger. Those run inline — inline is a mode, not a failure.
+- A built row is reviewed twice: against its contract assertion, then with `review.md`. Both name a delta; the row passes only on both.
+
 ## The ledger
 
 `.cykeek/verify/<task>.md`, under 60 lines, read before any work and written by everyone:

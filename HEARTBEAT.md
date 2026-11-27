@@ -2,9 +2,9 @@
 
 ## Status
 
-`SKILL.md` 522 lines · 22 references · `README.md` 270 · `evals/evals.json` 317 lines, 73 cases · install copy synced to `~/.agents/skills/cykeek/`.
-Last change: the smallest complete change is now a rule. `references/craft.md` § The ladder takes the first rung that holds — need, this repo, the standard library or platform, an installed dependency, one line, the minimum — after reading what the change touches, with scope as every caller and fixture, a never-cut list (validation, data loss, security, accessibility, hardware calibration, what was asked) and a `shortcut: <limit>, <when to upgrade>` marker. `references/review.md` turns a diff, a repo or those markers into ranked findings: six lenses, a concrete case or no finding, four parts each, a verdict, the lean line, what was not checked. Three evals, four routes and one budget row land with it.
-Before that: web animation, WebGL, GSAP, the Android hub, the motion clone protocol, the scroll score and the git contract — each in `git log`.
+`SKILL.md` 522 lines · 24 references · `README.md` 275 · `evals/evals.json` 337 lines, 78 cases · install copy synced to `~/.agents/skills/cykeek/`.
+Last change: the task now runs as eight gates — intent, route, brief, contract, slice, prove, show, close — each with a named destination when it fails and a five-line show block at every stop, one question per stop, and a cap that stops with the blocker named instead of trying again; roots get fixed before a symptom patch is touched (`references/debug.md`). Two evals for the stop and the cap land with it, plus the code-review receipt.
+Before that: the lean ladder and the review report, web animation, WebGL, GSAP, the Android hub, the motion clone protocol, the scroll score and the git contract — each in `git log`.
 
 ## Pending
 
