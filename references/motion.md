@@ -107,10 +107,22 @@ Two phases, and mixing them is the main cause of gestures that feel wrong:
 
 ## 7. Ship with it
 
-Reduced motion means fewer and gentler, not zero: keep opacity and comprehension, drop movement and position changes. Gesture tracking stays — the user is producing that motion. Translucency and contrast have their own signals: `prefers-reduced-transparency: reduce` goes solid, `prefers-contrast: more` gets a defined border. Gate hover motion behind `@media (hover: hover) and (pointer: fine)`.
+Reduced motion is **tiered**, not all-or-nothing. Sort every animation into one of three tiers — removing entirely is rarely the right call, because a sudden teleport is as disorienting as unwanted movement.
+
+| Tier | Motion | Reduced |
+| --- | --- | --- |
+| **1 — Remove** | Parallax, large slides/zooms, 3D spin, scroll-jacked pins, smooth-scroll hijacking | `transform: none`, do not instantiate Lenis |
+| **2 — Soften** | Small pop-ins, slide-in panels, scale entrances | Cross-fade ≤ 200ms, drop the displacement |
+| **3 — Keep** | Opacity fades, colour transitions, focus rings, loading feedback | Shorten to ≤ 150ms, never `0s` (breaks `transitionend`) |
+
+Gesture tracking (pointerdown → track → pointerup) stays in all tiers — the user is producing that motion.
+
+CSS gating covers the cascade; JS gating (`matchMedia` / `gsap.matchMedia()`) covers GSAP, Lenis and canvas. Toggling the OS preference fires a `change` event — listen for it, or the page holds a stale state.
 
 | Never | Instead |
 | --- | --- |
+| `animation: none` / `transition: 0s` globally | `0.01ms` — the event still fires |
+| All-or-nothing reduced-motion | tiered remove / soften / keep |
 | `transition: all` | name the properties |
 | `scale(0)` entrance | `scale(0.95)` + `opacity: 0` |
 | `ease-in` on UI | `ease-out` or a strong curve |
@@ -119,10 +131,7 @@ Reduced motion means fewer and gentler, not zero: keep opacity and comprehension
 | Animating width, height, margin, top, left | transform, opacity |
 | Keyframes on toasts and toggles | transitions |
 | Ungated `:hover` motion | hover media query |
-| Missing reduced-motion variant | gentler, not zero |
-| Everything entering at once | 30–80ms stagger |
-| `transform-origin: center` on a popover | the trigger's origin — modals stay centred |
 
 Feel can't be settled from code: play it at 2–5× duration or in the DevTools animation inspector, test gestures on a real device, and look again the next day.
 
-<!-- source: animate, choreograph, gestures, emil-design-eng, apple-design, greensock/gsap-skills (MIT), iart-ai/webgl-animation-skills (MIT) -->
+<!-- source: animate, choreograph, gestures, emil-design-eng, apple-design, greensock/gsap-skills (MIT), iart-ai/webgl-animation-skills (MIT), iart-ai/web-animation-skills (MIT) -->

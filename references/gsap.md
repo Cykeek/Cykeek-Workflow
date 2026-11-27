@@ -26,6 +26,20 @@ Read when GSAP is the library — the request names it, or the project already i
 - `overwrite: "auto"` on tweens that can retarget the same property; the last intent wins instead of two tweens fighting.
 - `invalidateOnRefresh: true` when a from-value is recalculated on resize.
 
+**SplitText (text reveal):** split after fonts load (`document.fonts.ready`), `autoSplit: true` (GSAP 3.13+) for re-split on resize, `revert()` before re-splitting or on unmount. Wrap line-mask reveals with `overflow: hidden` on the parent so `yPercent: 100` hides cleanly.
+
+**Flip (layout transitions):** `Flip.getState(els)` captures before the DOM mutates; `Flip.from(state, { absolute: true, duration: 0.6 })` animates the delta. `absolute: true` takes items out of flow during the move — without it, reflows between old and new positions produce jitter. For many FLIP elements batch all `getBoundingClientRect` reads before the mutation.
+
+**Lenis smooth scroll sync:** drive Lenis from `gsap.ticker` and update ScrollTrigger on every Lenis scroll, or they run on separate loops and the pin drifts:
+
+```js
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add((t) => lenis.raf(t * 1000)); // seconds → ms
+gsap.ticker.lagSmoothing(0);
+```
+
+`gsap.ticker` passes seconds; `lenis.raf()` wants milliseconds — multiply by 1000. Remove any standalone `requestAnimationFrame` loop driving Lenis.
+
 ## 3. Timelines
 
 - A timeline over chained `.to(..., { delay })`. Delays do not compose when a tween is retimed; a timeline's positions do.
@@ -86,4 +100,4 @@ Read when GSAP is the library — the request names it, or the project already i
 | Tween during SSR | mount-time effect |
 | A GSAP answer before `motion.md` §1 | the gate first |
 
-<!-- source: greensock/gsap-skills (MIT) — eight SKILL.md files, distilled not copied -->
+<!-- source: greensock/gsap-skills (MIT), iart-ai/web-animation-skills (MIT) — SplitText, Flip, Lenis sync added -->

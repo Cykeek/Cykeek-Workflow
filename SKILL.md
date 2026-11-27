@@ -210,7 +210,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Twenty files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Twenty-one files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -223,6 +223,8 @@ Twenty files ship beside this one. They hold the operative content — numbers, 
 | `references/gsap.md` | GSAP mechanics — tweens, timelines, ScrollTrigger, React cleanup, utils |
 | `references/motion-audit.md` | motion review, frame budget, subtraction |
 | `references/scroll.md` | a scroll-driven page — the score, the shapes, the device kit, the timeline, the build, the diagnosis |
+| `references/webgl.md` | WebGL gate — shader, Three.js scene, particles, GPU disposal, frozen-frame proof |
+| `references/web-animation.md` | specialised web motion — SVG, Lottie, glass, ASCII, Next page transitions, route |
 | `references/motion-clone.md` | a shared video, gif, screenshot or link to be matched — fidelity, frames, the spec, the proof |
 | `references/ui-engineering.md` | building the interface, accessibility, phones, worst-case data |
 | `references/android.md` | an Android app or module — the gate, the official routes, the floors, the fence |
@@ -263,6 +265,13 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | GLSL fragment shader or GPU transition | `references/webgl.md` §3 | `shader-glsl` | hand-rolled noise for a full-screen effect |
 | Three.js scene, camera, GLTF blend, instancing, R3F | `references/webgl.md` §4 | `threejs-animation` | `scene.remove()` as cleanup |
 | Particle, confetti, snow, flow field, connected dots, GPU `Points` | `references/webgl.md` §5 | `particle-system` | O(n²) pair checks past ~300 particles |
+| SVG draw-on, path morph, motion-along-path, animated icon | `references/web-animation.md` §3 | `svg-animation` | raw `d` morph with mismatched point counts |
+| Lottie or dotLottie integration, control, theming, export | `references/web-animation.md` §4 | `lottie-animation` | re-exporting per brand instead of runtime theme |
+| Frosted glass or liquid glass panel | `references/web-animation.md` §5 | `glassmorphism` | backdrop-filter over a flat background |
+| ASCII field, image/video-to-ASCII, `AsciiEffect` | `references/web-animation.md` §6 | `ascii-animation` | square-pixel sampling without cell-aspect correction |
+| Next App Router page transition, `AnimatePresence` exit | `references/web-animation.md` §7 | `page-transition-animation` | `layout.tsx` for per-route enter animation |
+| Micro-interaction, hover/press, toggle, toast, drawer, list reorder | `references/motion.md` §2, §6, `references/web-animation.md` §1 | `micro-interaction` | animating width/height instead of scale |
+| Reduced-motion tiering, WCAG 2.3.3 | `references/motion.md` §7 | `accessible-animation` | all-or-nothing kill switch |
 | Several things moving at once | `references/motion.md` §5 | `choreograph` | `animate` alone |
 | Drag, swipe, sheet, drawer | `references/motion.md` §6 | `gestures`, `apple-design` | both at once |
 | Route, page or shared-element transitions | `references/motion.md` | `vercel-react-view-transitions` | hand-rolled `AnimatePresence` routing |

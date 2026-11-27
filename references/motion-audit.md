@@ -35,6 +35,21 @@ Match the symptom, then diagnose in this order — it is sorted by how often eac
 
 The frame budget is 16.7ms at 60Hz and **8ms at 120Hz** — design against 8. "Smooth on my machine" is not evidence; a mid-range phone is the bar, and CPU throttling on a desktop models the wrong thing.
 
+## Compositor-only conversion
+
+If a finding is layout-thrash (animating `width`/`height`/`top`/`left`/`box-shadow`), replace per the table. A `scaleX` distorts inner text — use **FLIP** (First, Last, Invert, Play) when content must stay crisp:
+
+| Animating (expensive) | Triggers | Replace with |
+| --- | --- | --- |
+| `width` / `height` | Layout + Paint | `scaleX/Y` (+ FLIP for true size) |
+| `top` / `left` / `margin` | Layout + Paint | `translate()` |
+| `box-shadow` | Paint | `opacity` of a `::after` pseudo-element |
+| `background-position` | Paint | `translate()` on a child |
+| `height: auto` | not interpolatable | CSS grid `0fr→1fr` (works today), or `interpolate-size: allow-keywords` |
+| Many reads in a loop | Layout thrash | batch all `getBoundingClientRect` reads before the first write |
+
+`will-change: transform` promotes to its own compositor layer just-in-time (on hover or state change) and removes it when idle — never permanently on many elements.
+
 ## The fix hierarchy
 
 Prefer earlier moves; a later one without a stated reason is the wrong fix.
@@ -63,4 +78,4 @@ A findings table, one row per issue — `Before | After | Why`. Then order by co
 
 "The bouncy thing when a popover opens" is a *pop-in*; the iOS rubber-band scroll is *rubber-banding*; a list arriving in sequence is a *stagger*; content sliding under a fixed bar is *parallax*. Name the effect before prescribing a fix — a request for "make it smoother" is usually a naming problem.
 
-<!-- source: animation-performance, review-animations, improve-animations, find-animation-opportunities, remove-animations, animation-vocabulary -->
+<!-- source: animation-performance, review-animations, improve-animations, find-animation-opportunities, remove-animations, animation-vocabulary, iart-ai/web-animation-skills (MIT) — 60fps conversion added -->
