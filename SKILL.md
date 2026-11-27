@@ -189,6 +189,8 @@ Per task, seven steps. The long form is `references/loop.md`; the split is in `r
 
 A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over.
 
+Every skill runs the same recursive loop inside step 6: **Act → Changes → Review → Loop** (`references/loop.md` §5). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Decide. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
+
 ## Re-invocation is a refresh
 
 Diff what is on disk against what is generated, report what went stale — new motion library, deleted shadcn, changed framework major, a reference profile that no longer matches — ask only about the changed facts, update. Running it twice in a row must produce no diff.
@@ -208,7 +210,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Nineteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Twenty files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -257,6 +259,10 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | A video, gif, still or link the user wants matched | `references/motion-clone.md` § The fidelity gate | `reanimate` | cloning from a still, or one pass called a match |
 | One animation in React Native | outside this skill's scope — say so | `animate-expo` | `animate` |
 | GSAP in React or Next | `references/gsap.md` §5 | `gsap-react` | an unscoped selector, or a tween without `ctx.revert()` |
+| WebGL, GLSL, Three.js, R3F, GLTF, particles, flow field or constellation | `references/motion.md` §1, `references/webgl.md` §1 | `shader-glsl`, `threejs-animation`, `particle-system` | GPU before the gate, or two skills in one turn |
+| GLSL fragment shader or GPU transition | `references/webgl.md` §3 | `shader-glsl` | hand-rolled noise for a full-screen effect |
+| Three.js scene, camera, GLTF blend, instancing, R3F | `references/webgl.md` §4 | `threejs-animation` | `scene.remove()` as cleanup |
+| Particle, confetti, snow, flow field, connected dots, GPU `Points` | `references/webgl.md` §5 | `particle-system` | O(n²) pair checks past ~300 particles |
 | Several things moving at once | `references/motion.md` §5 | `choreograph` | `animate` alone |
 | Drag, swipe, sheet, drawer | `references/motion.md` §6 | `gestures`, `apple-design` | both at once |
 | Route, page or shared-element transitions | `references/motion.md` | `vercel-react-view-transitions` | hand-rolled `AnimatePresence` routing |

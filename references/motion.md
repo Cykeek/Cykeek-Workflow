@@ -25,6 +25,7 @@ Name the purpose in one word before continuing: **feedback**, **spatial consiste
 | Programmatic control, no library | WAAPI |
 | Springs, layout, exits, gesture-driven values | Motion (`motion.dev`) |
 | GSAP as the project's library — timelines, ScrollTrigger, React cleanup | `references/gsap.md` |
+| Full-screen per-pixel effect, real 3D, thousands of elements | `references/webgl.md` |
 
 CSS beats JS under load: `transform`/`opacity` run on the compositor while rAF animation drops frames. Never install a library for a fade. If the task needs a *component* — toast, drawer, dropdown, command menu — route to `references/libraries.md` first; hand-rolling those loses focus management.
 
@@ -124,4 +125,4 @@ Reduced motion means fewer and gentler, not zero: keep opacity and comprehension
 
 Feel can't be settled from code: play it at 2–5× duration or in the DevTools animation inspector, test gestures on a real device, and look again the next day.
 
-<!-- source: animate, choreograph, gestures, emil-design-eng, apple-design, greensock/gsap-skills (MIT) -->
+<!-- source: animate, choreograph, gestures, emil-design-eng, apple-design, greensock/gsap-skills (MIT), iart-ai/webgl-animation-skills (MIT) -->

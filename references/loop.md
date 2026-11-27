@@ -85,6 +85,17 @@ Then render at two widths and compare against the spec or the reference — neve
 
 Iterate on the assertion that failed, not on the whole screen. Three passes on the same assertion with no movement means the cause is upstream, so go back to Decide rather than restyling.
 
+### The four-move loop — Act, Changes, Review, Loop
+
+Every skill execution runs this inside Prove. It is recursive: each round's output is the next round's input, and the ledger records the rounds. It is named once here so no domain file repeats it.
+
+1. **Act** — build the smallest slice the spec names. One artifact, one assertion.
+2. **Changes** — read the result against the assertion and name the gap in one line: which property, which instant, which width. No named gap means done; do not improve on taste.
+3. **Review** — render the checks the domain names: three instants for motion (start, mid, end; transitions 0 / 0.5 / 1), three frozen `?t=N` frames for WebGL (`webgl.md` §6), three scroll positions per act (`scroll.md` § The score), two widths for screens. Check fidelity and artifacts, record PASS or the measured delta.
+4. **Loop** — a real, fixable gap returns to Act with the named fix and the same assertion. Three rounds on one assertion with no movement is the stop: report the delta, return to Decide, and do not restyle.
+
+Bounds: three rounds, one assertion per round, two widths per visual round. Skill-specific checks ride on this loop — GSAP retimes a timeline position, WebGL re-freezes a frame, a scroll act re-captures its beat. A review or audit that builds nothing still runs Changes and Review on the artifact it was given.
+
 ## 6 — Close
 
 Three lines: what changed, what is verified, what is open with the next route. Persist the verification ledger so a later session resumes the same cases instead of redefining them — that is what makes the loop recursive rather than merely repeated.
@@ -126,4 +137,4 @@ Never the reverse. Never a folder listing to find what you already know the name
 
 Where a reference's own decision order disagrees with this table, the reference wins. This is the shape of the work, not its content.
 
-<!-- source: animate, emil-design-eng, clean-code, figma-design-to-code, checklist-design, animation-performance -->
+<!-- source: animate, choreograph, gestures, emil-design-eng, apple-design, iart-ai/webgl-animation-skills (MIT) — the Act/Changes/Review/Loop verify cycle -->

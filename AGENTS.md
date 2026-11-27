@@ -35,8 +35,8 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 19 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` ~507 lines · each reference ≤140 · `README.md` ~266 |
+| Shipped files | `SKILL.md`, `README.md`, 20 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` ~513 lines · each reference ≤140 · `README.md` ~266 |
 | Evals | 70 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
@@ -50,6 +50,8 @@ Write path: windows · edit tool → `Set-Content -LiteralPath` with a single-qu
 
 Six moves, one line each: **frame** (what changes, which file owns it, which reference governs) · **decide** (should this rule exist at all) · **specify** (the exact lines, counts and files) · **build** (the smallest edit that carries the change) · **prove** (grep, count, parse — see §11) · **close** (what the next session needs).
 
+Inside Prove every skill runs **Act → Changes → Review → Loop** (`references/loop.md` §5): one named gap per round, the same assertion re-rendered, three rounds then stop. No domain file repeats it.
+
 Compress for a one-line fix. Proof is never the move that gets skipped.
 
 ## 5. Routing
@@ -57,7 +59,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Task | Read | Never |
 | --- | --- | --- |
 | Change the process, phases or contracts | `SKILL.md` | editing `README.md` first |
-| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other sixteen to be safe |
+| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other nineteen to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
 | Add a case | `evals/evals.json` | an assertion that cannot be checked |
@@ -65,6 +67,7 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Change the design gate or the design card | `references/design.md` § The gate, § The card, `SKILL.md` § What `DESIGN.md` contains | a reminder in prose where a card would bind |
 | Change the scroll pipeline | `references/scroll.md`, `SKILL.md` routing row | a device list without the score |
 | Change GSAP mechanics | `references/gsap.md`, then `references/motion.md` §1 or `references/scroll.md` § The score | a GSAP answer before the gate, or an API recalled from memory |
+| Change the WebGL domain | `references/webgl.md`, then `references/motion.md` §1 | a GPU scene before the gate, or an API recalled from memory |
 | Change the motion clone protocol | `references/motion-clone.md`, `references/motion.md` | a clone verdict without row numbers |
 | Change the Android hub | `references/android.md`, `SKILL.md` routing row | an Android API recalled from memory |
 | Commit, amend or push | `references/git.md` § The gate | a commit nobody asked for, a push nobody asked for |
@@ -123,6 +126,8 @@ This repo ships no visual surface except `assets/picker.html`, so verification i
 | an act | the receipt, and the section it cites exists |
 | a design review | the gate answered, and the render looked at at five widths |
 | a scroll sequence | the score answered, frames at three positions per act, one phone statement |
+| a WebGL scene, shader or particle effect | three frozen frames at start, mid and end, console clear, `renderer.info.memory` back to baseline after ten mounts |
+| a four-move loop | the named gap, the same assertion re-rendered, stop or delta recorded at round three |
 | picker still works | open it, capture at 390 and 1440, check the three variants and the keys |
 | a commit | `git log -1 --format=%B` read back: one idea, why in the body, no trailer, still unpublished |
 
