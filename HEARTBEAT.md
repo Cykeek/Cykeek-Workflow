@@ -2,8 +2,8 @@
 
 ## Status
 
-`SKILL.md` 503 lines · 16 references · `README.md` 257 · `evals/evals.json` 274 lines, 62 cases · install copy synced to `~/.agents/skills/cykeek/`.
-Last change: git has a contract — `references/git.md` gates every write (what changed, one commit or several, new or amend, local or published, what proves it), writes the Linus shape, amends a follow-up edit instead of stacking a commit, withholds a push until the user says so, and scrubs agent trailers from the author field and the message; `SKILL.md` routes it and names the commit in its close, `AGENTS.md`, `orchestration.md` and six evals carry the rule. Before that: the design gate and card, the scroll pipeline, then the picker capture.
+`SKILL.md` 502 lines · 17 references · `README.md` 261 · `evals/evals.json` 290 lines, 66 cases · install copy synced to `~/.agents/skills/cykeek/`.
+Last change: a shared motion reference now has a protocol — `references/motion-clone.md` sets a fidelity level from the user's words, keeps reference and clone on the same capture, reads start, duration, easing and stagger from frames, writes one row per element per property, and passes only on numbers (80 ms timing, 40 ms stagger, 2 % mean pixels when exact), stopping at five rounds with the failing row; `motion.md` hands over, `SKILL.md` routes it, and four evals cover it. Before that: the git contract, then the design gate and card, the scroll pipeline.
 
 ## Pending
 

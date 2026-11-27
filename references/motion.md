@@ -1,6 +1,6 @@
 # Motion
 
-Read when a task adds, changes or reviews animation. Work in this order — the gate comes before the curve, every time. A page whose timeline is the wheel is `scroll.md`, not this file.
+Read when a task adds, changes or reviews animation. Work in this order — the gate comes before the curve, every time. A page whose timeline is the wheel is `scroll.md`, not this file; a reference the user wants copied — a video, a gif, a still, a link — is `motion-clone.md`, which measures it instead of choosing it. This file still answers first: a clone that should not animate is a clone of a mistake.
 
 ## 1. Should it animate at all
 

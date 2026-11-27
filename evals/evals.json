@@ -269,6 +269,22 @@
     { "id": 62, "prompt": "the last commit is already on origin and the user asks to fold the new edit into it",
       "assertions": ["refuses to rewrite published history",
                      "proposes a follow-up commit or a revert instead",
-                     "asks before any history-touching command runs"] }
+                     "asks before any history-touching command runs"] },
+    { "id": 63, "prompt": "here's a gif of a card hover, make ours exactly like it",
+      "assertions": ["names the fidelity level, pixel-faithful, before building",
+                     "reads fps, crop and start from the frames instead of guessing",
+                     "writes one row per element and property, with numbers, before the code"] },
+    { "id": 64, "prompt": "make this look like the screenshot",
+      "assertions": ["says a still carries no timing, so there is no motion to match yet",
+                     "asks for a recording or the live link rather than inventing a duration",
+                     "offers the static clone only for the states it can actually verify"] },
+    { "id": 65, "prompt": "the clone was recorded at a different viewport and frame rate than the reference",
+      "assertions": ["declares the comparison void before judging the motion",
+                     "fixes capture parity — viewport, crop, fps, trigger — and re-captures both",
+                     "does not tune the code against a mismatched pair of recordings"] },
+    { "id": 66, "prompt": "five rounds in and the hero easing still does not match",
+      "assertions": ["stops at the cap and reports the failing row with its numbers",
+                     "names the likely reason instead of lowering the threshold",
+                     "asks whether the residual is acceptable rather than declaring a match"] }
   ]
 }

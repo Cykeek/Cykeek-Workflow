@@ -212,7 +212,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Sixteen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Seventeen files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -224,6 +224,7 @@ Sixteen files ship beside this one. They hold the operative content — numbers,
 | `references/motion.md` | whether to animate, and how it should feel |
 | `references/motion-audit.md` | motion review, frame budget, subtraction |
 | `references/scroll.md` | a scroll-driven page — the score, the shapes, the device kit, the timeline, the build, the diagnosis |
+| `references/motion-clone.md` | a shared video, gif, screenshot or link to be matched — fidelity, frames, the spec, the proof |
 | `references/ui-engineering.md` | building the interface, accessibility, phones, worst-case data |
 | `references/libraries.md` | component libraries, shadcn, toasts |
 | `references/figma.md` | Figma links |
@@ -235,9 +236,7 @@ Sixteen files ship beside this one. They hold the operative content — numbers,
 
 ## The routing table
 
-Rows are keyed by the artifact being produced, not by a skill. Read the file in the second column. A skill name in the third column is depth when it happens to be installed, and never a precondition — if it is absent, the reference is the whole contract and the row still works.
-
-**Precedence when guidance conflicts:** project conventions in `AGENTS.md` and `DESIGN.md` first, then a live skill on its own subject, then the reference, and the non-negotiables as a floor nothing crosses without a recorded convention.
+Rows are keyed by the artifact being produced, not by a skill. Read the file in the second column. A skill name in the third column is depth when it happens to be installed, and never a precondition — if it is absent, the reference is the whole contract and the row still works. **Precedence when guidance conflicts:** project conventions in `AGENTS.md` and `DESIGN.md` first, then a live skill on its own subject, then the reference, and the non-negotiables as a floor nothing crosses without a recorded convention.
 
 | Task | Read | Then, if installed | Never |
 | --- | --- | --- | --- |
@@ -255,6 +254,7 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | One animation on the web | `references/motion.md` | `animate` | `animate-expo` |
 | Scroll reveals across a set of sections | `references/motion.md` §1, §5, then `references/orchestration.md` | `find-animation-opportunities` | animating every section by default |
 | A scroll-driven page or sequence, asked for by name | `references/scroll.md` § The score, then § The shape | — | a section plan before the score |
+| A video, gif, still or link the user wants matched | `references/motion-clone.md` § The fidelity gate | `reanimate` | cloning from a still, or one pass called a match |
 | One animation in React Native | outside this skill's scope — say so | `animate-expo` | `animate` |
 | Several things moving at once | `references/motion.md` §5 | `choreograph` | `animate` alone |
 | Drag, swipe, sheet, drawer | `references/motion.md` §6 | `gestures`, `apple-design` | both at once |
@@ -323,9 +323,7 @@ Three states and no others: PASS, FAIL with the measured delta, UNVERIFIED with 
 1. **Match** — every V case reads PASS.
 2. **Approval** — the user explicitly accepts the remaining deltas, recorded as accepted deviations with the date, the reason and the stop, in `DESIGN.md` under the reference profile and in `HEARTBEAT.md` as a confirmation.
 
-Silence is not approval. A green build is not approval. "Tests pass" is not approval. An agent that has not seen the page has not finished, however clean the diff.
-
-**Plateau.** If two consecutive rounds reduce no delta, stop and bring the list to the user — which cases, which viewport, what was tried — as a question rather than a handoff. That is the only way a round ends without one of the two conditions above.
+Silence is not approval. A green build is not approval. "Tests pass" is not approval. An agent that has not seen the page has not finished, however clean the diff. **Plateau.** If two consecutive rounds reduce no delta, stop and bring the list to the user — which cases, which viewport, what was tried — as a question rather than a handoff. That is the only way a round ends without one of the two conditions above.
 
 **The loop.**
 
@@ -364,7 +362,7 @@ Fourteen sections, in this order. Cap 240 lines.
 8. **Gates and definition of done** — per task class.
 9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship.
 10. **Heartbeat** — when to capture, when to promote, which file to edit.
-11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the V-case schema, the gate, the two exit conditions, the ledger path, and the commit read back — subject, why, no trailer, still local.
+11. **Verification** — the preflight verdict (model, reasoning, image, render, then the discovered names), the V-case schema, the gate, the two exit conditions, the ledger path, the commit read back — subject, why, no trailer, still local — and for a cloned reference the spec rows, the timing numbers and the sheets.
 12. **Orchestration** — the contract table, whose rows are the work orders and the tests at once; the seven states from `PLANNED` to `SHIPPED`; the ledger at `.cykeek/verify/<task>.md`; the caps (40-line contract, 12-line assignment, 8-line outcome, 3 rows per batch, 4 rounds); the three stops; the rule that whoever builds never grades; keep-alive until the user approves; only the orchestrator commits, and only locally; and the one-line degradation to serial work with no subagents.
 13. **Research** — when a request names a technology the agent cannot state from memory: the card at `.cykeek/research/<slug>.md` with its nine slots, the source ladder, the five-query cap, the spike before integration, and the rule that no dependency enters without a version, a licence and a cleanup path.
 
@@ -474,6 +472,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | design gate, `references/design.md` § The gate | before the first visual decision | 5 answers |
 | design card, top of `DESIGN.md` | before any visual act | 12 lines + version |
 | scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |
+| fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers and a spec |
 | git gate, `references/git.md` § The gate | before any git write | 5 answers |
 | `references/<domain>.md` | only when a routing row names it | one per task, ≤140 lines |
 | installed skills | only when the reference hands off | at most one at once |
