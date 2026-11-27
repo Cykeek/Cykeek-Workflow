@@ -167,16 +167,16 @@ Workspace ready, N files written, the one route the next task should take, and t
 
 ## Part 2 — Work in a workspace
 
-Per task, eight gates in order. The sequence, the receipt, the show block and where a gate sends the work back are `references/process.md`; the split is in `references/orchestration.md`. **Before gate 1, the receipt.** Nothing is written, run or dispatched until one line exists: `Rules: AGENTS.md v<n> · <section cited> · owns: <concept> · refuse: <what> · proof: <check>` (`references/process.md` § Receipt). The card is the top of `AGENTS.md`; the section is cited rather than paraphrased, because a citation you cannot make is a read you did not do. One receipt covers a run of work on one area, refreshed when the area or the goal changes and after any fail, any correction and any returned report. When the file on disk differs from what the receipt cites, the receipt is stale and the read comes first.
+Per task, eight gates in order. The sequence, the receipt, the show block and where a gate sends the work back are `references/process.md`; the split is in `references/agents.md`. **Before gate 1, the receipt.** Nothing is written, run or dispatched until one line exists: `Rules: AGENTS.md v<n> · <section cited> · owns: <concept> · refuse: <what> · proof: <check>` (`references/process.md` § Receipt). The card is the top of `AGENTS.md`; the section is cited rather than paraphrased, because a citation you cannot make is a read you did not do. One receipt covers a run of work on one area, refreshed when the area or the goal changes and after any fail, any correction and any returned report. When the file on disk differs from what the receipt cites, the receipt is stale and the read comes first.
 
 1. **Orient** — `AGENTS.md` read, `HEARTBEAT.md` pending, preflight passed, the goal restated in one line: the want and the why, or the one question that answers it. The harness verdict rides with it.
-2. **Route** — one hub open at its index, only the named sections read, the mode named in one word. A problem statement classifies through `references/process.md` § Triage; a technology the agent cannot specify goes through `references/research.md` first.
+2. **Route** — one hub open at its index, only the named sections read, the mode named in one word. A problem statement classifies through `references/process.md` § Triage; a technology the agent cannot specify goes through `references/agents.md` § Research card first.
 3. **Brief** — five lines: what, why, the shape, what it refuses, what proves it. A one-round change skips it and stops once, with the result.
-4. **Contract** — the numbers, states and widths, and the row table when the work splits (`references/orchestration.md`): every row carries the assertion that fails if it is wrong, and a row that says `none` carries its reason. Nothing downstream adds a row.
+4. **Contract** — the numbers, states and widths, and the row table when the work splits (`references/agents.md` § Contract): every row carries the assertion that fails if it is wrong, and a row that says `none` carries its reason. Nothing downstream adds a row.
 5. **Slice** — one row built and verified in this round, one owner per row; one consolidated outcome per round, a delta returned as an order and nothing else; the project's tokens and components, nothing outside the markers.
-6. **Prove** — the code gate first (`references/craft.md` § The gate), then the four-move loop (`references/process.md` § Inner loops): the assertion re-run, read and quoted at two widths (`## Visual tests`), the simplest and riskiest cases seen yourself.
+6. **Prove** — the code gate first (`references/code.md` § Gate), then the four-move loop (`references/process.md` § Inner loops): the assertion re-run, read and quoted at two widths (`## Visual tests`), the simplest and riskiest cases seen yourself.
 7. **Show** — the five-line block at `references/process.md` § Stops, one question, then wait. A gate that fails returns to the gate it names, never to the top; the mechanical clean pass runs before the question, never after.
-8. **Close** — the diff sweep, the workers released, the ledger closed, one local commit and never a push (`references/git.md`).
+8. **Close** — the diff sweep, the workers released, the ledger closed, one local commit and never a push (`references/agents.md` § Git).
 
 A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over. Every skill runs the same recursive loop inside Prove: **Act → Changes → Review → Loop** (`references/process.md` § Inner loops). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Contract. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
 
@@ -199,34 +199,21 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Twenty-four files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Eleven files ship beside this one, each a hub that opens with an index: read the sections the routing row names, not the file, and a hub past its cap is two hubs. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
 | `references/process.md` | every task — the eight gates, the receipt, discovery and the write path, the inner loops, triage, dispatch, stops, resume |
-| `references/debug.md` | a bug or a wrong result — reproduce, locate, explain, then fix |
-| `references/orchestration.md` | a task that splits across agents — the orchestrator's contract |
-| `references/research.md` | a library or technique whose current shape you cannot state from memory |
-| `references/design.md` | the design gate, then UX and hierarchy, direction, tokens, copy, review |
-| `references/motion.md` | whether to animate, and how it should feel |
-| `references/gsap.md` | GSAP mechanics — tweens, timelines, ScrollTrigger, React cleanup, utils |
-| `references/motion-audit.md` | motion review, frame budget, subtraction |
-| `references/scroll.md` | a scroll-driven page — the score, the shapes, the device kit, the timeline, the build, the diagnosis |
-| `references/webgl.md` | WebGL gate — shader, Three.js scene, particles, GPU disposal, frozen-frame proof |
-| `references/web-animation.md` | specialised web motion — SVG, Lottie, glass, ASCII, Next page transitions, route |
-| `references/motion-clone.md` | a shared video, gif, screenshot or link to be matched — fidelity, frames, the spec, the proof |
-| `references/ui-engineering.md` | building the interface, accessibility, phones, worst-case data |
-| `references/android.md` | an Android app or module — the gate, the official routes, the floors, the fence |
-| `references/libraries.md` | component libraries, shadcn, toasts |
-| `references/figma.md` | Figma links |
-| `references/react.md` | React and Next performance |
-| `references/craft.md` | the code gate, the ladder, then five triggered moments — naming, routines, modules, knowledge, changing code — and untangle |
+| `references/design.md` | the design gate, then UX and hierarchy, direction, tokens, copy, responsive |
+| `references/motion.md` | whether to animate, curves, choreography, gestures, the motion audit, cloning a reference |
+| `references/motion-stack.md` | GSAP mechanics, ScrollTrigger, and a scroll-driven page — the score, the shapes, the devices, the timeline, the diagnosis |
+| `references/graphics.md` | WebGL and shaders, SVG and Lottie, glass, ASCII, page transitions |
+| `references/code.md` | the code gate, the ladder, the moments, changing code, debugging, React, release |
 | `references/review.md` | reviewing a change, auditing a repo, the `shortcut:` ledger |
-| `references/security.md` | a security audit or question — the gate, the three verdicts, the coverage ledger, verification, severity |
-| `references/security-classes.md` | what to look for by surface, and the question that settles each class |
+| `references/security.md` | a security audit or question — the gate, the verdicts, the coverage ledger, the classes by surface |
+| `references/agents.md` | splitting across agents, the research card, git — the gate, the message, the attribution scrub |
+| `references/platform.md` | Android, Figma and component libraries |
 | `references/domain.md` | domain modelling and data systems |
-| `references/release.md` | production failure handling, test hygiene |
-| `references/git.md` | a commit, an amend, a push — the gate, the message, the attribution scrub |
 
 ## The routing table
 
@@ -238,71 +225,60 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | "What changed?" or "show me" | `references/process.md` § Stops | — | a summary with no file and no proof |
 | A gate failed, or the user says it is wrong | `references/process.md` § Stops, what sends it back | — | patching until it looks better |
 | "I don't know what it should look like" | `references/process.md` § Triage, Prototype; then `design.md` | `prototype`, `frontend-design` | committing to the first idea |
-| "This codebase is a mess" | `references/process.md` § Triage, Untangle | `untangle-codebase` | page-by-page tidying |
+| "This codebase is a mess", legacy or unfamiliar code | `references/process.md` § Triage, Untangle | `untangle-codebase`, `working-effectively-with-legacy-code` | page-by-page tidying |
 | "You keep getting this wrong" | `references/process.md` § Triage, Capture | `learn-taste` | fixing the code instead of the rule |
-| Work that splits across agents | `references/orchestration.md`, after the domain row | subagent tools, if present | two workers writing one file |
-| Integrate a library or technique you do not know | `references/research.md` before the domain row — the research pass is not the domain read | `find-skills` | writing the API from memory |
-| "How do other sites do X?" | `references/research.md` §6 | — | copying the look instead of the structure |
-| Any screen, before the first visual decision | `references/design.md` § The gate, then the row for its kind | a design skill that names its own gate | drawing the layout before answering it |
+| Any screen, before the first visual decision | `references/design.md` § Gate, then the row for its kind | a design skill that names its own gate | drawing the layout before answering it |
 | New marketing page or site | `references/design.md`, then `references/motion.md` | `design-taste-frontend` | `unslop-ui` in the same turn |
-| Dashboard or app screen | `references/ui-engineering.md` | `frontend-ui-engineering` | `frontend-design` |
-| Closing pass on copy and charts | `references/design.md` | `unslop-ui` | `design-taste-frontend` |
-| One animation on the web | `references/motion.md` | `animate` | `animate-expo` |
-| GSAP is the project's library | `references/motion.md` §1, `references/gsap.md` §1–3 | `gsap-core`, `gsap-timeline` | a GSAP answer before the gate, or `.delay()` chains |
-| Scroll reveals across a set of sections | `references/motion.md` §1, §5, then `references/orchestration.md` | `find-animation-opportunities` | animating every section by default |
-| A scroll-driven page or sequence, asked for by name | `references/scroll.md` § The score, then § The shape | — | a section plan before the score |
-| GSAP ScrollTrigger on that page | `references/scroll.md` § The score, then `references/gsap.md` §4 | `gsap-scrolltrigger` | a trigger on a timeline child, or `scrub` with `toggleActions` |
-| A video, gif, still or link the user wants matched | `references/motion-clone.md` § The fidelity gate | `reanimate` | cloning from a still, or one pass called a match |
-| One animation in React Native | outside this skill's scope — say so | `animate-expo` | `animate` |
-| GSAP in React or Next | `references/gsap.md` §5 | `gsap-react` | an unscoped selector, or a tween without `ctx.revert()` |
-| WebGL, GLSL, Three.js, R3F, GLTF, particles, flow field or constellation | `references/motion.md` §1, `references/webgl.md` §1 | `shader-glsl`, `threejs-animation`, `particle-system` | GPU before the gate, or two skills in one turn |
-| GLSL fragment shader or GPU transition | `references/webgl.md` §3 | `shader-glsl` | hand-rolled noise for a full-screen effect |
-| Three.js scene, camera, GLTF blend, instancing, R3F | `references/webgl.md` §4 | `threejs-animation` | `scene.remove()` as cleanup |
-| Particle, confetti, snow, flow field, connected dots, GPU `Points` | `references/webgl.md` §5 | `particle-system` | O(n²) pair checks past ~300 particles |
-| SVG draw-on, path morph, motion-along-path, animated icon | `references/web-animation.md` §3 | `svg-animation` | raw `d` morph with mismatched point counts |
-| Lottie or dotLottie integration, control, theming, export | `references/web-animation.md` §4 | `lottie-animation` | re-exporting per brand instead of runtime theme |
-| Frosted glass or liquid glass panel | `references/web-animation.md` §5 | `glassmorphism` | backdrop-filter over a flat background |
-| ASCII field, image/video-to-ASCII, `AsciiEffect` | `references/web-animation.md` §6 | `ascii-animation` | square-pixel sampling without cell-aspect correction |
-| Next App Router page transition, `AnimatePresence` exit | `references/web-animation.md` §7 | `page-transition-animation` | `layout.tsx` for per-route enter animation |
-| Micro-interaction, hover/press, toggle, toast, drawer, list reorder | `references/motion.md` §2, §6, `references/web-animation.md` §1 | `micro-interaction` | animating width/height instead of scale |
-| Reduced-motion tiering, WCAG 2.3.3 | `references/motion.md` §7 | `accessible-animation` | all-or-nothing kill switch |
-| Several things moving at once | `references/motion.md` §5 | `choreograph` | `animate` alone |
-| Drag, swipe, sheet, drawer | `references/motion.md` §6 | `gestures`, `apple-design` | both at once |
+| Dashboard or app screen | `references/design.md` § UX | `frontend-ui-engineering` | `frontend-design` |
+| Closing pass on copy and charts | `references/design.md` § Copy | `unslop-ui` | `design-taste-frontend` |
+| Design review of a screenshot or URL | `references/review.md` § Design review | `checklist-design` | `web-design-guidelines` |
+| Polish one component interaction, or a code-level UI and accessibility audit | `references/design.md` § UX | `emil-design-eng`, `web-design-guidelines` | `checklist-design` |
+| Web app on a phone | `references/design.md` § Responsive | `mobile-native` | `animate-expo` |
+| Worst-case data and edge cases | `references/design.md` § UX | `break-ui` | `checklist-design` |
+| One animation on the web | `references/motion.md` § Whether, § Curves | `animate` | `animate-expo` |
+| GSAP is the project's library | `references/motion.md` § Curves, `references/motion-stack.md` § GSAP | `gsap-core`, `gsap-timeline` | a GSAP answer before the gate, or `.delay()` chains |
+| GSAP in React or Next | `references/motion-stack.md` § GSAP | `gsap-react` | an unscoped selector, or a tween without `ctx.revert()` |
+| Scroll reveals across a set of sections | `references/motion.md` § Curves, § Choreography; then `references/agents.md` § Contract | `find-animation-opportunities` | animating every section by default |
+| A scroll-driven page or sequence, asked for by name | `references/motion-stack.md` § The scroll score | — | a section plan before the score |
+| GSAP ScrollTrigger on that page | `references/motion-stack.md` § ScrollTrigger | `gsap-scrolltrigger` | a trigger on a timeline child, or `scrub` with `toggleActions` |
+| A video, gif, still or link the user wants matched | `references/motion.md` § Clone | `reanimate` | cloning from a still, or one pass called a match |
+| Several things moving at once | `references/motion.md` § Choreography | `choreograph` | `animate` alone |
+| Drag, swipe, sheet, drawer | `references/motion.md` § Gestures | `gestures`, `apple-design` | both at once |
+| Micro-interactions, and their reduced-motion tier | `references/motion.md` § Curves, § Gestures | `micro-interaction`, `accessible-animation` | animating width/height instead of scale, or an all-or-nothing kill switch |
 | Route, page or shared-element transitions | `references/motion.md` | `vercel-react-view-transitions` | hand-rolled `AnimatePresence` routing |
-| Motion drops frames | `references/motion-audit.md` | `animation-performance` | `review-animations` |
-| Audit motion in one diff | `references/motion-audit.md` | `review-animations` | `animate` |
-| Audit motion across a codebase | `references/motion-audit.md` | `improve-animations` | `review-animations` |
-| Find where motion should exist | `references/motion-audit.md` | `find-animation-opportunities` | `animate` |
-| Too much motion | `references/motion-audit.md` | `remove-animations` | `improve-animations` |
-| Name an effect | `references/motion-audit.md` | `animation-vocabulary` | anything else |
-| Design review of a screenshot or URL | `references/design.md` | `checklist-design` | `web-design-guidelines` |
-| Polish one component interaction | `references/ui-engineering.md` | `emil-design-eng` | `checklist-design` |
-| Code-level UI and accessibility audit | `references/ui-engineering.md` | `web-design-guidelines` | `checklist-design` |
-| Web app on a phone | `references/ui-engineering.md` | `mobile-native` | `animate-expo` |
-| An Android app or module — `settings.gradle`, `AndroidManifest.xml`, `gradlew` present, or the user asks for one | `references/android.md` § The gate | — | Android advice in a web project, or an API recalled from memory |
-| Worst-case data and edge cases | `references/ui-engineering.md` | `break-ui` | `checklist-design` |
-| shadcn components | `references/libraries.md` | `shadcn` | `pick-ui-library` |
-| Choose a UI library | `references/libraries.md` | `pick-ui-library` | `shadcn` |
-| Project uses `@ui-sdk/*` | `references/libraries.md` | `ui-sdk` | — |
-| Toasts | `references/libraries.md` | `ask-sonner` | — |
-| Figma to code | `references/figma.md`, then the Figma section below | `figma-design-to-code` | `figma-use` |
-| Write into Figma | outside this skill's scope — say so | `figma-use` | `figma-design-to-code` |
-| Any code change, before the first line | `references/craft.md` § The gate | `clean-code`, `code-complete` | narrating the gate instead of answering it |
-| A fix growing past its problem, or "this is over-engineered" | `references/craft.md` § The ladder | `ponytail` | planning the bigger version first |
-| A smell, a cleanup, a rewrite tempting | `references/craft.md` § Changing code | `refactoring`, `refactoring-guru` | rewriting |
-| A bug, a failure, a wrong result | `references/debug.md` | — | a fix before the cause is named |
-| Legacy or unfamiliar code | `references/craft.md` § Untangle, `process.md` § Triage, Untangle | `untangle-codebase`, `working-effectively-with-legacy-code` | page-by-page tidying |
-| Boundary, layering, module or API shape | `references/craft.md` § Modules | `a-philosophy-of-software-design`, `clean-architecture` | pattern-first |
-| Review a diff, a commit or a PR | `references/review.md` § A change, § The report | `ponytail-review` | a finding with no concrete case |
+| One animation in React Native | outside this skill's scope — say so | `animate-expo` | `animate` |
+| Motion drops frames | `references/motion.md` § Audit | `animation-performance` | `review-animations` |
+| Audit motion in one diff or across a codebase | `references/motion.md` § Audit | `review-animations`, `improve-animations` | `animate` |
+| Find where motion should exist, too much motion, or an effect to name | `references/motion.md` § Audit | `find-animation-opportunities`, `remove-animations`, `animation-vocabulary` | `improve-animations` |
+| WebGL, GLSL, Three.js, R3F, GLTF, particles, flow field or constellation | `references/motion.md` § Whether, `references/graphics.md` § WebGL | `shader-glsl`, `threejs-animation`, `particle-system` | GPU before the gate, or two skills in one turn |
+| GLSL fragment shader or GPU transition | `references/graphics.md` § Shaders | `shader-glsl` | hand-rolled noise for a full-screen effect |
+| Three.js scene, camera, GLTF blend, instancing, R3F | `references/graphics.md` § WebGL | `threejs-animation` | `scene.remove()` as cleanup |
+| Particle, confetti, snow, flow field, connected dots, GPU `Points` | `references/graphics.md` § WebGL | `particle-system` | O(n²) pair checks past ~300 particles |
+| SVG draw-on, path morph, animated icon, Lottie or dotLottie | `references/graphics.md` § SVG and Lottie | `svg-animation`, `lottie-animation` | raw `d` morph with mismatched point counts, or re-exporting per brand |
+| Frosted glass, an ASCII field, or a Next page transition | `references/graphics.md` § Glass, § ASCII, § Page transitions | `glassmorphism`, `ascii-animation`, `page-transition-animation` | backdrop-filter over a flat background, square-pixel sampling without cell-aspect correction, or `layout.tsx` for per-route enter |
+| Any code change, before the first line | `references/code.md` § Gate | `clean-code`, `code-complete` | narrating the gate instead of answering it |
+| A fix growing past its problem, or "this is over-engineered" | `references/code.md` § Ladder | `ponytail` | planning the bigger version first |
+| A smell, a cleanup, a rewrite tempting | `references/code.md` § Changing code | `refactoring`, `refactoring-guru` | rewriting |
+| A bug, a failure, a wrong result | `references/code.md` § Debug | — | a fix before the cause is named |
+| Boundary, layering, module or API shape | `references/code.md` § Moments | `a-philosophy-of-software-design`, `clean-architecture` | pattern-first |
+| React diagnostics before commit | `references/code.md` § React | `react-doctor` | prototype delivery |
+| Production failure handling, or tests that guard nothing | `references/code.md` § Release | `release-it`, `prune-tests` | prototype delivery |
+| Review a diff, a commit or a PR | `references/review.md` § A change | `ponytail-review` | a finding with no concrete case |
 | Answering a code review | `references/review.md` § Receiving | — | agreeing before checking the code |
 | Audit a whole codebase, or find what to delete | `references/review.md` § A repo | `ponytail-audit` | file-by-file reading with no ranking |
 | Where we deferred something, and the trigger to revisit | `references/review.md` § The ledger | `ponytail-debt` | treating a named limit as a bug |
-| A security audit, pen test, "find vulnerabilities", or report files requested | `references/security.md` § The gate, then § The six phases; classes from `security-classes.md` | — | a finding with no principal, control or crossed boundary |
-| A security question, a triage, or a change to auth, sessions, permissions, uploads, payments or secrets | `references/security.md` § What a finding needs, then the class row | — | a severity on an unproven claim, or probing a live system |
+| A security audit, pen test, "find vulnerabilities", or report files requested | `references/security.md` § Gate, then § Phases; classes from § Classes | — | a finding with no principal, control or crossed boundary |
+| A security question, a triage, or a change to auth, sessions, permissions, uploads, payments or secrets | `references/security.md` § Verdicts, then § Classes | — | a severity on an unproven claim, or probing a live system |
+| An Android app or module — `settings.gradle`, `AndroidManifest.xml`, `gradlew` present, or the user asks for one | `references/platform.md` § Android | — | Android advice in a web project, or an API recalled from memory |
+| shadcn components, or choosing a UI library | `references/platform.md` § Libraries | `shadcn`, `pick-ui-library` | loading both |
+| Project uses `@ui-sdk/*`, or toasts | `references/platform.md` § Libraries | `ui-sdk`, `ask-sonner` | — |
+| Figma to code | `references/platform.md` § Figma | `figma-design-to-code` | `figma-use` |
+| Write into Figma | outside this skill's scope — say so | `figma-use` | `figma-design-to-code` |
+| Work that splits across agents | `references/agents.md` § Contract, after the domain row | subagent tools, if present | two workers writing one file |
+| Integrate a library or technique you do not know | `references/agents.md` § Research card, before the domain row | `find-skills` | writing the API from memory |
+| "How do other sites do X?" | `references/agents.md` § Research card | — | copying the look instead of the structure |
+| Any commit, amend or push | `references/agents.md` § Git | — | a commit nobody asked for, a push nobody asked for |
 | Domain rules, services or data flows | `references/domain.md` | the four DDD skills, `patterns-of-enterprise-application-architecture`, `designing-data-intensive-applications` | any UI task |
-| Production failure handling, or tests that guard nothing | `references/release.md` | `release-it`, `prune-tests` | prototype delivery |
-| React diagnostics before commit | `references/react.md` | `react-doctor` | prototype delivery |
-| Any commit, amend or push | `references/git.md` § The gate | — | a commit nobody asked for, a push nobody asked for |
 | A skill I do not have | the reference above it still governs | `find-skills` | — |
 
 ## Visual tests
@@ -315,7 +291,7 @@ A build that compiles and a suite that passes prove the code runs. They prove no
 | V2 | `/pricing` | 390 | tiers stack, no horizontal scroll | FAIL |
 | V3 | hero CTA hover | 1440 | hover fill, press feedback, no layout shift | UNVERIFIED |
 
-On Android the viewport column is the window class and its size, and the render path is an emulator, a device or Robolectric — `android.md` § Prove it.
+On Android the viewport column is the window class and its size, and the render path is an emulator, a device or Robolectric — `platform.md` § Android.
 
 Three states and no others: PASS, FAIL with the measured delta, UNVERIFIED with the missing capability. A suite holding a single FAIL or a single UNVERIFIED is a failing suite. There is no mostly done.
 
@@ -344,11 +320,11 @@ Never edit a case to match the result. When the reference and the implementation
 
 These hold even when no skill is loaded. Keep the list at twenty lines; the long form belongs in `DESIGN.md`. **A session that acted without a receipt is a FAIL, however good the output** — the receipt is the only evidence that the rules were read rather than remembered.
 
-**Design.** A screen is designed for a job before it looks like anything: who it is for, the one action, the order of importance, every state — the five answers at `references/design.md` § The gate, and the design card at the top of `DESIGN.md`. No eyebrows, kickers, `01/02/03` numbering, decorative badges, arrows or edge stripes, and no filler subtitle under a heading. One accent colour, never default violet. At most two typefaces, size-specific tracking, body 16px or larger, measure 60 to 75 characters. Spacing from a 4/8pt token scale; equal optical edges. Hierarchy from size, weight, space and contrast — not from boxes and shadows. Real content and real product UI, never lorem.
+**Design.** A screen is designed for a job before it looks like anything: who it is for, the one action, the order of importance, every state — the five answers at `references/design.md` § Gate, and the design card at the top of `DESIGN.md`. No eyebrows, kickers, `01/02/03` numbering, decorative badges, arrows or edge stripes, and no filler subtitle under a heading. One accent colour, never default violet. At most two typefaces, size-specific tracking, body 16px or larger, measure 60 to 75 characters. Spacing from a 4/8pt token scale; equal optical edges. Hierarchy from size, weight, space and contrast — not from boxes and shadows. Real content and real product UI, never lorem.
 
-**Motion.** `--ease-out: cubic-bezier(0.23,1,0.32,1)`, `--ease-in-out: cubic-bezier(0.77,0,0.175,1)`, `--ease-drawer: cubic-bezier(0.32,0.72,0,1)`. Never `ease-in` on UI, never built-in `ease-out`. Press 100 to 160ms, tooltip 125 to 200, dropdown 150 to 250, modal, drawer, sheet and toast 200 to 500, everything else under 300ms. `transform` and `opacity` only. Never `scale(0)`. Never `transition: all`. Anything seen 100+ times a day, and anything keyboard-triggered, gets no animation. Stagger 30 to 80ms, non-uniform, never on high-frequency UI. Exits mirror entrances and are shorter. Reduced motion is fewer and gentler, not zero. A scroll-driven page answers `references/scroll.md` § The score before its first section — four to seven beats, one peak, one shape, four device families and never the same one twice in a row — and proves itself with frames at scroll positions, never one screenshot.
+**Motion.** `--ease-out: cubic-bezier(0.23,1,0.32,1)`, `--ease-in-out: cubic-bezier(0.77,0,0.175,1)`, `--ease-drawer: cubic-bezier(0.32,0.72,0,1)`. Never `ease-in` on UI, never built-in `ease-out`. Press 100 to 160ms, tooltip 125 to 200, dropdown 150 to 250, modal, drawer, sheet and toast 200 to 500, everything else under 300ms. `transform` and `opacity` only. Never `scale(0)`. Never `transition: all`. Anything seen 100+ times a day, and anything keyboard-triggered, gets no animation. Stagger 30 to 80ms, non-uniform, never on high-frequency UI. Exits mirror entrances and are shorter. Reduced motion is fewer and gentler, not zero. A scroll-driven page answers `references/motion-stack.md` § The scroll score before its first section — four to seven beats, one peak, one shape, four device families and never the same one twice in a row — and proves itself with frames at scroll positions, never one screenshot.
 
-**Code.** Server components by default, `use client` at the leaf. No state updates inside rAF, pointer or scroll handlers. No `useEffect` for derived state. Stable keys. Explicit media dimensions. Virtualize or paginate past 100 rows. Semantic, labelled, keyboard-reachable, focus-visible, contrast 4.5:1 or better, touch targets 44 by 44. `min-width: 0` on flex text columns, `overflow-wrap: anywhere` on emails and URLs, `tabular-nums` on changing numbers, `Intl` formatting for numbers and plurals. Never `dangerouslySetInnerHTML` with user data. A task is not done until it has been rendered and compared at 1440 and 390 — passing tests is the prerequisite, not the conclusion. Before the first line: the five answers at `references/craft.md` § The gate, and the receipt at `references/process.md` § Receipt. Commits stay local until the user asks for a push: one per logical change, a follow-up edit amends it, the message says why, and no agent signs it.
+**Code.** Server components by default, `use client` at the leaf. No state updates inside rAF, pointer or scroll handlers. No `useEffect` for derived state. Stable keys. Explicit media dimensions. Virtualize or paginate past 100 rows. Semantic, labelled, keyboard-reachable, focus-visible, contrast 4.5:1 or better, touch targets 44 by 44. `min-width: 0` on flex text columns, `overflow-wrap: anywhere` on emails and URLs, `tabular-nums` on changing numbers, `Intl` formatting for numbers and plurals. Never `dangerouslySetInnerHTML` with user data. A task is not done until it has been rendered and compared at 1440 and 390 — passing tests is the prerequisite, not the conclusion. Before the first line: the five answers at `references/code.md` § Gate, and the receipt at `references/process.md` § Receipt. Commits stay local until the user asks for a push: one per logical change, a follow-up edit amends it, the message says why, and no agent signs it.
 
 ## What `AGENTS.md` contains
 
@@ -361,7 +337,7 @@ Fourteen sections, in this order. Cap 240 lines.
 4. **Working loop** — the eight gates in order (`references/process.md` § The eight gates): orient (goal, routing row, harness verdict), route (one hub at its index, the mode), brief (five lines), contract (the row table, every row falsifiable), slice (one row, one owner), prove (the assertion re-run and quoted), show (the five-line block, one question), close (the sweep, the ledger, one local commit). One line per gate; a gate that fails returns to the gate `references/process.md` names, and the agent waits at a stop with the show block. Compress for small changes; proof is never the gate that gets skipped.
 5. **Routing table** — the active subset, three columns: the task, the `references/` file to open, and what never to do here. One reference per task, opened when its row is reached; a matching skill may be opened afterwards for depth, and its absence changes nothing.
 6. **Ordering rules** — the four or five sequences that matter for this project class. For a Figma project the binding one is gate, discover, screenshot, traverse, batch, build, compare.
-7. **Non-negotiables** — the twenty lines, and in the code and design ones the gates and the receipt, with `references/craft.md` § The gate and `references/design.md` § The gate as the long forms.
+7. **Non-negotiables** — the twenty lines, and in the code and design ones the gates and the receipt, with `references/code.md` § Gate and `references/design.md` § Gate as the long forms.
 8. **Gates and definition of done** — per task class.
 9. **Never** — the automatic blocks: an unasked commit or push, an agent trailer, an edit outside the markers, an install, an unverified ship.
 10. **Heartbeat** — when to capture, when to promote, which file to edit.
@@ -377,7 +353,7 @@ A system, not a mood board. Fifteen sections, cap 300 lines.
 
 | # | Section | Content |
 | --- | --- | --- |
-| 0 | Design card | twelve lines at the top, the template at `references/design.md` § The card: kind, what is sold, one action, the one thing, palette and type rules, refusals, widths, states, review mode, and the `Design card v1 · <date>` line every return cites |
+| 0 | Design card | twelve lines at the top, the template at `references/design.md` § Card: kind, what is sold, one action, the one thing, palette and type rules, refusals, widths, states, review mode, and the `Design card v1 · <date>` line every return cites |
 | 1 | Principles | six named principles, each with the decision it forces |
 | 2 | Reference profiles | one block per client reference: source, extracted ratios, allowed deviations, verification stops. Figma profiles also carry file, frame and node count |
 | 3 | Colour | neutral ramp, one accent, semantics, contrast pairings, prohibitions |
@@ -422,7 +398,7 @@ Several references produce one reconciled profile. Conflicting references get a 
 
 ## Figma: the gate
 
-Read `references/figma.md` before anything else — it carries the traversal, build and asset rules. Then the gate: check the catalog for Figma MCP tools, allowing one bounded attempt for a lazily attached server. If they are genuinely absent, say what to add — the Figma MCP server in the client's configuration — and **end the turn**. No scaffolding, no approximation from the screenshot, no partial work. The only acceptable output is the configuration instruction.
+Read `references/platform.md` § Figma before anything else — it carries the traversal, build and asset rules. Then the gate: check the catalog for Figma MCP tools, allowing one bounded attempt for a lazily attached server. If they are genuinely absent, say what to add — the Figma MCP server in the client's configuration — and **end the turn**. No scaffolding, no approximation from the screenshot, no partial work. The only acceptable output is the configuration instruction.
 
 This is stricter than the browser path on purpose: a missing browser limits verification, a missing Figma MCP removes the source. The two do not get the same fallback.
 
@@ -469,20 +445,30 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | `.cykeek/research/<slug>.md` | while an unknown technology is being integrated | 25 lines |
 | `.cykeek/verify/capability.md` | once per session, written by Preflight | 16 lines |
 | rules card, top of `AGENTS.md` | before any act that changes state | 12 lines |
-| code gate, `references/craft.md` § The gate | before the first line of code | 5 answers |
-| lean ladder, `references/craft.md` § The ladder | before a fix that is not one line | the rung it stopped on |
-| design gate, `references/design.md` § The gate | before the first visual decision | 5 answers |
+| code gate, `references/code.md` § Gate | before the first line of code | 5 answers |
+| lean ladder, `references/code.md` § Ladder | before a fix that is not one line | the rung it stopped on |
+| design gate, `references/design.md` § Gate | before the first visual decision | 5 answers |
 | design card, top of `DESIGN.md` | before any visual act | 12 lines + version |
-| scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |
-| fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers, a spec row per property |
-| android gate, `references/android.md` § The gate | before any Android act | 3 answers |
-| security gate, `references/security.md` § The gate | before an audit or a trust-boundary claim | 5 answers, one ledger unit per surface |
+| scroll score, `references/motion-stack.md` § The scroll score | before the first scroll act | 5 answers |
+| fidelity gate, `references/motion.md` § Clone | before cloning a shared reference | 3 answers, a spec row per property |
+| android gate, `references/platform.md` § Android | before any Android act | 3 answers |
+| security gate, `references/security.md` § Gate | before an audit or a trust-boundary claim | 5 answers, one ledger unit per surface |
 | show block, `references/process.md` § Stops | at every stop | 5 lines, one question |
-| git gate, `references/git.md` § The gate | before any git write | 5 answers |
-| `references/<domain>.md` | only when a routing row names it | one per task, ≤300 lines |
+| git gate, `references/agents.md` § Git | before any git write | 5 answers |
+| `references/process.md` | every task | 300 lines |
+| `references/design.md` | when its routing row names it | 300 lines |
+| `references/code.md` | when its routing row names it | 260 lines |
+| `references/motion.md` | when its routing row names it | 300 lines |
+| `references/motion-stack.md` | when its routing row names it | 230 lines |
+| `references/graphics.md` | when its routing row names it | 190 lines |
+| `references/review.md` | when its routing row names it | 120 lines |
+| `references/security.md` | when its routing row names it | 260 lines |
+| `references/agents.md` | when its routing row names it | 300 lines |
+| `references/platform.md` | when its routing row names it | 200 lines |
+| `references/domain.md` | when its routing row names it | 60 lines |
 | installed skills | only when the reference hands off | at most one at once |
 
-If a generated file exceeds its cap, tailoring failed — cut rows, do not cut rules.
+If a generated file exceeds its cap, tailoring failed — cut rows, do not cut rules. A hub over its cap is two hubs.
 
 ## Common sense, written down
 

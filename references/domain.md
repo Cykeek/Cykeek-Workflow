@@ -1,10 +1,12 @@
 # Domain
 
+**Index** — Does this apply? · Start here · Model · Between contexts · Enterprise layering · Data. Read the sections the routing row names, not the file.
+
 Read only when the work is genuinely business logic, data systems or service architecture — never for a marketing page or a dashboard whose domain is already obvious.
 
 ## Does this apply?
 
-Three conditions. If none holds, close this file and go to `craft.md`; the ceremony here is a real cost, and paying it on a CRUD screen is how DDD gets its reputation.
+Three conditions. If none holds, close this file and go to `code.md`; the ceremony here is a real cost, and paying it on a CRUD screen is how DDD gets its reputation.
 
 - identity or invariants that must always hold — not merely fields that travel together;
 - more than one meaning of one word, or more than one team, service or context owning it;

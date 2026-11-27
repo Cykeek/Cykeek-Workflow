@@ -63,7 +63,7 @@ The depth, loaded only when needed: component specs, dated decision records, and
 
 ## The routing table
 
-The core of the skill is a table keyed by the artifact being produced, not by a skill. Ask for a stagger and it reads `references/motion.md`; ask for a design review and it reads `references/design.md`; ask why an animation stutters and it reads `references/motion-audit.md`. No round of "what do you mean by a stagger" first.
+The core of the skill is a table keyed by the artifact being produced, not by a skill. Ask for a stagger and it reads `references/motion.md`; ask for a design review and it reads `references/review.md` § Design review; ask why an animation stutters and it reads `references/motion.md` § Audit. No round of "what do you mean by a stagger" first.
 
 It also encodes the four ways a large skill library makes an agent worse:
 
@@ -103,15 +103,15 @@ If two rounds reduce nothing, it stops and brings you the list — which case, w
 
 ### When you hand it a video
 
-A gif, a screen recording, a still or a link is an instruction to match, not to riff on. `references/motion-clone.md` sets the fidelity level from your words — moves the same by default, pixel-perfect only when you ask — reads the frames for start, duration, easing and stagger, writes one row per element per property, rebuilds in the stack the project already uses, then captures the copy the same way and compares: 80 ms on timing, 40 ms on stagger, 2 % mean pixels when you asked for exact. Five rounds without a gain and it stops with the failing row, its numbers and the reason. A still image carries no timing, so from a still alone it asks for the recording.
+A gif, a screen recording, a still or a link is an instruction to match, not to riff on. `references/motion.md` § Clone sets the fidelity level from your words — moves the same by default, pixel-perfect only when you ask — reads the frames for start, duration, easing and stagger, writes one row per element per property, rebuilds in the stack the project already uses, then captures the copy the same way and compares: 80 ms on timing, 40 ms on stagger, 2 % mean pixels when you asked for exact. Five rounds without a gain and it stops with the failing row, its numbers and the reason. A still image carries no timing, so from a still alone it asks for the recording.
 
 ### When the project is Android
 
-Android work is gated, not assumed: the hub opens on a `settings.gradle`, an `AndroidManifest.xml`, a `gradlew` or an explicit request, and stays shut on a web project that merely mentions the platform. `references/android.md` names the official Google skill that owns each job — Compose, adaptive, navigation, testing, R8, edge-to-edge, Play — with the decision it forces, the eight floors that hold everywhere, and the fence: no API, version or Gradle flag from memory, and an unread one stays UNVERIFIED. The design widths become window classes, and the proof is a build, a test run and a render on an emulator, a device or Robolectric.
+Android work is gated, not assumed: the hub opens on a `settings.gradle`, an `AndroidManifest.xml`, a `gradlew` or an explicit request, and stays shut on a web project that merely mentions the platform. `references/platform.md` § Android names the official Google skill that owns each job — Compose, adaptive, navigation, testing, R8, edge-to-edge, Play — with the decision it forces, the eight floors that hold everywhere, and the fence: no API, version or Gradle flag from memory, and an unread one stays UNVERIFIED. The design widths become window classes, and the proof is a build, a test run and a render on an emulator, a device or Robolectric.
 
 ### The smallest complete change
 
-Before a fix is written, `references/craft.md` § The ladder asks for the first rung that fully works: does it need to exist, is it already in this codebase, does the standard library or the platform do it, is there an installed dependency, can it be one line, and only then the minimum that works. Reading comes first, and scope is every caller, test and fixture the change reaches — lazy about the solution, never about the change. Validation, error handling, security, accessibility and whatever was asked for are never cut for size. Logic with a branch, a loop, a parser, money or security leaves one small test behind, and a deliberate shortcut is marked `shortcut: <limit>, <when to upgrade>` so it has a trigger. Those markers are the ledger `references/review.md` harvests — the same file that turns a diff or a whole repo into ranked findings, each with a concrete case, a four-part explanation, a verdict and a `Not checked:` line.
+Before a fix is written, `references/code.md` § Ladder asks for the first rung that fully works: does it need to exist, is it already in this codebase, does the standard library or the platform do it, is there an installed dependency, can it be one line, and only then the minimum that works. Reading comes first, and scope is every caller, test and fixture the change reaches — lazy about the solution, never about the change. Validation, error handling, security, accessibility and whatever was asked for are never cut for size. Logic with a branch, a loop, a parser, money or security leaves one small test behind, and a deliberate shortcut is marked `shortcut: <limit>, <when to upgrade>` so it has a trigger. Those markers are the ledger `references/review.md` harvests — the same file that turns a diff or a whole repo into ranked findings, each with a concrete case, a four-part explanation, a verdict and a `Not checked:` line.
 
 ### The gates, in order
 
@@ -119,7 +119,7 @@ Every task runs eight gates — orient, route, brief, contract, slice, prove, sh
 
 ### When the question is security
 
-Security is gated too: a one-line question is answered in one line, and a full audit starts only when you ask for an audit, a pen test or report files. `references/security.md` is the protocol — five gate answers, three verdicts (`confirmed`, `needs_validation`, `rejected`), a severity only where impact was demonstrated, a coverage ledger with one unit per surface and class, and a verifier who did not hunt. `references/security-classes.md` says what to look at by surface, from injection and access control through HTTP framing, browser context, data isolation, supply chain, cloud, agents and MCP. Probing a live system is never the proof: a deployment fact outside the source becomes `needs_validation` with the exact missing observation, and the report states its coverage instead of implying it.
+Security is gated too: a one-line question is answered in one line, and a full audit starts only when you ask for an audit, a pen test or report files. `references/security.md` is the protocol — five gate answers, three verdicts (`confirmed`, `needs_validation`, `rejected`), a severity only where impact was demonstrated, a coverage ledger with one unit per surface and class, and a verifier who did not hunt. `references/security.md` § Classes says what to look at by surface, from injection and access control through HTTP framing, browser context, data isolation, supply chain, cloud, agents and MCP. Probing a live system is never the proof: a deployment fact outside the source becomes `needs_validation` with the exact missing observation, and the report states its coverage instead of implying it.
 ### It does not assume which tools exist
 
 Harnesses differ, and some sessions have no browser at all. Before anything else, it runs a preflight: the model must reason and accept images, or the session is stopped with the fix; then it filters its own tool catalog, reads the contract of the candidates, makes one cheap read-only call, and maps what it finds onto the capabilities: navigate, observe, interact, capture.
@@ -136,13 +136,13 @@ Once connected it renders the frame before touching code, walks the node tree re
 
 ## The rules ship with it
 
-`references/` holds twenty-four files. `process.md` is the first of them: one sequence, eight gates — orient, route, brief, contract, slice, prove, show, close — each with the artifact it leaves, who signs it, its cap and the gate a failure returns to. It also carries the receipt, the discovery and write-path rungs, the two inner loops (the plan ladder and the four-move verify loop), the triage that reads the problem statement rather than the request — prototype the look, break the durability, untangle the codebase, capture the correction — the inline-or-split decision, the five-line show block with its budget, and the resume rule that makes a break survivable. `orchestration.md` is the second, and it only opens when the work splits: the assignment fields a worker gets, the five-line report it returns, the rule that whoever builds never grades, and the requirement to keep workers alive until the user has approved. `research.md` is the third, and it runs before a contract exists: check the repository, frame one claim, climb from versioned docs to real implementations, and return a 25-line card whose nine slots are each answered or named unknown — the search results never enter the transcript. `debug.md` is what runs before any fix: reproduce the smallest failing case, locate by bisection, explain the mechanism in one sentence with a file and a line, then fix at the cause — a symptom patch is a second bug. `craft.md` is the one to read before writing code: a five-answer gate — what owns this, step or leap, what is hidden, what is refused, what proves it — then five moments, each opening with the trigger that makes it fire, the smell-to-move table, and the untangle procedure that runs a refactor to the end instead of tidying pages. `scroll.md` is the one to read when a page's timeline is the wheel — an explicit ask for scroll-driven motion, or a scroll page that already ships and is wrong: the five-answer score, seven page shapes, nine devices with their costs, the timeline contract that keeps a scrub clip from freezing at both ends of its pin, the build order, and a symptom table that fixes the failing device instead of rebuilding the page. `assets/picker.html` is the prototype surface, copied verbatim rather than redesigned. The rest carry the operative content: the numbers, thresholds, decision order and stop conditions the practice behind this skill actually turns on.
+`references/` holds eleven hubs, each opening with an index: read the sections the routing row names, not the file, and a hub past its cap is two hubs. `process.md` is the first of them: one sequence, eight gates — orient, route, brief, contract, slice, prove, show, close — each with the artifact it leaves, who signs it, its cap and the gate a failure returns to. It also carries the receipt, the discovery and write-path rungs, the two inner loops (the plan ladder and the four-move verify loop), the triage that reads the problem statement rather than the request — prototype the look, break the durability, untangle the codebase, capture the correction — the inline-or-split decision, the five-line show block with its budget, and the resume rule that makes a break survivable. The other ten carry the operative content per domain: `design.md` the design gate and the look — UX and hierarchy, direction, tokens, copy, the responsive ladder; `code.md` the code gate, the ladder that takes the first rung that works, the triggered moments, changing code, debugging (reproduce, locate, explain, then fix at the cause — a symptom patch is a second bug), React and release; `motion.md` whether to animate and how it should feel — curves, choreography, gestures — plus the ten audit standards and the frame-by-frame clone protocol with its row-by-row proof; `motion-stack.md` GSAP mechanics, ScrollTrigger, and the scroll score with its shapes, devices, timeline contract and diagnosis table; `graphics.md` WebGL and shaders, SVG and Lottie, glass, ASCII and page transitions; `review.md` reviewing a change, a design review, answering a review, auditing a repo and the `shortcut:` ledger; `security.md` the gated security protocol — five gate answers, three verdicts, severity only on demonstrated impact, the coverage ledger — and its class inventory by surface; `agents.md` splitting work across agents, the research card, and git — the gate, the message, the attribution scrub; `platform.md` Android, Figma and component libraries; `domain.md` domain modelling and data systems. `assets/picker.html` is the prototype surface, copied verbatim rather than redesigned.
 
 They are why it never depends on what a machine has installed. A routing row names a reference, not a skill. If the matching skill happens to be present it is loaded for depth; if it is absent, nothing breaks, because the reference was the contract all along.
 
-One reference per task, read whole, at the moment the routing row is reached. The non-negotiables in `AGENTS.md` cover ordinary work, so most tasks read none.
+One hub per task, only the sections the routing row names, at the moment the row is reached. The non-negotiables in `AGENTS.md` cover ordinary work, so most tasks read none.
 
-`git.md` is the exception to "read it when the row is reached": it is opened before any git write. Commits are local, one per logical change; a follow-up edit to the same files amends the last commit and rewrites its message to cover all of it; a push waits for the user's word. The author is the project's identity — an agent never signs its own work, in the author field or in a trailer.
+`agents.md` § Git is the exception to "read when the row is reached": it is opened before any git write. Commits are local, one per logical change; a follow-up edit to the same files amends the last commit and rewrites its message to cover all of it; a push waits for the user's word. The author is the project's identity — an agent never signs its own work, in the author field or in a trailer.
 
 ## Install
 
@@ -203,7 +203,7 @@ Unknown  assumed: auth is out of scope for this pass
 Fixed    Next 15, shadcn, two weeks
 Feel     linear.app — quiet, dense, one accent
 Shape    1. tokens and shell — references/design.md
-         2. invoice list and filters — references/ui-engineering.md
+         2. invoice list and filters — references/design.md § UX
          3. row motion and empty states — references/motion.md
 Risky    table density at 1440; the empty and overdue states
 First    the list, with twelve seeded invoices
@@ -250,7 +250,7 @@ Start with the hero, then the pricing section.
 
 ## Requirements
 
-Any client that discovers Agent Skills from `.agents/skills/`. No Node, no build step, no dependencies. The skill is Markdown, twenty-four reference files, one HTML asset, and a JSON test suite.
+Any client that discovers Agent Skills from `.agents/skills/`. No Node, no build step, no dependencies. The skill is Markdown, eleven reference files, one HTML asset, and a JSON test suite.
 
 Two model traits are not negotiable, because the contract rests on them: reasoning over its own evidence, and image input. Both are checked before a question is asked, and a session missing either is stopped with the fix — switch the model — rather than run degraded.
 
@@ -260,18 +260,18 @@ The rest of the session is confirmed once and written to `.cykeek/verify/capabil
 
 ```
 SKILL.md            the skill itself
-references/         process.md, debug.md, orchestration.md, research.md and git.md, then nineteen domain:
-                    design, motion, gsap, webgl, web-animation, motion-audit, motion-clone, scroll, ui-engineering,
-                    android, review, libraries, figma, react, craft, domain, release, security, security-classes
+references/         eleven hubs, each opened at its named sections:
+                    process, design, code, motion, motion-stack, graphics, review, security, agents, platform, domain
 assets/picker.html  the prototype picker chrome, copied verbatim
-evals/evals.json    eighty-six cases: cold start, tailoring, merge safety, idempotency, preflight,
+evals/evals.json    eighty-eight cases: cold start, tailoring, merge safety, idempotency, preflight,
                     routing, browser probing, Figma, plateau, skill-less machines, write path,
                     the two gates, the design lenses, the card version, the scroll score, the receipt,
                     commit shape, amend, push permission, attribution, frame-by-frame cloning,
                     the Android gate and its official routes, the lean ladder, the review report,
                     the eight gates and the show block, root-cause debugging,
                     the security gate, the three verdicts, the coverage ledger,
-                    the harness gate and the serial sentence, resume from the ledger
+                    the harness gate and the serial sentence, resume from the ledger,
+                    hub sections and hub caps
 README.md           this file
 ```
 

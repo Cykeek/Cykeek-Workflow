@@ -9,7 +9,7 @@ This file governs **this repository** — the Cykeek skill itself — not the pr
 1. Order: the user's instruction > this file > `SKILL.md` > the reference > your preference.
 2. Before any act that changes state — write, delete, build, run, install, dispatch — produce one line:
    `Rules: AGENTS.md v<n> · <section cited> · owns: <concept> · refuse: <what> · proof: <check>`
-3. Before the first line of code: the five answers at `references/craft.md` § The gate.
+3. Before the first line of code: the five answers at `references/code.md` § Gate.
 4. Never: install a dependency, edit outside the markers, touch a file no rule names, ship unverified.
 5. Re-read this whole file when: session start, compaction, a report returns, any fail, any correction.
 
@@ -35,9 +35,9 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 24 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` 506 lines · each reference ≤300 · `README.md` ~280 |
-| Evals | 86 cases in `evals/evals.json`, assertions in plain English |
+| Shipped files | `SKILL.md`, `README.md`, 11 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` 492 lines · hubs at their per-file caps · `README.md` ~279 |
+| Evals | 88 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -60,22 +60,23 @@ Compress for a one-line fix. Proof is never the gate that gets skipped.
 | --- | --- | --- |
 | Change the process, phases or contracts | `SKILL.md` | editing `README.md` first |
 | Change a gate or a stop | `references/process.md`, `SKILL.md` § Part 2 | a stop with two questions |
-| Change the debugging protocol | `references/debug.md` | a fix before the cause is named |
-| Change the security protocol or its classes | `references/security.md`, `references/security-classes.md` | a finding with no boundary, or a severity without impact |
-| Change what an agent is told to do in a domain | `references/process.md`, then that one file | reading the other twenty-three to be safe |
+| Change the debugging protocol | `references/code.md` § Debug | a fix before the cause is named |
+| Change the security protocol or its classes | `references/security.md` | a finding with no boundary, or a severity without impact |
+| Change the design system, a token or a component's states | `references/design.md` § The system, § One change, § Components | a raw value, or a change that lands on one screen |
+| Change what an agent is told to do in a domain | `references/process.md`, then that one hub | reading the other ten to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
 | Add a case | `evals/evals.json` | an assertion that cannot be checked |
-| Change the coding gate or the card | `references/craft.md` § The gate, `references/process.md` § Receipt | a reminder in prose where a receipt would bind |
-| Change the design gate or the design card | `references/design.md` § The gate, § The card, `SKILL.md` § What `DESIGN.md` contains | a reminder in prose where a card would bind |
-| Change the scroll pipeline | `references/scroll.md`, `SKILL.md` routing row | a device list without the score |
-| Change GSAP mechanics | `references/gsap.md`, then `references/motion.md` §1 or `references/scroll.md` § The score | a GSAP answer before the gate, or an API recalled from memory |
-| Change the WebGL domain | `references/webgl.md`, then `references/motion.md` §1 | a GPU scene before the gate, or an API recalled from memory |
-| Change the web-animation domain | `references/web-animation.md`, then `references/motion.md` §1 | a specialized surface before the gate, or a duplicated motion rule |
-| Change the motion clone protocol | `references/motion-clone.md`, `references/motion.md` | a clone verdict without row numbers |
-| Change the Android hub | `references/android.md`, `SKILL.md` routing row | an Android API recalled from memory |
-| Change the lean ladder or the review report | `references/craft.md` § The ladder, `references/review.md` | a finding with no concrete case |
-| Commit, amend or push | `references/git.md` § The gate | a commit nobody asked for, a push nobody asked for |
+| Change the coding gate or the card | `references/code.md` § Gate, `references/process.md` § Receipt | a reminder in prose where a receipt would bind |
+| Change the design gate or the design card | `references/design.md` § Gate, § Card, `SKILL.md` § What `DESIGN.md` contains | a reminder in prose where a card would bind |
+| Change the scroll pipeline | `references/motion-stack.md` § The scroll score, `SKILL.md` routing row | a device list without the score |
+| Change GSAP mechanics | `references/motion-stack.md` § GSAP, then `references/motion.md` § Curves | a GSAP answer before the gate, or an API recalled from memory |
+| Change the WebGL domain | `references/graphics.md` § WebGL, then `references/motion.md` § Curves | a GPU scene before the gate, or an API recalled from memory |
+| Change the web-animation domain | `references/graphics.md`, then `references/motion.md` § Curves | a specialized surface before the gate, or a duplicated motion rule |
+| Change the motion clone protocol | `references/motion.md` § Clone | a clone verdict without row numbers |
+| Change the Android hub | `references/platform.md` § Android, `SKILL.md` routing row | an Android API recalled from memory |
+| Change the lean ladder or the review report | `references/code.md` § Ladder, `references/review.md` | a finding with no concrete case |
+| Commit, amend or push | `references/agents.md` § Git | a commit nobody asked for, a push nobody asked for |
 
 ## 6. Ordering rules
 

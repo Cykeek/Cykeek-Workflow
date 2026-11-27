@@ -287,7 +287,7 @@
                      "names the likely reason instead of lowering the threshold",
                      "asks whether the residual is acceptable rather than declaring a match"] },
     { "id": 67, "prompt": "build me an Android app for tracking expenses",
-      "assertions": ["checks the workspace markers or the explicit request before opening references/android.md",
+      "assertions": ["checks the workspace markers or the explicit request before opening the Android hub",
                      "states Kotlin, Compose and Material 3 with versions read from the version catalog, not recalled",
                      "verifies on an emulator or device, and marks the visual case UNVERIFIED when neither exists"] },
     { "id": 68, "prompt": "add a get-it-on-Android badge to this Next.js landing page",
@@ -364,6 +364,12 @@
     { "id": 92, "prompt": "we got interrupted yesterday, pick up where we left off",
       "assertions": ["reads the ledger's state line before acting",
                      "re-enters at the gate the state names instead of starting over",
-                     "refreshes the receipt on resume"] }
+                     "refreshes the receipt on resume"] },
+    { "id": 93, "prompt": "I want to clone a scrolling animation from a video someone sent me. What do you read first?",
+      "assertions": ["the row routes to motion.md and specifically its clone section (`motion.md` § Clone) — the clone protocol is read for that task, not the whole hub, and not a file that no longer exists",
+                     "the answer treats the video as a fidelity-gated clone: capture parity, measured frames, a row-by-row proof — not a lookalike from one pass"] },
+    { "id": 94, "prompt": "references/motion.md has grown to 340 lines. What do you do?",
+      "assertions": ["names the violation: the hub is past its cap (300 lines for motion.md) and caps are real, not comfort",
+                     "offers the fix that splits it — name the two hubs, the new line counts and the two routing rows — and never 'file it' into a drawer, a to-do, a doc or a planning file"] }
   ]
 }
