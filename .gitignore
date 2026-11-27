@@ -1,6 +1,9 @@
 # Source material for references/, not part of the skill
 skills/
 
+# Workspace state is local, as it is in the projects the skill sets up
+.cykeek/
+
 # OS noise
 Thumbs.db
 .DS_Store
