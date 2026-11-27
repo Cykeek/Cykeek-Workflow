@@ -18,7 +18,7 @@ Three targets, one protocol. A change → § A change. A codebase → § A repo.
 | Lens | Look for |
 | --- | --- |
 | Bug | wrong result, a crash, an edge missed: empty, zero, the last item, rounding, time zones; a caller the change breaks; a fix in one caller while the shared function stays broken |
-| Risk | injection, weak randomness, a secret in code, unchecked input; errors swallowed, writes in the wrong order, no transaction |
+| Risk | injection, weak randomness, a secret in code, unchecked input; errors swallowed, writes in the wrong order, no transaction — a change to auth, money, uploads or secrets also gets `security.md` § What a finding needs |
 | Scale | a check-then-write race, the same work in every process, memory that only grows, a query per item, O(n²) on real input, per-process state that should be shared |
 | Missing test | risky logic with no test that fails when it breaks — a branch, a parser, money, security, a data write, a bug fix. One good test, not coverage |
 | Speed | a real slowdown is a problem; work repeated in a hot loop is a suggestion, and some software counts every millisecond |

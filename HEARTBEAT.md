@@ -2,8 +2,8 @@
 
 ## Status
 
-`SKILL.md` 522 lines · 24 references · `README.md` 275 · `evals/evals.json` 337 lines, 78 cases · install copy synced to `~/.agents/skills/cykeek/`.
-Last change: the task now runs as eight gates — intent, route, brief, contract, slice, prove, show, close — each with a named destination when it fails and a five-line show block at every stop, one question per stop, and a cap that stops with the blocker named instead of trying again; roots get fixed before a symptom patch is touched (`references/debug.md`). Two evals for the stop and the cap land with it, plus the code-review receipt.
+`SKILL.md` 522 lines · 26 references · `README.md` 279 · `evals/evals.json` 361 lines, 84 cases · install copy synced to `~/.agents/skills/cykeek/`.
+Last change: security is now a gated hub — audit mode only on the explicit ask, three verdicts with a severity only on a demonstrated impact, a coverage ledger per surface and class, and a verifier who did not hunt (`references/security.md`, `references/security-classes.md`). Six evals for the mode gate, the verdicts, the sandbox rule and the coverage claim land with it.
 Before that: the lean ladder and the review report, web animation, WebGL, GSAP, the Android hub, the motion clone protocol, the scroll score and the git contract — each in `git log`.
 
 ## Pending

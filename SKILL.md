@@ -176,9 +176,7 @@ Per task, eight gates in order. The moves are `references/loop.md`; the gates, t
 7. **Show** — the five-line block at `references/pipeline.md` § The show block, one question, then wait. A gate that fails returns to the gate it names, never to the top; the mechanical clean pass runs before the question, never after.
 8. **Close** — the diff sweep, the workers released, the ledger closed, one local commit and never a push (`references/git.md`).
 
-A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over.
-
-Every skill runs the same recursive loop inside Prove: **Act → Changes → Review → Loop** (`references/loop.md` §5). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Decide. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
+A visible artifact that ends without a visual test having run is not finished, and nothing is released to the user as done before they have seen it. The one exception is a capability the session does not have, and that is recorded as UNVERIFIED rather than smoothed over. Every skill runs the same recursive loop inside Prove: **Act → Changes → Review → Loop** (`references/loop.md` §5). Act builds the smallest slice; Changes names one gap in one line — which property, which instant, which width; Review re-renders the same assertion and records PASS or the measured delta; Loop returns to Act with the named fix, or stops after three rounds with no movement and goes back to Decide. No domain file repeats this. WebGL uses it for three `?t=N` frames, GSAP for timeline positions, scroll for three positions per act. A round with no named gap is done — do not improve on taste.
 
 ## Re-invocation is a refresh
 
@@ -199,7 +197,7 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Twenty-four files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Twenty-six files ship beside this one. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
@@ -224,6 +222,8 @@ Twenty-four files ship beside this one. They hold the operative content — numb
 | `references/react.md` | React and Next performance |
 | `references/craft.md` | the code gate, the ladder, then five triggered moments — naming, routines, modules, knowledge, changing code — and untangle |
 | `references/review.md` | reviewing a change, auditing a repo, the `shortcut:` ledger |
+| `references/security.md` | a security audit or question — the gate, the three verdicts, the coverage ledger, verification, severity |
+| `references/security-classes.md` | what to look for by surface, and the question that settles each class |
 | `references/domain.md` | domain modelling and data systems |
 | `references/release.md` | production failure handling, test hygiene |
 | `references/git.md` | a commit, an amend, a push — the gate, the message, the attribution scrub |
@@ -298,10 +298,11 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | Answering a code review | `references/review.md` § Receiving | — | agreeing before checking the code |
 | Audit a whole codebase, or find what to delete | `references/review.md` § A repo | `ponytail-audit` | file-by-file reading with no ranking |
 | Where we deferred something, and the trigger to revisit | `references/review.md` § The ledger | `ponytail-debt` | treating a named limit as a bug |
+| A security audit, pen test, "find vulnerabilities", or report files requested | `references/security.md` § The gate, then § The six phases; classes from `security-classes.md` | — | a finding with no principal, control or crossed boundary |
+| A security question, a triage, or a change to auth, sessions, permissions, uploads, payments or secrets | `references/security.md` § What a finding needs, then the class row | — | a severity on an unproven claim, or probing a live system |
 | Domain rules, services or data flows | `references/domain.md` | the four DDD skills, `patterns-of-enterprise-application-architecture`, `designing-data-intensive-applications` | any UI task |
-| Production failure handling | `references/release.md` | `release-it` | prototype delivery |
+| Production failure handling, or tests that guard nothing | `references/release.md` | `release-it`, `prune-tests` | prototype delivery |
 | React diagnostics before commit | `references/react.md` | `react-doctor` | prototype delivery |
-| Tests that guard nothing | `references/release.md` | `prune-tests` | prototype delivery |
 | Any commit, amend or push | `references/git.md` § The gate | — | a commit nobody asked for, a push nobody asked for |
 | A skill I do not have | the reference above it still governs | `find-skills` | — |
 
@@ -314,9 +315,7 @@ Tool names in this skill are examples of a shape, never a claim of availability.
 3. **Make one smoke call** — the cheapest read-only operation the schema allows: a status, a list, a current page. Never open with a click.
 4. **Map what exists onto the preflight checks.** Anything unmapped is a gap the user hears about before the work starts.
 
-**Catalog patterns.** Orchestration: `delegate|subagent|task|agent|spawn`, with spawn, status and release all present. Research: `search|fetch|browse` plus `image|screenshot`. Never assume a tool because a skill names one, never fake a roster, and treat a tool missing from the catalog as unproven rather than absent: lazily attached servers get one bounded attempt with the known name.
-
-With no search tool, every outside claim is marked as such.
+**Catalog patterns.** Orchestration: `delegate|subagent|task|agent|spawn`, with spawn, status and release all present. Research: `search|fetch|browse` plus `image|screenshot`. Never assume a tool because a skill names one, never fake a roster, and treat a tool missing from the catalog as unproven rather than absent: lazily attached servers get one bounded attempt with the known name. With no search tool, every outside claim is marked as such.
 
 A partial surface is normal and usable: navigate plus capture with no interact still passes every static case and marks interaction unverified. A model without reasoning or vision is the one surface that is not usable — that is the preflight stop.
 
@@ -493,6 +492,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | scroll score, `references/scroll.md` § The score | before the first scroll act | 5 answers |
 | fidelity gate, `references/motion-clone.md` § The fidelity gate | before cloning a shared reference | 3 answers, a spec row per property |
 | android gate, `references/android.md` § The gate | before any Android act | 3 answers |
+| security gate, `references/security.md` § The gate | before an audit or a trust-boundary claim | 5 answers, one ledger unit per surface |
 | show block, `references/pipeline.md` § The show block | at every stop | 5 lines, one question |
 | git gate, `references/git.md` § The gate | before any git write | 5 answers |
 | `references/<domain>.md` | only when a routing row names it | one per task, ≤140 lines |

@@ -10,6 +10,7 @@ Read the problem statement once and classify it in one line. Then open the flow 
 | "Build X" | Build — `loop.md` moves 2 to 5 | the thing, verified |
 | "It feels slow / too much motion" | Subtract — `motion-audit.md` | a findings list, then removals |
 | "Does it hold up?" | Break | what broke, with the fix |
+| "Is this safe?" or "audit this" | Security — `security.md` | a verdict per claim, then the coverage statement |
 | "The codebase is a mess" | Untangle | a decision log, then one structural pass |
 | "Where should motion go?" | Hunt — `motion-audit.md` | a proposal list, no code |
 | "Which library?" | Pick — `libraries.md` | one dependency and the reason |

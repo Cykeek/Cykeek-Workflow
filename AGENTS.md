@@ -35,9 +35,9 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 24 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` 522 lines · each reference ≤140 · `README.md` ~275 |
-| Evals | 78 cases in `evals/evals.json`, assertions in plain English |
+| Shipped files | `SKILL.md`, `README.md`, 26 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` 522 lines · each reference ≤140 · `README.md` ~279 |
+| Evals | 84 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -61,7 +61,8 @@ Compress for a one-line fix. Proof is never the move that gets skipped.
 | Change the process, phases or contracts | `SKILL.md` | editing `README.md` first |
 | Change a gate or a stop | `references/pipeline.md`, `SKILL.md` § Part 2 | a stop with two questions |
 | Change the debugging protocol | `references/debug.md` | a fix before the cause is named |
-| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other twenty-three to be safe |
+| Change the security protocol or its classes | `references/security.md`, `references/security-classes.md` | a finding with no boundary, or a severity without impact |
+| Change what an agent is told to do in a domain | `references/loop.md`, then that one file | reading the other twenty-five to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
 | Add a case | `evals/evals.json` | an assertion that cannot be checked |
