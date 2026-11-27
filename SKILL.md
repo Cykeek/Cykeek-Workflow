@@ -199,17 +199,18 @@ These are why a 52-skill setup can be worse than none. Encode them in the genera
 
 ## The references
 
-Eleven files ship beside this one, each a hub that opens with an index: read the sections the routing row names, not the file, and a hub past its cap is two hubs. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
+Twelve files ship beside this one, each a hub that opens with an index: read the sections the routing row names, not the file, and a hub past its cap is two hubs. They hold the operative content — numbers, thresholds, decision order, stop conditions — distilled from the design, motion, engineering and architecture practice this skill encodes. They are why a routing row never dies when a machine lacks a skill.
 
 | File | Read it for |
 | --- | --- |
 | `references/process.md` | every task — the eight gates, the receipt, discovery and the write path, the inner loops, triage, dispatch, stops, resume |
-| `references/design.md` | the design gate, then UX and hierarchy, direction, tokens, copy, responsive |
+| `references/design.md` | the design gate, then UX and hierarchy, direction, tokens, copy, responsive; the system — its source of truth, one change, components |
+| `references/ui-traps.md` | the trap catalogue — 95 behaviour traps in four buckets, each cited by ID |
 | `references/motion.md` | whether to animate, curves, choreography, gestures, the motion audit, cloning a reference |
 | `references/motion-stack.md` | GSAP mechanics, ScrollTrigger, and a scroll-driven page — the score, the shapes, the devices, the timeline, the diagnosis |
 | `references/graphics.md` | WebGL and shaders, SVG and Lottie, glass, ASCII, page transitions |
 | `references/code.md` | the code gate, the ladder, the moments, changing code, debugging, React, release |
-| `references/review.md` | reviewing a change, auditing a repo, the `shortcut:` ledger |
+| `references/review.md` | reviewing a change, a design review against the thirteen criteria, auditing a repo, the `shortcut:` ledger |
 | `references/security.md` | a security audit or question — the gate, the verdicts, the coverage ledger, the classes by surface |
 | `references/agents.md` | splitting across agents, the research card, git — the gate, the message, the attribution scrub |
 | `references/platform.md` | Android, Figma and component libraries |
@@ -235,6 +236,8 @@ Rows are keyed by the artifact being produced, not by a skill. Read the file in 
 | Polish one component interaction, or a code-level UI and accessibility audit | `references/design.md` § UX | `emil-design-eng`, `web-design-guidelines` | `checklist-design` |
 | Web app on a phone | `references/design.md` § Responsive | `mobile-native` | `animate-expo` |
 | Worst-case data and edge cases | `references/design.md` § UX | `break-ui` | `checklist-design` |
+| A UI pattern that must not ship, or a finding that needs its ID | `references/ui-traps.md`, cited from `references/review.md` § Design review | `break-ui` | a trap named without its ID |
+| A design system to build, migrate or change | `references/design.md` § System, § One change, § Components | `shadcn` | a starter system the product does not call for |
 | One animation on the web | `references/motion.md` § Whether, § Curves | `animate` | `animate-expo` |
 | GSAP is the project's library | `references/motion.md` § Curves, `references/motion-stack.md` § GSAP | `gsap-core`, `gsap-timeline` | a GSAP answer before the gate, or `.delay()` chains |
 | GSAP in React or Next | `references/motion-stack.md` § GSAP | `gsap-react` | an unscoped selector, or a tween without `ctx.revert()` |
@@ -466,6 +469,7 @@ session: <date> | last pulse: <date> | pending: <n> | promoted this session: <n>
 | `references/agents.md` | when its routing row names it | 300 lines |
 | `references/platform.md` | when its routing row names it | 200 lines |
 | `references/domain.md` | when its routing row names it | 60 lines |
+| `references/ui-traps.md` | when a review or spec cites a trap | 140 lines |
 | installed skills | only when the reference hands off | at most one at once |
 
 If a generated file exceeds its cap, tailoring failed — cut rows, do not cut rules. A hub over its cap is two hubs.

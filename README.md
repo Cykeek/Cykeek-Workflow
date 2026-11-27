@@ -136,7 +136,7 @@ Once connected it renders the frame before touching code, walks the node tree re
 
 ## The rules ship with it
 
-`references/` holds eleven hubs, each opening with an index: read the sections the routing row names, not the file, and a hub past its cap is two hubs. `process.md` is the first of them: one sequence, eight gates — orient, route, brief, contract, slice, prove, show, close — each with the artifact it leaves, who signs it, its cap and the gate a failure returns to. It also carries the receipt, the discovery and write-path rungs, the two inner loops (the plan ladder and the four-move verify loop), the triage that reads the problem statement rather than the request — prototype the look, break the durability, untangle the codebase, capture the correction — the inline-or-split decision, the five-line show block with its budget, and the resume rule that makes a break survivable. The other ten carry the operative content per domain: `design.md` the design gate and the look — UX and hierarchy, direction, tokens, copy, the responsive ladder; `code.md` the code gate, the ladder that takes the first rung that works, the triggered moments, changing code, debugging (reproduce, locate, explain, then fix at the cause — a symptom patch is a second bug), React and release; `motion.md` whether to animate and how it should feel — curves, choreography, gestures — plus the ten audit standards and the frame-by-frame clone protocol with its row-by-row proof; `motion-stack.md` GSAP mechanics, ScrollTrigger, and the scroll score with its shapes, devices, timeline contract and diagnosis table; `graphics.md` WebGL and shaders, SVG and Lottie, glass, ASCII and page transitions; `review.md` reviewing a change, a design review, answering a review, auditing a repo and the `shortcut:` ledger; `security.md` the gated security protocol — five gate answers, three verdicts, severity only on demonstrated impact, the coverage ledger — and its class inventory by surface; `agents.md` splitting work across agents, the research card, and git — the gate, the message, the attribution scrub; `platform.md` Android, Figma and component libraries; `domain.md` domain modelling and data systems. `assets/picker.html` is the prototype surface, copied verbatim rather than redesigned.
+`references/` holds twelve hubs, each opening with an index: read the sections the routing row names, not the file, and a hub past its cap is two hubs. `process.md` is the first of them: one sequence, eight gates — orient, route, brief, contract, slice, prove, show, close — each with the artifact it leaves, who signs it, its cap and the gate a failure returns to. It also carries the receipt, the discovery and write-path rungs, the two inner loops (the plan ladder and the four-move verify loop), the triage that reads the problem statement rather than the request — prototype the look, break the durability, untangle the codebase, capture the correction — the inline-or-split decision, the five-line show block with its budget, and the resume rule that makes a break survivable. The other ten carry the operative content per domain: `design.md` the design gate and the look — UX and hierarchy, direction, tokens, copy, the responsive ladder — and the design system itself: the system is the source of truth, one change sweeps every consumer, a ban ships with its check, a component ships with its contract; `code.md` the code gate, the ladder that takes the first rung that works, the triggered moments, changing code, debugging (reproduce, locate, explain, then fix at the cause — a symptom patch is a second bug), React and release; `motion.md` whether to animate and how it should feel — curves, choreography, gestures — plus the ten audit standards and the frame-by-frame clone protocol with its row-by-row proof; `motion-stack.md` GSAP mechanics, ScrollTrigger, and the scroll score with its shapes, devices, timeline contract and diagnosis table; `graphics.md` WebGL and shaders, SVG and Lottie, glass, ASCII and page transitions; `review.md` reviewing a change, a design review, answering a review, auditing a repo and the `shortcut:` ledger; `security.md` the gated security protocol — five gate answers, three verdicts, severity only on demonstrated impact, the coverage ledger — and its class inventory by surface; `agents.md` splitting work across agents, the research card, and git — the gate, the message, the attribution scrub; `platform.md` Android, Figma and component libraries; `domain.md` domain modelling and data systems; `ui-traps.md` the 95 behaviour traps, cited by bucket and ID from any review. `assets/picker.html` is the prototype surface, copied verbatim rather than redesigned.
 
 They are why it never depends on what a machine has installed. A routing row names a reference, not a skill. If the matching skill happens to be present it is loaded for depth; if it is absent, nothing breaks, because the reference was the contract all along.
 
@@ -250,7 +250,7 @@ Start with the hero, then the pricing section.
 
 ## Requirements
 
-Any client that discovers Agent Skills from `.agents/skills/`. No Node, no build step, no dependencies. The skill is Markdown, eleven reference files, one HTML asset, and a JSON test suite.
+Any client that discovers Agent Skills from `.agents/skills/`. No Node, no build step, no dependencies. The skill is Markdown, twelve reference files, one HTML asset, and a JSON test suite.
 
 Two model traits are not negotiable, because the contract rests on them: reasoning over its own evidence, and image input. Both are checked before a question is asked, and a session missing either is stopped with the fix — switch the model — rather than run degraded.
 
@@ -260,10 +260,10 @@ The rest of the session is confirmed once and written to `.cykeek/verify/capabil
 
 ```
 SKILL.md            the skill itself
-references/         eleven hubs, each opened at its named sections:
-                    process, design, code, motion, motion-stack, graphics, review, security, agents, platform, domain
+references/         twelve hubs, each opened at its named sections:
+                    process, design, code, motion, motion-stack, graphics, review, security, agents, platform, domain, ui-traps
 assets/picker.html  the prototype picker chrome, copied verbatim
-evals/evals.json    eighty-eight cases: cold start, tailoring, merge safety, idempotency, preflight,
+evals/evals.json    ninety-four cases: cold start, tailoring, merge safety, idempotency, preflight,
                     routing, browser probing, Figma, plateau, skill-less machines, write path,
                     the two gates, the design lenses, the card version, the scroll score, the receipt,
                     commit shape, amend, push permission, attribution, frame-by-frame cloning,
@@ -271,7 +271,7 @@ evals/evals.json    eighty-eight cases: cold start, tailoring, merge safety, ide
                     the eight gates and the show block, root-cause debugging,
                     the security gate, the three verdicts, the coverage ledger,
                     the harness gate and the serial sentence, resume from the ledger,
-                    hub sections and hub caps
+                    hub sections and hub caps, the design-system rules and the trap IDs
 README.md           this file
 ```
 

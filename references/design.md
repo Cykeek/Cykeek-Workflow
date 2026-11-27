@@ -1,6 +1,6 @@
 # Design
 
-**Index** — Gate · Card · UX · Direction · Style · Copy · Responsive · System. Read the sections the routing row names, not the file.
+**Index** — Gate · Card · UX · Direction · Style · Copy · Responsive · System · One change · Components. Read the sections the routing row names, not the file.
 
 Read when building or reshaping a screen, choosing its direction, writing the copy, or reviewing a render. Motion decisions live in `motion.md`; the design-review protocol is `review.md` § Design review.
 
@@ -195,4 +195,31 @@ The project's tokens are the source — this section owns that rule (§ Style de
 - One `h1` per page, no skipped heading levels, no heading styles on non-headings.
 - Contrast 4.5:1 for body, 3:1 for large text. Never colour as the only signal — pair it with text, icon or shape.
 
-<!-- source: merged from design.md and ui-engineering.md — their sources: frontend-design, design-taste-frontend, unslop-ui, web-design-guidelines, checklist-design, frontend-ui-engineering, emil-design-eng, apple-design, mobile-native, break-ui -->
+**The system is the source of truth.** The app's own look is the source: invent no colour, font, shadow, gradient or motion value it does not already have, unless the user chose a design source and confirmed a sample. An installed system is never seeded over or rebuilt. Three modes: **build** — extract a system from the UI the app already ships, no starter system the product does not call for; **migrate** — move screens onto one that exists, and audit is the default: it writes nothing and ends with the inventory, the plan and the size of the offer — "clean it up" is not clearance; **change** — one layer of an existing system. A change that only adds semantics (a name, a role, `aria-current`) is a decision; one that removes or restructures semantics is a gate.
+
+**Layers and names.** Tokens → primitives → components → patterns → product; a change stays at its layer. Tokens are named by role, not appearance (`surface-danger`, not `red-600`), and every surface token is paired with its foreground. Raw values — `#fff`, `rgb(`, `text-gray-500`, `p-[13px]`, `style={{ padding: 12 }}` — each map to a semantic token or a listed exception.
+
+**Tolerances.** Colour merges inside delta E OKLCh 2 and spacing merges inside 2px are decisions. Border width, weight and easing have no tolerance — those are gates.
+
+## One change
+
+One change lands at its layer and sweeps every consumer in the same change: a token rename moves every surface that uses it, and a primitive's contract bug is fixed in the primitive with every caller found — patching one caller leaves the rest broken. "Legacy did it too" never keeps a data bug; a behaviour fix is announced, never a quiet change.
+
+| The change | What else moves |
+| --- | --- |
+| token name or role | every surface that uses it — mechanical, one commit |
+| token value | the tolerance check, then the captures of every surface it touches |
+| a primitive's contract or prop | every call site, the pinned test names, the doc entry |
+| a pattern | its screens, and the checks that pin them |
+
+**A ban ships with its check.** A rule counts only once it is seen failing: plant one violation in a scanned folder, run the check, see it name the rule, delete the plant — in the same change. The allowlist and the ratchet only shrink. A baseline is never edited to make a diff pass: a check that flags correct code is fixed in the check, proved with a planted case, never by bending the code. A fix that recurs twice becomes a check rule, not another sentence. A count no script produced, or a check never seen failing, is not reported.
+
+## Components
+
+A missing primitive is a gap row for the system's owner, never a workaround inside a surface. A family that is not ready is not migrated; its screens stay on legacy.
+
+Every component ships with its contract: a registry row and a doc entry (props, slots, states), its disabled, required, error and long-text states captured, a "what fires when" behaviour table per interactive primitive, tone parity across every status tone plus muted, and pinned role names so tests survive a redesign. The idle label stays put when work starts — a spinner inside the same box and `aria-busy` set, never `{saving ? "Saving..." : "Save"}`.
+
+**Readiness before fan-out** — a gap found after screens consume the system costs a sweep; found before, it costs a row. Five audits hold or carry a recorded exemption: slot and prop parity, behaviour contracts, tone parity, pinned strings, and one hardest call site per family rendered. **The writer never grades itself** — the verifier is a different agent. **Migration** moves the shared layer first, then one pilot by hand beside its codemod (run twice — the second run changes nothing), then one surface per worker with a named MAY EDIT list. **Legacy is deleted at zero callers**, in one change with its adapter and allowlist rows; a module another package or a public API exports becomes a gate instead.
+
+<!-- source: merged from design.md and ui-engineering.md — their sources: frontend-design, design-taste-frontend, unslop-ui, web-design-guidelines, checklist-design, frontend-ui-engineering, emil-design-eng, apple-design, mobile-native, break-ui; § System, § One change, § Components — design.how (MIT, Arlan Marat): build-design-system, design-system-boss, migrate-design-system, distilled not copied -->

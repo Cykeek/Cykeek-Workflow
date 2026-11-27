@@ -35,9 +35,9 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | --- | --- |
 | Runtime | none — no `package.json`, no build, no test runner |
 | Dependencies | none, by design |
-| Shipped files | `SKILL.md`, `README.md`, 11 files in `references/`, `assets/picker.html`, `evals/evals.json` |
-| Sizes | `SKILL.md` 492 lines · hubs at their per-file caps · `README.md` ~279 |
-| Evals | 88 cases in `evals/evals.json`, assertions in plain English |
+| Shipped files | `SKILL.md`, `README.md`, 12 files in `references/`, `assets/picker.html`, `evals/evals.json` |
+| Sizes | `SKILL.md` 496 lines · hubs at their per-file caps · `README.md` ~280 |
+| Evals | 94 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -62,7 +62,8 @@ Compress for a one-line fix. Proof is never the gate that gets skipped.
 | Change a gate or a stop | `references/process.md`, `SKILL.md` § Part 2 | a stop with two questions |
 | Change the debugging protocol | `references/code.md` § Debug | a fix before the cause is named |
 | Change the security protocol or its classes | `references/security.md` | a finding with no boundary, or a severity without impact |
-| Change the design system, a token or a component's states | `references/design.md` § The system, § One change, § Components | a raw value, or a change that lands on one screen |
+| Change the design system, a token or a component's states | `references/design.md` § System, § One change, § Components | a raw value, or a change that lands on one screen |
+| Add or retune a trap | `references/ui-traps.md`, `references/review.md` § Design review | a trap without its stable ID, or one that cost no real run |
 | Change what an agent is told to do in a domain | `references/process.md`, then that one hub | reading the other ten to be safe |
 | Add or retune a route | `SKILL.md` routing table + the named reference | a row naming a file that does not exist |
 | Change the prototype picker | `references/design.md`, `assets/picker.html` | redesigning it; it is a verbatim copy |
