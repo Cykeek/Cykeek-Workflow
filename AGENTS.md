@@ -37,7 +37,7 @@ Precedence: this file, then the user's instruction, then `SKILL.md`. A rule here
 | Dependencies | none, by design |
 | Shipped files | `SKILL.md`, `README.md`, 12 files in `references/`, `assets/picker.html`, `evals/evals.json` |
 | Sizes | `SKILL.md` 496 lines · hubs at their per-file caps · `README.md` ~280 |
-| Evals | 106 cases in `evals/evals.json`, assertions in plain English |
+| Evals | 107 cases in `evals/evals.json`, assertions in plain English |
 | Install | the same files, this one included, at `~/.agents/skills/cykeek/` — only `.git*` stays behind |
 
 ## 3. Session start
@@ -141,6 +141,7 @@ This repo ships no visual surface except `assets/picker.html`, so verification i
 | picker still works | open it, capture at 390 and 1440, check the three variants and the keys |
 | a commit | `git log -1 --format=%B` read back: one idea, why in the body, no trailer, still unpublished |
 | the workspace stays local | `git check-ignore -q .cykeek/verify` exits 0 in a set-up project, and `git status --short` lists no cykeek path |
+| an agent can work from `AGENTS.md` alone | its `Reference library:` line names an existing folder, and every active routing row's `references/...` path opens from there without loading `SKILL.md` |
 
 Only three states: PASS, FAIL with the measured difference, UNVERIFIED when the capability is absent. "Looks right" is not one of them.
 

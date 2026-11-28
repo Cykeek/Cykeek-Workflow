@@ -443,6 +443,11 @@
     { "id": 106, "prompt": "a worker stages .cykeek/verify/checkout.md with the build",
       "assertions": ["the stage step stops on a cykeek file before the commit",
                      "the block is not bypassed with -f",
-                     "the ledger stays local and the commit carries source only"] }
+                     "the ledger stays local and the commit carries source only"] },
+    { "id": 107, "prompt": "a normal task in a workspace that was already set up",
+      "assertions": ["does not invoke /cykeek again — AGENTS.md, HEARTBEAT.md and the state pointer are the contract",
+                     "reads AGENTS.md §1 and finds a literal Reference library: line naming an existing folder",
+                     "opens one routing row's references/... file from that folder without loading SKILL.md",
+                     "a dead reference path is a FAIL, not a fallback to memory"] }
   ]
 }

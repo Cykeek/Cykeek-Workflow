@@ -263,7 +263,7 @@ SKILL.md            the skill itself
 references/         twelve hubs, each opened at its named sections:
                     process, design, code, motion, motion-stack, graphics, review, security, agents, platform, domain, ui-traps
 assets/picker.html  the prototype picker chrome, copied verbatim
-evals/evals.json    ninety-four cases: cold start, tailoring, merge safety, idempotency, preflight,
+evals/evals.json    one hundred seven cases: cold start, tailoring, merge safety, idempotency, preflight,
                     routing, browser probing, Figma, plateau, skill-less machines, write path,
                     the two gates, the design lenses, the card version, the scroll score, the receipt,
                     commit shape, amend, push permission, attribution, frame-by-frame cloning,
